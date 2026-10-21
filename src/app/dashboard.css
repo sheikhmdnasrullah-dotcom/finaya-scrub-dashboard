@@ -191,9 +191,8 @@ a.val:hover{text-decoration:underline}
 .btn-primary:hover{background:var(--teal-600)}
 .btn-secondary{background:var(--surface);color:var(--ink);border:1px solid var(--line-strong)}
 .btn-secondary:hover{border-color:var(--teal-600);color:var(--teal);background:var(--teal-tint-2)}
-.btn-secondary.done{background:var(--ok);border-color:var(--ok);color:#fff}
-.banner-canvas-wrap{position:relative;background:#031B19;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow)}
-#bannerView{display:block;max-width:100%;height:auto;background:transparent}
+.banner-canvas-wrap{position:relative;background:#011B19;border:1px solid var(--line-strong);border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow);width:100%}
+#bannerView{display:block;width:100%;height:auto}
 .banner-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--faint);margin-top:12px;font-family:var(--mono)}
 .banner-meta .meta-tag{display:inline-flex;align-items:center;gap:5px;background:var(--paper);border:1px solid var(--line);padding:3px 8px;border-radius:5px;color:var(--body);font-size:11px}
 

@@ -6,7 +6,7 @@
    import from a "use client" component (SSR-safe).
    ============================================================ */
 
-function init(){
+export function init(){
 /* ============================================================
    FINAYA ADVISOR SCRUB OPERATIONS · application logic
    Data and copy generators unchanged from the audited build.
@@ -411,6 +411,7 @@ let activeTab = "li";
 let bannerPreset = "li";
 let bannerStyle = "corporate";
 let showSafeArea = false;
+let includePortrait = true;
 let headshotVariant = "clean";
 
 const HEADSHOT_MAP = {
@@ -439,12 +440,26 @@ function getHeadshotUrl(id, variant="clean"){
   const base = HEADSHOT_MAP[id] || "advisor_1_nick_campo";
   return `headshots/studio/${base}_${variant}.png`;
 }
-function getHeadshotWebpUrl(id, variant="clean"){
-  const base = HEADSHOT_MAP[id] || "advisor_1_nick_campo";
-  return `headshots/webp/${base}.webp`;
-}
 function getHeadshotThumb(id){
-  return `headshots/webp_thumbs/advisor_${id}.webp`;
+  return `headshots/thumbnails/advisor_${id}.png`;
+}
+const _advisorImgCache = {};
+function getAdvisorImg(id, cb){
+  const url = getHeadshotUrl(id, "clean");
+  if(_advisorImgCache[url]){
+    cb(_advisorImgCache[url]);
+    return;
+  }
+  const img = new Image();
+  img.crossOrigin = "anonymous";
+  img.onload = ()=>{
+    _advisorImgCache[url] = img;
+    cb(img);
+  };
+  img.onerror = ()=>{
+    cb(null);
+  };
+  img.src = url;
 }
 async function copyHeadshotToClipboard(url){
   try {
@@ -779,6 +794,10 @@ function renderStage(){
             ${Object.entries(BANNER_STYLES).map(([k,v])=>`<button class="${k===bannerStyle?'active':''}" data-style="${k}" title="${v.desc}">${v.label}</button>`).join("")}
           </div>
         </div>
+        <button class="btn-toggle ${includePortrait?'active':''}" id="togglePortrait" title="Include high-resolution executive studio portrait">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>${includePortrait?'Portrait On':'Portrait Off'}</span>
+        </button>
         <button class="btn-toggle ${showSafeArea?'active':''}" id="toggleSafeAreas" title="Overlay platform profile photo and interface collision guides">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
           <span>${showSafeArea?'Safe Areas On':'Safe Areas'}</span>
@@ -801,7 +820,6 @@ function renderStage(){
     </div>`;
   } else if(activeTab==="headshot"){
     const currentImgUrl = getHeadshotUrl(a.id, "clean");
-    const currentDisplayUrl = getHeadshotWebpUrl(a.id, "clean");
     const dlFilename = `${HEADSHOT_MAP[a.id] || "advisor"}_high_res.png`;
     pane = `<div class="pane active">
       <div class="banner-controls">
@@ -823,7 +841,7 @@ function renderStage(){
 
       <div class="headshot-preview-container">
         <div class="headshot-card">
-          <img src="${currentDisplayUrl}" class="headshot-display-img" alt="${esc(a.name)} High-Resolution Photo">
+          <img src="${currentImgUrl}" class="headshot-display-img" alt="${esc(a.name)} High-Resolution Photo">
         </div>
         <div class="headshot-meta-card">
           <div class="eyebrow" style="margin-bottom:6px">FINAYA EXECUTIVE ADVISOR</div>
@@ -880,6 +898,8 @@ function renderStage(){
   });
   document.querySelectorAll("[data-preset]").forEach(b=>{ b.onclick = ()=>{ bannerPreset = b.dataset.preset; renderStage(); }; });
   document.querySelectorAll("[data-style]").forEach(b=>{ b.onclick = ()=>{ bannerStyle = b.dataset.style; renderStage(); }; });
+  const portBtn = $("#togglePortrait");
+  if(portBtn) portBtn.onclick = ()=>{ includePortrait = !includePortrait; renderStage(); };
   const safeBtn = $("#toggleSafeAreas");
   if(safeBtn) safeBtn.onclick = ()=>{ showSafeArea = !showSafeArea; renderStage(); };
   const copyBtnEl = $("#copyBanner");
@@ -1053,74 +1073,229 @@ function drawSafeAreaGuide(ctx, W, H, preset){
 }
 
 /* ---------------- MAIN CANVAS PAINT ENGINE ---------------- */
+function drawPortraitCard(ctx, img, cardX, cardY, cardW, cardH, radius, styleKey){
+  ctx.save();
+
+  // Outer shadow & background card base
+  if(styleKey === "editorial"){
+    ctx.shadowColor = "rgba(0, 0, 0, 0.10)";
+    ctx.shadowBlur = 16;
+    ctx.shadowOffsetY = 4;
+    ctx.fillStyle = "#FFFFFF";
+  } else if(styleKey === "minimal"){
+    ctx.shadowColor = "rgba(0, 0, 0, 0.55)";
+    ctx.shadowBlur = 22;
+    ctx.shadowOffsetY = 6;
+    ctx.fillStyle = "#041514";
+  } else {
+    // corporate
+    ctx.shadowColor = "rgba(0, 0, 0, 0.45)";
+    ctx.shadowBlur = 20;
+    ctx.shadowOffsetY = 6;
+    ctx.fillStyle = "#012421";
+  }
+  drawRoundedRect(ctx, cardX, cardY, cardW, cardH, radius);
+  ctx.fill();
+  ctx.restore();
+
+  // Clip content strictly inside the portrait card frame
+  ctx.save();
+  drawRoundedRect(ctx, cardX, cardY, cardW, cardH, radius);
+  ctx.clip();
+
+  // Internal card backdrop gradient & radial illumination
+  if(styleKey === "corporate"){
+    const bgG = ctx.createLinearGradient(cardX, cardY, cardX + cardW, cardY + cardH);
+    bgG.addColorStop(0, "#011F1D");
+    bgG.addColorStop(0.5, "#023530");
+    bgG.addColorStop(1, "#004842");
+    ctx.fillStyle = bgG;
+    ctx.fillRect(cardX, cardY, cardW, cardH);
+
+    const glow = ctx.createRadialGradient(cardX + cardW * 0.5, cardY + cardH * 0.38, 15, cardX + cardW * 0.5, cardY + cardH * 0.38, cardW * 0.65);
+    glow.addColorStop(0, "rgba(0, 187, 167, 0.24)");
+    glow.addColorStop(1, "transparent");
+    ctx.fillStyle = glow;
+    ctx.fillRect(cardX, cardY, cardW, cardH);
+  } else if(styleKey === "minimal"){
+    const bgG = ctx.createLinearGradient(cardX, cardY, cardX, cardY + cardH);
+    bgG.addColorStop(0, "#041614");
+    bgG.addColorStop(1, "#010A09");
+    ctx.fillStyle = bgG;
+    ctx.fillRect(cardX, cardY, cardW, cardH);
+
+    const glow = ctx.createRadialGradient(cardX + cardW * 0.5, cardY + cardH * 0.38, 15, cardX + cardW * 0.5, cardY + cardH * 0.38, cardW * 0.65);
+    glow.addColorStop(0, "rgba(0, 212, 146, 0.22)");
+    glow.addColorStop(1, "transparent");
+    ctx.fillStyle = glow;
+    ctx.fillRect(cardX, cardY, cardW, cardH);
+  } else {
+    // editorial
+    const bgG = ctx.createLinearGradient(cardX, cardY, cardX, cardY + cardH);
+    bgG.addColorStop(0, "#FAF9F5");
+    bgG.addColorStop(1, "#EBF0EB");
+    ctx.fillStyle = bgG;
+    ctx.fillRect(cardX, cardY, cardW, cardH);
+  }
+
+  // Draw advisor photo strictly inside card with high quality smoothing
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = "high";
+
+  const scale = Math.max(cardW / img.width, cardH / img.height);
+  const sw = Math.round(img.width * scale);
+  const sh = Math.round(img.height * scale);
+  const sx = Math.round(cardX + (cardW - sw) / 2);
+  const sy = Math.round(cardY + Math.max(0, (cardH - sh) * 0.12) + 6);
+  ctx.drawImage(img, sx, sy, sw, sh);
+
+  // Soft bottom grounding dissolve inside the card
+  const fadeH = Math.round(cardH * 0.24);
+  const botFade = ctx.createLinearGradient(cardX, cardY + cardH - fadeH, cardX, cardY + cardH);
+  if(styleKey === "editorial"){
+    botFade.addColorStop(0, "rgba(235, 240, 235, 0)");
+    botFade.addColorStop(1, "rgba(235, 240, 235, 0.96)");
+  } else if(styleKey === "minimal"){
+    botFade.addColorStop(0, "rgba(1, 10, 9, 0)");
+    botFade.addColorStop(1, "rgba(1, 10, 9, 0.98)");
+  } else {
+    botFade.addColorStop(0, "rgba(0, 72, 66, 0)");
+    botFade.addColorStop(1, "rgba(0, 72, 66, 0.98)");
+  }
+  ctx.fillStyle = botFade;
+  ctx.fillRect(cardX, cardY + cardH - fadeH, cardW, fadeH);
+
+  ctx.restore();
+
+  // Crisp border line around the portrait frame
+  ctx.save();
+  drawRoundedRect(ctx, cardX, cardY, cardW, cardH, radius);
+  if(styleKey === "editorial"){
+    ctx.strokeStyle = "rgba(0, 95, 90, 0.35)";
+    ctx.lineWidth = 1.5;
+  } else if(styleKey === "minimal"){
+    ctx.strokeStyle = "rgba(0, 212, 146, 0.45)";
+    ctx.lineWidth = 1.5;
+  } else {
+    ctx.strokeStyle = "rgba(94, 234, 212, 0.45)";
+    ctx.lineWidth = 1.5;
+  }
+  ctx.stroke();
+  ctx.restore();
+}
+
+function drawFinayaWatermark(ctx, cx, cy, size, color = "rgba(255, 255, 255, 0.06)"){
+  ctx.save();
+  ctx.translate(cx, cy);
+  const scale = size / 40;
+  ctx.scale(scale, scale);
+  ctx.translate(-54, -20);
+  ctx.fillStyle = color;
+  getFinayaPaths().forEach(p => ctx.fill(p));
+  ctx.restore();
+}
+
 function drawBanner(a){
   const p = BANNER_PRESETS[bannerPreset];
   const view = $("#bannerView");
-  const maxW = Math.min(860, document.querySelector(".ws").clientWidth - 2);
-  const scale = maxW / p.w;
-  view.width = p.w; view.height = p.h;
-  view.style.width = (p.w*scale)+"px"; view.style.height = (p.h*scale)+"px";
 
-  const render = () => {
-    paintBanner(view.getContext("2d"), p.w, p.h, a, bannerStyle, showSafeArea);
+  // Render with high-DPI 2x Retina resolution buffer for crystal-clear clarity on FB, X, and LI
+  const dpr = 2;
+  view.width = p.w * dpr;
+  view.height = p.h * dpr;
+  view.style.width = "100%";
+  view.style.height = "auto";
+
+  const render = (img) => {
+    const ctx = view.getContext("2d");
+    ctx.save();
+    ctx.scale(dpr, dpr);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
+    paintBanner(ctx, p.w, p.h, a, bannerStyle, showSafeArea, img, includePortrait);
+    ctx.restore();
+
     $("#bannerMeta").innerHTML = `
-      <span><b>${p.label}</b> · ${p.w} × ${p.h} px · Style: <b>${BANNER_STYLES[bannerStyle].label}</b></span>
+      <span><b>${p.label}</b> · ${p.w} × ${p.h} px (2× Retina Buffer: ${view.width} × ${view.height} px) · Style: <b>${BANNER_STYLES[bannerStyle].label}</b> · <b>${includePortrait && a.status!=="waiting" ? "Executive Portrait Frame Included" : "Typographic Layout"}</b></span>
       <span class="meta-tag">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Full resolution export · Equal Housing Lender mark included
+        Ultra-sharp 2× Retina export · Equal Housing Lender mark included
       </span>`;
   };
 
-  if(document.fonts && document.fonts.ready){
-    document.fonts.ready.then(render);
+  if(includePortrait && a.status !== "waiting"){
+    getAdvisorImg(a.id, (img)=>{
+      if(document.fonts && document.fonts.ready){
+        document.fonts.ready.then(()=>render(img));
+      } else {
+        render(img);
+      }
+    });
   } else {
-    render();
+    if(document.fonts && document.fonts.ready){
+      document.fonts.ready.then(()=>render(null));
+    } else {
+      render(null);
+    }
   }
 }
 
-function paintBanner(ctx, W, H, a, styleKey="corporate", showSafe=false){
+function paintBanner(ctx, W, H, a, styleKey="corporate", showSafe=false, advImg=null, withPortrait=true){
   const cleanTerritory = getCleanTerritory(a);
   const isLI = (W === 1584 && H === 396);
   const isFB = (W === 820 && H === 312);
   const isX  = (W === 1500 && H === 500);
 
-  const safeLeft = isLI ? 420 : (isFB ? 195 : 410);
+  const safeLeft = isLI ? 380 : (isFB ? 160 : 380);
+  const hasPortrait = withPortrait && !!advImg && a.status !== "waiting";
+
+  const outerMargin = isFB ? 18 : 22;
+  const padX = isFB ? 32 : 52;
+  const padY = isFB ? 28 : 44;
+  const logoH = isFB ? 24 : 32;
+
+  // Portrait frame container specifications (strictly within the canvas & outer straight lines)
+  const cardW = isFB ? 210 : (isLI ? 340 : 380);
+  const cardH = isFB ? 252 : (isLI ? 324 : 428);
+  const cardX = W - outerMargin - (isFB ? 10 : 14) - cardW;
+  const cardY = outerMargin + (isFB ? 10 : 14);
+  const cardRadius = isFB ? 12 : 14;
+
+  // Maximum width for text & contact bar before colliding with the portrait frame
+  const maxContentW = hasPortrait ? (cardX - safeLeft - (isFB ? 20 : 34)) : (W - safeLeft - padX);
 
   if(styleKey === "corporate"){
-    // Background: Clean Executive Deep Teal
+    // Background: Deep Luxury Obsidian Teal
     const g = ctx.createLinearGradient(0, 0, W, H);
-    g.addColorStop(0, "#012523");
-    g.addColorStop(0.45, "#042F2E");
-    g.addColorStop(1, "#004743");
+    g.addColorStop(0, "#011715");
+    g.addColorStop(0.42, "#032B27");
+    g.addColorStop(1, "#004842");
     ctx.fillStyle = g;
     ctx.fillRect(0, 0, W, H);
 
-    // Subtle radial glow from upper right
-    const radG = ctx.createRadialGradient(W * 0.72, H * 0.15, 10, W * 0.72, H * 0.15, W * 0.6);
-    radG.addColorStop(0, "rgba(0, 187, 167, 0.12)");
-    radG.addColorStop(1, "transparent");
-    ctx.fillStyle = radG;
-    ctx.fillRect(0, 0, W, H);
-
-    // Subtle perimeter framing hairline
+    // Outer framing straight-line rectangle
     ctx.strokeStyle = "rgba(255, 255, 255, 0.08)";
     ctx.lineWidth = 1;
-    ctx.strokeRect(22, 22, W - 44, H - 44);
+    ctx.strokeRect(outerMargin, outerMargin, W - outerMargin * 2, H - outerMargin * 2);
 
     // Vertical anchor hairline beside safeLeft
     ctx.beginPath();
-    ctx.moveTo(safeLeft - 28, 22);
-    ctx.lineTo(safeLeft - 28, H - 22);
+    ctx.moveTo(safeLeft - (isFB ? 16 : 24), outerMargin);
+    ctx.lineTo(safeLeft - (isFB ? 16 : 24), H - outerMargin);
     ctx.strokeStyle = "rgba(255, 255, 255, 0.07)";
     ctx.stroke();
 
+    // Portrait frame on the right or architectural watermark
+    if(hasPortrait){
+      drawPortraitCard(ctx, advImg, cardX, cardY, cardW, cardH, cardRadius, "corporate");
+    } else {
+      drawFinayaWatermark(ctx, W - (isFB ? 130 : 220), H * 0.5, isFB ? 120 : 170, "rgba(255, 255, 255, 0.06)");
+    }
+
     // Top-left Brand Lockup
-    const logoH = isFB ? 24 : 32;
-    const padX = isFB ? 38 : 52;
-    const padY = isFB ? 34 : 44;
     const lw = drawFinayaLogo(ctx, padX, padY, logoH, "#FFFFFF");
 
-    ctx.font = `700 ${isFB ? 11 : 13.5}px 'Inter', sans-serif`;
+    ctx.font = `700 ${isFB ? 11 : 13.5}px \x27Inter\x27, sans-serif`;
     ctx.fillStyle = "#5EEAD4";
     ctx.fillText("HOME LOANS", padX + lw + (isFB ? 8 : 12), padY + logoH * 0.72);
     const hlW = ctx.measureText("HOME LOANS").width;
@@ -1132,53 +1307,55 @@ function paintBanner(ctx, W, H, a, styleKey="corporate", showSafe=false){
       ctx.strokeStyle = "rgba(255, 255, 255, 0.22)";
       ctx.stroke();
 
-      ctx.font = "600 10.5px 'Inter', sans-serif";
+      ctx.font = "600 10.5px \x27Inter\x27, sans-serif";
       ctx.fillStyle = "#99F6E4";
-      ctx.fillText("RESIDENTIAL LENDING", padX + lw + 12 + hlW + 28, padY + logoH * 0.68);
+      const subBrand = hasPortrait ? "RESIDENTIAL LENDING · NMLS #2470186" : "RESIDENTIAL LENDING";
+      ctx.fillText(subBrand, padX + lw + 12 + hlW + 28, padY + logoH * 0.68);
     }
 
-    // Top-right Company Credentials
-    ctx.textAlign = "right";
-    ctx.font = `500 ${isFB ? 10.5 : 12}px 'Inter', sans-serif`;
-    ctx.fillStyle = "#A7F3D0";
-    ctx.fillText("Company NMLS #2470186", W - padX, padY + (isFB ? 16 : 20));
-    ctx.textAlign = "left";
+    // Top-right Company Credentials (only when no portrait on right)
+    if(!hasPortrait){
+      ctx.textAlign = "right";
+      ctx.font = `500 ${isFB ? 10.5 : 12}px \x27Inter\x27, sans-serif`;
+      ctx.fillStyle = "#A7F3D0";
+      ctx.fillText("Company NMLS #2470186", W - padX, padY + (isFB ? 16 : 20));
+      ctx.textAlign = "left";
+    }
 
     // Main Identity Block
-    const eyebrowY = isFB ? 102 : (isLI ? 122 : 158);
-    ctx.font = `700 ${isFB ? 10 : 11.5}px 'Inter', sans-serif`;
+    const eyebrowY = isFB ? 94 : (isLI ? 120 : 156);
+    ctx.font = `700 ${isFB ? 9.5 : 11.5}px \x27Inter\x27, sans-serif`;
     ctx.fillStyle = "#5EEAD4";
     const roleText = (a.title || "EXECUTIVE MORTGAGE ADVISOR").toUpperCase();
     ctx.fillText(`${roleText}  ·  LICENSED ADVISOR`, safeLeft, eyebrowY);
 
     // Advisor Name
-    const maxNameW = W - safeLeft - 60;
-    const baseNameSize = isFB ? 32 : (isLI ? 44 : 48);
-    const fit = fitText(ctx, a.name, maxNameW, baseNameSize, "'Playfair Display', Georgia, serif", "600");
+    const baseNameSize = isFB ? 28 : (isLI ? 44 : 48);
+    const fit = fitText(ctx, a.name, maxContentW, baseNameSize, "\x27Playfair Display\x27, Georgia, serif", "600");
     const nameY = eyebrowY + fit.size * 1.08;
-    ctx.font = `600 ${fit.size}px 'Playfair Display', Georgia, serif`;
+    ctx.font = `600 ${fit.size}px \x27Playfair Display\x27, Georgia, serif`;
     ctx.fillStyle = "#FFFFFF";
     ctx.fillText(a.name, safeLeft, nameY);
 
     // Territory
-    const terrY = nameY + (isFB ? 22 : 30);
-    ctx.font = `500 ${isFB ? 12 : 15.5}px 'Inter', sans-serif`;
+    const terrY = nameY + (isFB ? 20 : 28);
+    ctx.font = `500 ${isFB ? 11.5 : 15.5}px \x27Inter\x27, sans-serif`;
     ctx.fillStyle = "#CCFBF1";
     ctx.fillText(cleanTerritory, safeLeft, terrY);
 
     // Grounded Contact & Compliance Bar
-    const barY = isFB ? 232 : (isLI ? 302 : 386);
+    const barY = isFB ? 228 : (isLI ? 302 : 386);
     ctx.beginPath();
     ctx.moveTo(safeLeft, barY);
-    ctx.lineTo(W - padX, barY);
+    ctx.lineTo(safeLeft + maxContentW, barY);
     ctx.strokeStyle = "rgba(255, 255, 255, 0.12)";
     ctx.stroke();
 
-    const infoY = barY + (isFB ? 26 : 38);
+    const infoY = barY + (isFB ? 24 : 38);
     let curX = safeLeft;
 
     // Badge 1: Individual NMLS
-    ctx.font = `600 ${isFB ? 10.5 : 12.5}px 'Inter', sans-serif`;
+    ctx.font = `600 ${isFB ? 10 : 12.5}px \x27Inter\x27, sans-serif`;
     const nmlsText = `NMLS #${a.nmls}`;
     const nmlsW = ctx.measureText(nmlsText).width;
     drawRoundedRect(ctx, curX, infoY - (isFB ? 14 : 17), nmlsW + 18, (isFB ? 22 : 26), 5);
@@ -1187,44 +1364,42 @@ function paintBanner(ctx, W, H, a, styleKey="corporate", showSafe=false){
     ctx.strokeStyle = "rgba(94, 234, 212, 0.35)";
     ctx.stroke();
     ctx.fillStyle = "#5EEAD4";
-    ctx.fillText(nmlsText, curX + 9, infoY + (isFB ? 2 : 2));
-    curX += nmlsW + 18 + (isFB ? 12 : 18);
+    ctx.fillText(nmlsText, curX + 9, infoY + 2);
+    curX += nmlsW + 18 + (isFB ? 10 : 16);
 
     // Item 2: Direct Phone
     const phoneVal = a.phone === "Pending" ? "Assigned Shortly" : a.phone;
     ctx.fillStyle = "#99F6E4";
-    ctx.font = `700 ${isFB ? 10.5 : 12}px 'Inter', sans-serif`;
+    ctx.font = `700 ${isFB ? 9.5 : 12}px \x27Inter\x27, sans-serif`;
     ctx.fillText("Direct: ", curX, infoY + 2);
     const dw = ctx.measureText("Direct: ").width;
-    ctx.font = `500 ${isFB ? 11 : 13}px 'Inter', sans-serif`;
+    ctx.font = `500 ${isFB ? 10 : 12.5}px \x27Inter\x27, sans-serif`;
     ctx.fillStyle = "#FFFFFF";
     ctx.fillText(phoneVal, curX + dw, infoY + 2);
-    curX += dw + ctx.measureText(phoneVal).width + (isFB ? 12 : 20);
+    curX += dw + ctx.measureText(phoneVal).width + (isFB ? 10 : 16);
 
     // Item 3: Application Portal
-    const linkVal = a.link === "Pending" ? "finayahl.com" : a.link;
-    if(!isFB || curX + 160 < W - 180){
+    if(!isFB || !hasPortrait){
+      const linkVal = a.link === "Pending" ? "finayahl.com" : a.link;
       ctx.fillStyle = "#99F6E4";
-      ctx.font = `700 ${isFB ? 10.5 : 12}px 'Inter', sans-serif`;
+      ctx.font = `700 ${isFB ? 9.5 : 12}px \x27Inter\x27, sans-serif`;
       ctx.fillText("Apply: ", curX, infoY + 2);
       const aw = ctx.measureText("Apply: ").width;
-      ctx.font = `500 ${isFB ? 11 : 13}px 'Inter', sans-serif`;
+      ctx.font = `500 ${isFB ? 10 : 12.5}px \x27Inter\x27, sans-serif`;
       ctx.fillStyle = "#FFFFFF";
       ctx.fillText(linkVal, curX + aw, infoY + 2);
     }
 
     // Right: Equal Housing
-    const ehSize = isFB ? 18 : 22;
-    drawEqualHousing(ctx, W - padX - (isFB ? 140 : 165), infoY - (isFB ? 13 : 16), ehSize, "#5EEAD4");
-    ctx.font = `500 ${isFB ? 10 : 11.5}px 'Inter', sans-serif`;
+    const ehSize = isFB ? 15 : 20;
+    const ehX = safeLeft + maxContentW - (isFB ? 122 : 155);
+    drawEqualHousing(ctx, ehX, infoY - (isFB ? 12 : 15), ehSize, "#5EEAD4");
+    ctx.font = `500 ${isFB ? 9 : 11}px \x27Inter\x27, sans-serif`;
     ctx.fillStyle = "#CCFBF1";
-    ctx.fillText("Equal Housing Lender", W - padX - (isFB ? 116 : 136), infoY + (isFB ? 1 : 2));
+    ctx.fillText("Equal Housing Lender", ehX + ehSize + 6, infoY + 2);
 
   } else if(styleKey === "editorial"){
-    // EDITORIAL LIGHT STYLE (Slate Ivory Prestige)
-    ctx.fillStyle = "#F8FAFC";
-    ctx.fillRect(0, 0, W, H);
-
+    // EDITORIAL LIGHT STYLE (Slate 50 Ivory)
     const papG = ctx.createLinearGradient(0, 0, W, H);
     papG.addColorStop(0, "#FAF9F5");
     papG.addColorStop(1, "#F1F5F9");
@@ -1233,20 +1408,24 @@ function paintBanner(ctx, W, H, a, styleKey="corporate", showSafe=false){
 
     ctx.strokeStyle = "#E2E8F0";
     ctx.lineWidth = 1;
-    ctx.strokeRect(22, 22, W - 44, H - 44);
+    ctx.strokeRect(outerMargin, outerMargin, W - outerMargin * 2, H - outerMargin * 2);
 
     ctx.beginPath();
-    ctx.moveTo(safeLeft - 28, 22);
-    ctx.lineTo(safeLeft - 28, H - 22);
+    ctx.moveTo(safeLeft - (isFB ? 16 : 24), outerMargin);
+    ctx.lineTo(safeLeft - (isFB ? 16 : 24), H - outerMargin);
     ctx.strokeStyle = "#E2E8F0";
     ctx.stroke();
 
-    const logoH = isFB ? 24 : 32;
-    const padX = isFB ? 38 : 52;
-    const padY = isFB ? 34 : 44;
+    // Portrait frame on right
+    if(hasPortrait){
+      drawPortraitCard(ctx, advImg, cardX, cardY, cardW, cardH, cardRadius, "editorial");
+    } else {
+      drawFinayaWatermark(ctx, W - (isFB ? 130 : 220), H * 0.5, isFB ? 120 : 170, "rgba(0, 95, 90, 0.08)");
+    }
+
     const lw = drawFinayaLogo(ctx, padX, padY, logoH, "#005F5A");
 
-    ctx.font = `700 ${isFB ? 11 : 13.5}px 'Inter', sans-serif`;
+    ctx.font = `700 ${isFB ? 11 : 13.5}px \x27Inter\x27, sans-serif`;
     ctx.fillStyle = "#314158";
     ctx.fillText("HOME LOANS", padX + lw + (isFB ? 8 : 12), padY + logoH * 0.72);
     const hlW = ctx.measureText("HOME LOANS").width;
@@ -1258,39 +1437,40 @@ function paintBanner(ctx, W, H, a, styleKey="corporate", showSafe=false){
       ctx.strokeStyle = "#CBD5E1";
       ctx.stroke();
 
-      ctx.font = "600 10.5px 'Inter', sans-serif";
+      ctx.font = "600 10.5px \x27Inter\x27, sans-serif";
       ctx.fillStyle = "#00786F";
-      ctx.fillText("PRIVATE CLIENT LENDING", padX + lw + 12 + hlW + 28, padY + logoH * 0.68);
+      const subBrand = hasPortrait ? "PRIVATE CLIENT LENDING · NMLS #2470186" : "PRIVATE CLIENT LENDING";
+      ctx.fillText(subBrand, padX + lw + 12 + hlW + 28, padY + logoH * 0.68);
     }
 
-    ctx.textAlign = "right";
-    ctx.font = `500 ${isFB ? 10.5 : 12}px 'Inter', sans-serif`;
-    ctx.fillStyle = "#64748B";
-    ctx.fillText("Company NMLS #2470186", W - padX, padY + (isFB ? 16 : 20));
-    ctx.textAlign = "left";
+    if(!hasPortrait){
+      ctx.textAlign = "right";
+      ctx.font = `500 ${isFB ? 10.5 : 12}px \x27Inter\x27, sans-serif`;
+      ctx.fillStyle = "#64748B";
+      ctx.fillText("Company NMLS #2470186", W - padX, padY + (isFB ? 16 : 20));
+      ctx.textAlign = "left";
+    }
 
-    const eyebrowY = isFB ? 102 : (isLI ? 122 : 158);
-    ctx.font = `700 ${isFB ? 10 : 11.5}px 'Inter', sans-serif`;
+    const eyebrowY = isFB ? 94 : (isLI ? 120 : 156);
+    ctx.font = `700 ${isFB ? 9.5 : 11.5}px \x27Inter\x27, sans-serif`;
     ctx.fillStyle = "#00786F";
     ctx.fillText("RESIDENTIAL MORTGAGE ADVISORY", safeLeft, eyebrowY);
 
-    const maxNameW = W - safeLeft - 60;
-    const baseNameSize = isFB ? 32 : (isLI ? 44 : 48);
-    const fit = fitText(ctx, a.name, maxNameW, baseNameSize, "'Playfair Display', Georgia, serif", "600");
+    const baseNameSize = isFB ? 28 : (isLI ? 44 : 48);
+    const fit = fitText(ctx, a.name, maxContentW, baseNameSize, "\x27Playfair Display\x27, Georgia, serif", "600");
     const nameY = eyebrowY + fit.size * 1.08;
-    ctx.font = `600 ${fit.size}px 'Playfair Display', Georgia, serif`;
+    ctx.font = `600 ${fit.size}px \x27Playfair Display\x27, Georgia, serif`;
     ctx.fillStyle = "#020618";
     ctx.fillText(a.name, safeLeft, nameY);
 
-    const terrY = nameY + (isFB ? 22 : 30);
-    ctx.font = `500 ${isFB ? 12 : 15.5}px 'Inter', sans-serif`;
+    const terrY = nameY + (isFB ? 20 : 28);
+    ctx.font = `500 ${isFB ? 11.5 : 15.5}px \x27Inter\x27, sans-serif`;
     ctx.fillStyle = "#45556C";
     const advSub = a.state === "Pending" ? "Executive Mortgage Advisor · Nationwide Residential Lending" : `${a.title} · ${cleanTerritory}`;
     ctx.fillText(advSub, safeLeft, terrY);
 
-    const barY = isFB ? 232 : (isLI ? 302 : 386);
-    const cardW = W - safeLeft - padX;
-    drawRoundedRect(ctx, safeLeft, barY - 6, cardW, (isFB ? 42 : 52), 8);
+    const barY = isFB ? 228 : (isLI ? 302 : 386);
+    drawRoundedRect(ctx, safeLeft, barY - 6, maxContentW, (isFB ? 42 : 52), 8);
     ctx.fillStyle = "#FFFFFF";
     ctx.fill();
     ctx.strokeStyle = "#E2E8F0";
@@ -1299,128 +1479,146 @@ function paintBanner(ctx, W, H, a, styleKey="corporate", showSafe=false){
     const infoY = barY + (isFB ? 20 : 26);
     let curX = safeLeft + 16;
 
-    ctx.font = `600 ${isFB ? 10.5 : 12}px 'Inter', sans-serif`;
+    ctx.font = `600 ${isFB ? 10 : 12}px \x27Inter\x27, sans-serif`;
     ctx.fillStyle = "#005F5A";
     ctx.fillText(`NMLS #${a.nmls}`, curX, infoY);
-    curX += ctx.measureText(`NMLS #${a.nmls}`).width + 16;
+    curX += ctx.measureText(`NMLS #${a.nmls}`).width + 14;
 
     ctx.fillStyle = "#CBD5E1";
     ctx.fillText("|", curX, infoY);
-    curX += 14;
+    curX += 12;
 
     const phoneVal = a.phone === "Pending" ? "Assigned Shortly" : a.phone;
-    ctx.font = `500 ${isFB ? 11 : 12.5}px 'Inter', sans-serif`;
+    ctx.font = `500 ${isFB ? 10 : 12}px \x27Inter\x27, sans-serif`;
     ctx.fillStyle = "#020618";
     ctx.fillText(`Direct: ${phoneVal}`, curX, infoY);
-    curX += ctx.measureText(`Direct: ${phoneVal}`).width + 16;
+    curX += ctx.measureText(`Direct: ${phoneVal}`).width + 14;
 
-    if(!isFB){
+    if(!isFB || !hasPortrait){
       ctx.fillStyle = "#CBD5E1";
       ctx.fillText("|", curX, infoY);
-      curX += 14;
+      curX += 12;
 
       const linkVal = a.link === "Pending" ? "finayahl.com" : a.link;
-      ctx.font = `500 12.5px 'Inter', sans-serif`;
+      ctx.font = `500 ${isFB ? 10 : 12}px \x27Inter\x27, sans-serif`;
       ctx.fillStyle = "#00786F";
-      ctx.fillText(`Portal: ${linkVal}`, curX, infoY);
+      ctx.fillText(`Apply: ${linkVal}`, curX, infoY);
     }
 
-    const ehSize = isFB ? 18 : 22;
-    drawEqualHousing(ctx, W - padX - (isFB ? 140 : 165), infoY - (isFB ? 13 : 15), ehSize, "#005F5A");
-    ctx.font = `500 ${isFB ? 10 : 11.5}px 'Inter', sans-serif`;
+    const ehSize = isFB ? 15 : 20;
+    const ehX = safeLeft + maxContentW - (isFB ? 122 : 155);
+    drawEqualHousing(ctx, ehX, infoY - (isFB ? 12 : 15), ehSize, "#005F5A");
+    ctx.font = `500 ${isFB ? 9 : 11}px \x27Inter\x27, sans-serif`;
     ctx.fillStyle = "#45556C";
-    ctx.fillText("Equal Housing Lender", W - padX - (isFB ? 116 : 136), infoY + (isFB ? 1 : 2));
+    ctx.fillText("Equal Housing Lender", ehX + ehSize + 6, infoY + 2);
 
   } else if(styleKey === "minimal"){
     // MODERN EXECUTIVE (Obsidian Minimal)
-    ctx.fillStyle = "#071918";
+    ctx.fillStyle = "#030D0C";
     ctx.fillRect(0, 0, W, H);
 
     const radG = ctx.createRadialGradient(safeLeft, H * 0.5, 20, safeLeft, H * 0.5, W * 0.7);
-    radG.addColorStop(0, "rgba(0, 95, 90, 0.25)");
+    radG.addColorStop(0, "rgba(0, 95, 90, 0.22)");
     radG.addColorStop(1, "transparent");
     ctx.fillStyle = radG;
     ctx.fillRect(0, 0, W, H);
 
+    // Outer framing straight-line rectangle
     ctx.strokeStyle = "rgba(255, 255, 255, 0.09)";
     ctx.lineWidth = 1;
-    ctx.strokeRect(22, 22, W - 44, H - 44);
+    ctx.strokeRect(outerMargin, outerMargin, W - outerMargin * 2, H - outerMargin * 2);
 
-    const logoH = isFB ? 24 : 32;
-    const padX = isFB ? 38 : 52;
-    const padY = isFB ? 34 : 44;
+    ctx.beginPath();
+    ctx.moveTo(safeLeft - (isFB ? 16 : 24), outerMargin);
+    ctx.lineTo(safeLeft - (isFB ? 16 : 24), H - outerMargin);
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.07)";
+    ctx.stroke();
+
+    // Portrait frame with emerald halo
+    if(hasPortrait){
+      drawPortraitCard(ctx, advImg, cardX, cardY, cardW, cardH, cardRadius, "minimal");
+    } else {
+      drawFinayaWatermark(ctx, W - (isFB ? 130 : 220), H * 0.5, isFB ? 120 : 170, "rgba(0, 212, 146, 0.08)");
+    }
+
     const lw = drawFinayaLogo(ctx, padX, padY, logoH, "#FFFFFF");
 
-    ctx.font = `700 ${isFB ? 11 : 13.5}px 'Inter', sans-serif`;
+    ctx.font = `700 ${isFB ? 11 : 13.5}px \x27Inter\x27, sans-serif`;
     ctx.fillStyle = "#00D492";
-    ctx.fillText("HOME LOANS", padX + lw + (isFB ? 8 : 12), padY + logoH * 0.72);
+    const hlBrand = hasPortrait ? "HOME LOANS · NMLS #2470186" : "HOME LOANS";
+    ctx.fillText(hlBrand, padX + lw + (isFB ? 8 : 12), padY + logoH * 0.72);
 
-    ctx.textAlign = "right";
-    ctx.font = `600 ${isFB ? 10.5 : 12}px 'Inter', sans-serif`;
-    ctx.fillStyle = "#00D492";
-    ctx.fillText("Company NMLS #2470186", W - padX, padY + (isFB ? 16 : 20));
-    ctx.textAlign = "left";
+    if(!hasPortrait){
+      ctx.textAlign = "right";
+      ctx.font = `600 ${isFB ? 10.5 : 12}px \x27Inter\x27, sans-serif`;
+      ctx.fillStyle = "#00D492";
+      ctx.fillText("Company NMLS #2470186", W - padX, padY + (isFB ? 16 : 20));
+      ctx.textAlign = "left";
+    }
 
-    const eyebrowY = isFB ? 102 : (isLI ? 122 : 158);
-    ctx.font = `700 ${isFB ? 10 : 11.5}px 'Inter', sans-serif`;
+    const eyebrowY = isFB ? 94 : (isLI ? 120 : 156);
+    ctx.font = `700 ${isFB ? 9.5 : 11.5}px \x27Inter\x27, sans-serif`;
     ctx.fillStyle = "#00D492";
     ctx.fillText("EXECUTIVE RESIDENTIAL LENDING", safeLeft, eyebrowY);
 
-    const maxNameW = W - safeLeft - 60;
-    const baseNameSize = isFB ? 32 : (isLI ? 44 : 48);
-    const fit = fitText(ctx, a.name, maxNameW, baseNameSize, "'Playfair Display', Georgia, serif", "600");
+    const baseNameSize = isFB ? 28 : (isLI ? 44 : 48);
+    const fit = fitText(ctx, a.name, maxContentW, baseNameSize, "\x27Playfair Display\x27, Georgia, serif", "600");
     const nameY = eyebrowY + fit.size * 1.08;
-    ctx.font = `600 ${fit.size}px 'Playfair Display', Georgia, serif`;
+    ctx.font = `600 ${fit.size}px \x27Playfair Display\x27, Georgia, serif`;
     ctx.fillStyle = "#FFFFFF";
     ctx.fillText(a.name, safeLeft, nameY);
 
-    const terrY = nameY + (isFB ? 22 : 30);
-    ctx.font = `500 ${isFB ? 12 : 15.5}px 'Inter', sans-serif`;
+    const terrY = nameY + (isFB ? 20 : 28);
+    ctx.font = `500 ${isFB ? 11.5 : 15.5}px \x27Inter\x27, sans-serif`;
     ctx.fillStyle = "#94A3B8";
     ctx.fillText(cleanTerritory, safeLeft, terrY);
 
-    const barY = isFB ? 232 : (isLI ? 302 : 386);
+    const barY = isFB ? 228 : (isLI ? 302 : 386);
     ctx.beginPath();
     ctx.moveTo(safeLeft, barY);
-    ctx.lineTo(W - padX, barY);
+    ctx.lineTo(safeLeft + maxContentW, barY);
     ctx.strokeStyle = "rgba(255, 255, 255, 0.12)";
     ctx.stroke();
 
-    const infoY = barY + (isFB ? 26 : 38);
+    const infoY = barY + (isFB ? 24 : 38);
     let curX = safeLeft;
 
+    // Item 1: NMLS Badge
+    ctx.font = `600 ${isFB ? 10 : 12.5}px \x27Inter\x27, sans-serif`;
     const nmlsText = `NMLS #${a.nmls}`;
-    ctx.font = `600 ${isFB ? 10.5 : 12}px 'Inter', sans-serif`;
-    const nW = ctx.measureText(nmlsText).width;
-    drawRoundedRect(ctx, curX, infoY - (isFB ? 14 : 17), nW + 18, (isFB ? 22 : 26), 4);
-    ctx.fillStyle = "rgba(0, 212, 146, 0.14)";
+    const nmlsW = ctx.measureText(nmlsText).width;
+    drawRoundedRect(ctx, curX, infoY - (isFB ? 14 : 17), nmlsW + 18, (isFB ? 22 : 26), 5);
+    ctx.fillStyle = "rgba(0, 212, 146, 0.12)";
     ctx.fill();
-    ctx.strokeStyle = "rgba(0, 212, 146, 0.4)";
+    ctx.strokeStyle = "rgba(0, 212, 146, 0.5)";
     ctx.stroke();
     ctx.fillStyle = "#00D492";
     ctx.fillText(nmlsText, curX + 9, infoY + 2);
-    curX += nW + 18 + (isFB ? 12 : 16);
+    curX += nmlsW + 18 + (isFB ? 10 : 16);
 
+    // Item 2: Direct Phone
     const phoneVal = a.phone === "Pending" ? "Assigned Shortly" : a.phone;
-    ctx.font = `500 ${isFB ? 11 : 13}px 'Inter', sans-serif`;
     ctx.fillStyle = "#F1F5F9";
+    ctx.font = `500 ${isFB ? 10 : 12.5}px \x27Inter\x27, sans-serif`;
     ctx.fillText(`📞 ${phoneVal}`, curX, infoY + 2);
-    curX += ctx.measureText(`📞 ${phoneVal}`).width + (isFB ? 12 : 20);
+    curX += ctx.measureText(`📞 ${phoneVal}`).width + (isFB ? 10 : 16);
 
-    if(!isFB){
+    // Item 3: Application Portal
+    if(!isFB || !hasPortrait){
       const linkVal = a.link === "Pending" ? "finayahl.com" : a.link;
       ctx.fillStyle = "#38BDF8";
       ctx.fillText(`🔗 ${linkVal}`, curX, infoY + 2);
     }
 
-    const ehSize = isFB ? 18 : 22;
-    drawEqualHousing(ctx, W - padX - (isFB ? 140 : 165), infoY - (isFB ? 13 : 16), ehSize, "#00D492");
-    ctx.font = `500 ${isFB ? 10 : 11.5}px 'Inter', sans-serif`;
+    const ehSize = isFB ? 15 : 20;
+    const ehX = safeLeft + maxContentW - (isFB ? 122 : 155);
+    drawEqualHousing(ctx, ehX, infoY - (isFB ? 12 : 15), ehSize, "#00D492");
+    ctx.font = `500 ${isFB ? 9 : 11}px \x27Inter\x27, sans-serif`;
     ctx.fillStyle = "#CBD5E1";
-    ctx.fillText("Equal Housing Lender", W - padX - (isFB ? 116 : 136), infoY + (isFB ? 1 : 2));
+    ctx.fillText("Equal Housing Lender", ehX + ehSize + 6, infoY + 2);
   }
 
-  // Overlay platform safe areas if requested and not exporting
+  // Overlay platform safe areas if requested
   if(showSafe){
     drawSafeAreaGuide(ctx, W, H, isLI ? "li" : (isFB ? "fb" : "x"));
   }
@@ -1430,29 +1628,46 @@ function copyBannerToClipboard(){
   const a = ADVISORS.find(x=>x.id===selectedId);
   const p = BANNER_PRESETS[bannerPreset];
   const c = document.createElement("canvas");
-  c.width = p.w; c.height = p.h;
-  paintBanner(c.getContext("2d"), p.w, p.h, a, bannerStyle, false);
-  if(c.toBlob && navigator.clipboard && navigator.clipboard.write){
-    c.toBlob(blob=>{
-      if(!blob){ toast("Failed to export image"); return; }
-      navigator.clipboard.write([new ClipboardItem({"image/png": blob})])
-        .then(()=>{
-          const btn = $("#copyBanner");
-          if(btn){
-            const originalHTML = btn.innerHTML;
-            btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <span>Copied!</span>`;
-            btn.classList.add("done");
-            setTimeout(()=>{
-              btn.innerHTML = originalHTML;
-              btn.classList.remove("done");
-            }, 1400);
-          }
-          toast("Full-resolution banner copied to clipboard");
-        })
-        .catch(()=> toast("Image copy blocked by browser permissions"));
-    }, "image/png");
+  const exportScale = (bannerPreset === "fb" || bannerPreset === "x") ? 2 : 1;
+  c.width = p.w * exportScale;
+  c.height = p.h * exportScale;
+  const ctx = c.getContext("2d");
+  ctx.save();
+  ctx.scale(exportScale, exportScale);
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = "high";
+
+  const doCopy = (img) => {
+    paintBanner(ctx, p.w, p.h, a, bannerStyle, false, img, includePortrait);
+    ctx.restore();
+    if(c.toBlob && navigator.clipboard && navigator.clipboard.write){
+      c.toBlob(blob=>{
+        if(!blob){ toast("Failed to export image"); return; }
+        navigator.clipboard.write([new ClipboardItem({"image/png": blob})])
+          .then(()=>{
+            const btn = $("#copyBanner");
+            if(btn){
+              const originalHTML = btn.innerHTML;
+              btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <span>Copied!</span>`;
+              btn.classList.add("done");
+              setTimeout(()=>{
+                btn.innerHTML = originalHTML;
+                btn.classList.remove("done");
+              }, 1400);
+            }
+            toast(`Copied ${p.label} banner (${c.width}×${c.height}px) to clipboard`);
+          })
+          .catch(()=> toast("Image copy blocked by browser permissions"));
+      }, "image/png");
+    } else {
+      toast("Image clipboard not supported in this browser");
+    }
+  };
+
+  if(includePortrait && a.status !== "waiting"){
+    getAdvisorImg(a.id, doCopy);
   } else {
-    toast("Image clipboard not supported in this browser");
+    doCopy(null);
   }
 }
 
@@ -1460,15 +1675,33 @@ function downloadBanner(){
   const a = ADVISORS.find(x=>x.id===selectedId);
   const p = BANNER_PRESETS[bannerPreset];
   const c = document.createElement("canvas");
-  c.width = p.w; c.height = p.h;
-  paintBanner(c.getContext("2d"), p.w, p.h, a, bannerStyle, false);
-  const slug = a.name.toLowerCase().replace(/[^a-z]+/g,"-");
-  const el = document.createElement("a");
-  el.download = `finaya-banner-${slug}-${bannerPreset}-${bannerStyle}.png`;
-  el.href = c.toDataURL("image/png");
-  el.click();
-  toast(`Downloaded ${p.label} banner (${p.w}×${p.h})`);
+  const exportScale = (bannerPreset === "fb" || bannerPreset === "x") ? 2 : 1;
+  c.width = p.w * exportScale;
+  c.height = p.h * exportScale;
+  const ctx = c.getContext("2d");
+  ctx.save();
+  ctx.scale(exportScale, exportScale);
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = "high";
+
+  const doDownload = (img) => {
+    paintBanner(ctx, p.w, p.h, a, bannerStyle, false, img, includePortrait);
+    ctx.restore();
+    const slug = a.name.toLowerCase().replace(/[^a-z]+/g,"-");
+    const el = document.createElement("a");
+    el.download = `finaya-banner-${slug}-${bannerPreset}-${bannerStyle}.png`;
+    el.href = c.toDataURL("image/png");
+    el.click();
+    toast(`Downloaded ultra-crisp ${p.label} banner (${c.width}×${c.height}px)`);
+  };
+
+  if(includePortrait && a.status !== "waiting"){
+    getAdvisorImg(a.id, doDownload);
+  } else {
+    doDownload(null);
+  }
 }
+
 
 /* ---------------- CORPORATE CHECKLIST ---------------- */
 const CORP_ITEMS = [
@@ -1516,12 +1749,20 @@ renderRoster();
 renderStage();
 renderCorp();
 
-/* Deep links: #tab-banner, #advisor-20, #advisor=5&tab=headshot */
+/* Deep links: #tab-banner, #advisor-20, #advisor=5&tab=headshot, #tab=banner&preset=fb */
 (function(){
   const h = location.hash.slice(1);
   if(!h) return;
   const advMatch = h.match(/(?:advisor|adv)[=-]?(\d+)/i);
   if(advMatch && ADVISORS.some(a=>a.id===+advMatch[1])){ selectAdvisor(+advMatch[1]); }
+  const presetMatch = h.match(/(?:preset)[=-]?(\w+)/i);
+  if(presetMatch && ["li","fb","x"].includes(presetMatch[1].toLowerCase())){
+    bannerPreset = presetMatch[1].toLowerCase();
+  }
+  const styleMatch = h.match(/(?:style)[=-]?(\w+)/i);
+  if(styleMatch && ["corporate","editorial","minimal"].includes(styleMatch[1].toLowerCase())){
+    bannerStyle = styleMatch[1].toLowerCase();
+  }
   const tabMatch = h.match(/(?:tab[=-]?)(\w+)/i);
   if(tabMatch && ["li","scrub","social","sig","banner","headshot"].includes(tabMatch[1].toLowerCase())){
     activeTab = tabMatch[1].toLowerCase();
@@ -1529,7 +1770,4 @@ renderCorp();
     renderStage();
   }
 })();
-
 }
-
-export { init };
