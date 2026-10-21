@@ -1,69 +1,12 @@
-import Image from "next/image";
+import DashboardClient from "@/components/DashboardClient";
 
-export default function Home() {
+const bodyHtml = '<div class="shell">\n\n  <header class="topbar">\n    <div class="wordmark">finaya<em>Home Loans</em><small>Advisor Scrub Operations</small></div>\n    <div class="phase"><i></i>Scrub Phase 1 · Active</div>\n    <div class="top-right">\n      <div class="progress-mini" id="headerProgress">\n        <span class="big num"><b>16</b>/20</span>\n        <span style="display:flex;flex-direction:column;gap:6px">\n          <span class="cap">Advisors ready</span>\n          <span class="progress-track"><i style="width:80%"></i></span>\n        </span>\n      </div>\n      <a class="btn-outline btn-headshots-all" href="headshots/Finaya_Advisor_Headshots_All20.zip" download="Finaya_Advisor_Headshots_All20.zip" title="Download all Finaya advisor headshots in high resolution">\n        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>\n        <span>All Headshots (ZIP)</span>\n      </a>\n      <button class="btn-outline" id="openHowTo">60-Second How-To</button>\n    </div>\n  </header>\n\n  <div class="main">\n    <aside class="dir" aria-label="Advisor directory">\n      <div class="dir-head">\n        <h2>Advisors</h2>\n        <div class="counts num" id="dirCounts"><b>20</b> total · <b>16</b> ready · <b>4</b> pending · <b>0</b> locked</div>\n      </div>\n      <div class="search-row">\n        <input type="text" id="searchInput" placeholder="Search name, city, or NMLS number" aria-label="Search advisors">\n      </div>\n      <div class="filters" id="filterTabs" role="tablist"></div>\n      <div class="roster" id="roster"></div>\n    </aside>\n\n    <section aria-label="Advisor workspace">\n      <div class="ws" id="stagePanel"></div>\n    </section>\n  </div>\n\n  <details class="corp" style="border-radius:0;border-left:none;border-right:none;border-bottom:none">\n    <summary>\n      <h3>Corporate LinkedIn page rebrand</h3>\n      <span class="label">Tagline · About · HQ · NBI cleanup</span>\n      <span class="corp-progress" id="corpProgress"></span>\n      <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>\n    </summary>\n    <div class="corp-body" id="corpChecklist"></div>\n  </details>\n\n  <div class="shell-foot">\n    <span>Finaya Home Loans · Equal Housing Lender</span>\n    <span class="mono">Company NMLS #2470186</span>\n    <span>Internal tool · Tanim &amp; Nick Campo</span>\n    <span class="mono">Roster audited 2026-10-14</span>\n  </div>\n\n</div>\n\n<div id="toast"><span class="dot"></span><span id="toastMsg">Copied</span></div>\n\n<div id="modalOverlay">\n  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="howtoTitle">\n    <div class="modal-head">\n      <div>\n        <h3 id="howtoTitle">Your profile, updated in 60 seconds</h3>\n        <p>Share this with every advisor. No passwords needed.</p>\n      </div>\n      <button class="modal-close" id="closeHowTo" aria-label="Close">&times;</button>\n    </div>\n    <div class="modal-body">\n      <div class="step"><div class="step-num">01</div><div><h4>Open your LinkedIn profile and click Edit</h4><p>Profile page, then the pencil icon on the intro section.</p></div></div>\n      <div class="step"><div class="step-num">02</div><div><h4>Paste your headline</h4><p>Copy it from the LinkedIn tab in the dashboard, paste into the Headline field.</p></div></div>\n      <div class="step"><div class="step-num">03</div><div><h4>Paste your About section</h4><p>Copy the full About block, disclosure included. Paste it in full.</p></div></div>\n      <div class="step"><div class="step-num">04</div><div><h4>Download and upload your banner</h4><p>Pick your platform size, download the PNG, upload it as your cover image.</p></div></div>\n      <div class="step"><div class="step-num">05</div><div><h4>Link your employer to Finaya Home Loans</h4><p>In Experience, set your current company to Finaya Home Loans and add your NMLS ID.</p></div></div>\n      <p class="modal-note">A field will not fit or something looks wrong? Message Tanim. Never share your password with anyone.</p>\n    </div>\n  </div>\n</div>\n';
+
+export default function Page() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      <DashboardClient />
+      <div className="finaya-app" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
+    </>
   );
 }
