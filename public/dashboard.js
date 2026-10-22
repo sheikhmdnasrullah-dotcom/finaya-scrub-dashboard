@@ -440,12 +440,15 @@ function getHeadshotUrl(id, variant="clean"){
   const base = HEADSHOT_MAP[id] || "advisor_1_nick_campo";
   return `headshots/studio/${base}_${variant}.png`;
 }
+function getHeadshotDisplayUrl(id){
+  return `headshots/webp/advisor_${id}.webp`;
+}
 function getHeadshotThumb(id){
-  return `headshots/thumbnails/advisor_${id}.png`;
+  return `headshots/webp_thumbs/${id}_thumb.webp`;
 }
 const _advisorImgCache = {};
 function getAdvisorImg(id, cb){
-  const url = getHeadshotUrl(id, "clean");
+  const url = getHeadshotDisplayUrl(id);
   if(_advisorImgCache[url]){
     cb(_advisorImgCache[url]);
     return;
@@ -819,7 +822,8 @@ function renderStage(){
       <div class="banner-meta" id="bannerMeta"></div>
     </div>`;
   } else if(activeTab==="headshot"){
-    const currentImgUrl = getHeadshotUrl(a.id, "clean");
+    const displayUrl = getHeadshotDisplayUrl(a.id);
+    const dlUrl = getHeadshotUrl(a.id, "clean");
     const dlFilename = `${HEADSHOT_MAP[a.id] || "advisor"}_high_res.png`;
     pane = `<div class="pane active">
       <div class="banner-controls">
@@ -832,7 +836,7 @@ function renderStage(){
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
             <span>Copy Portrait</span>
           </button>
-          <a class="btn-action btn-primary" id="dlHeadshotLink" href="${currentImgUrl}" download="${dlFilename}">
+          <a class="btn-action btn-primary" id="dlHeadshotLink" href="${dlUrl}" download="${dlFilename}">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v12M6 11l6 6 6-6M4 21h16"/></svg>
             <span>Download high-resolution image</span>
           </a>
@@ -841,14 +845,14 @@ function renderStage(){
 
       <div class="headshot-preview-container">
         <div class="headshot-card">
-          <img src="${currentImgUrl}" class="headshot-display-img" alt="${esc(a.name)} High-Resolution Photo">
+          <img src="${displayUrl}" class="headshot-display-img" alt="${esc(a.name)} High-Resolution Photo">
         </div>
         <div class="headshot-meta-card">
           <div class="eyebrow" style="margin-bottom:6px">FINAYA EXECUTIVE ADVISOR</div>
           <h3>${esc(a.name)}</h3>
           <p class="headshot-desc" style="margin-bottom:18px">${esc(a.title)} · NMLS #${a.nmls} · Assigned Market: ${mk(a)} (${a.state})</p>
           <div style="margin:20px 0 24px 0">
-            <a class="btn-action btn-primary" style="padding:12px 20px;font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:8px;text-decoration:none" href="${currentImgUrl}" download="${dlFilename}">
+            <a class="btn-action btn-primary" style="padding:12px 20px;font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:8px;text-decoration:none" href="${dlUrl}" download="${dlFilename}">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v12M6 11l6 6 6-6M4 21h16"/></svg>
               <span>Download high-resolution image</span>
             </a>
@@ -916,7 +920,7 @@ function renderStage(){
     b.onclick = ()=>{ headshotVariant = b.dataset.hstyle; renderStage(); };
   });
   const copyHs = $("#copyHeadshotBtn");
-  if(copyHs) copyHs.onclick = ()=>copyHeadshotToClipboard(getHeadshotUrl(a.id, headshotVariant));
+  if(copyHs) copyHs.onclick = ()=>copyHeadshotToClipboard(getHeadshotDisplayUrl(a.id));
 }
 
 /* ---------------- OFFICIAL FINAYA BRAND VECTOR LOGO ---------------- */

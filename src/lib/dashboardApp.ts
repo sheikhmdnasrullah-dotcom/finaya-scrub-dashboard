@@ -440,8 +440,11 @@ function getHeadshotUrl(id, variant="clean"){
   const base = HEADSHOT_MAP[id] || "advisor_1_nick_campo";
   return `headshots/studio/${base}_${variant}.png`;
 }
+function getHeadshotDisplayUrl(id){
+  return `headshots/webp/advisor_${id}.webp`;
+}
 function getHeadshotThumb(id){
-  return `headshots/thumbnails/advisor_${id}.png`;
+  return `headshots/webp_tumbs/${id}_thumb.webp`;
 }
 const _advisorImgCache = {};
 function getAdvisorImg(id, cb){
