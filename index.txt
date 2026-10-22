@@ -1,0 +1,271 @@
+1:"$Sreact.fragment"
+2:"/_next/static/chunks/0umf92h1sb77c.js"
+3:I[39756,["$2"],"default"]
+4:I[37457,["$2"],"default"]
+9:"ViewportBoundary"
+a:I[97367,["$2"],"$9"]
+c:"MetadataBoundary"
+d:I[97367,["$2"],"$c"]
+e:"$Sreact.suspense"
+10:I[68027,["$2"],"default",1]
+:HL["/_next/static/chunks/1qcbo7p9g-q3s.css","style"]
+:HL["/_next/static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+6:T497c,<div class="shell">
+
+  <header class="topbar">
+    <div class="wordmark">finaya<em>Home Loans</em><small>Advisor Scrub Operations</small></div>
+    <div class="phase"><i></i>Scrub Phase 1 · Active</div>
+    <div class="top-right">
+      <div class="progress-mini" id="headerProgress">
+      <span class="big num"><b>17</b>/20</span>
+      <span style="display:flex;flex-direction:column;gap:6px">
+        <span class="cap">Advisors ready</span>
+        <span class="progress-track"><i style="width:85%"></i></span>
+      </span></div>
+      <a class="btn-outline btn-headshots-all" href="/headshots/Finaya_Advisor_Headshots_All20.zip" download="Finaya_Advisor_Headshots_All20.zip" title="Download all Finaya advisor headshots in high resolution">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+        <span>All Headshots (ZIP)</span>
+      </a>
+      <button class="btn-outline" id="openHowTo">60-Second How-To</button>
+    </div>
+  </header>
+
+  <div class="main">
+    <aside class="dir" aria-label="Advisor directory">
+      <div class="dir-head">
+        <h2>Advisors</h2>
+        <div class="counts num" id="dirCounts"><b>20</b> total · <b>17</b> ready · <b>3</b> pending · <b>0</b> locked</div>
+      </div>
+      <div class="search-row">
+        <input type="text" id="searchInput" placeholder="Search name, city, or NMLS number" aria-label="Search advisors">
+      </div>
+      <div class="filters" id="filterTabs" role="tablist"><button class="fbtn active" role="tab" aria-selected="true" data-f="all">All<span class="c num">(20)</span></button><button class="fbtn " role="tab" aria-selected="false" data-f="SC">South Carolina<span class="c num">(3)</span></button><button class="fbtn " role="tab" aria-selected="false" data-f="NC">North Carolina<span class="c num">(5)</span></button><button class="fbtn " role="tab" aria-selected="false" data-f="FL">Florida<span class="c num">(7)</span></button><button class="fbtn " role="tab" aria-selected="false" data-f="GA">Georgia<span class="c num">(1)</span></button><button class="fbtn " role="tab" aria-selected="false" data-f="CO">Colorado<span class="c num">(4)</span></button><button class="fbtn " role="tab" aria-selected="false" data-f="PEN">Pending<span class="c num">(3)</span></button></div>
+      <div class="roster" id="roster">
+    <div class="row active" data-id="1" role="button" tabindex="0" aria-label="Nick Campo, Ready">
+      <img src="/headshots/thumbnails/advisor_1.png" class="ravatar" alt="Nick Campo" loading="lazy">
+      <span class="rname">Nick Campo</span>
+      <span class="rmeta">NMLS #2011753 · Charleston</span>
+      <span class="rstatus complete"><span class="dot complete"></span>Ready</span>
+    </div>
+    <div class="row " data-id="2" role="button" tabindex="0" aria-label="Alan Sacks, Ready">
+      <img src="/headshots/thumbnails/advisor_2.png" class="ravatar" alt="Alan Sacks" loading="lazy">
+      <span class="rname">Alan Sacks</span>
+      <span class="rmeta">NMLS #159915 · Indian Trail (Union County)</span>
+      <span class="rstatus complete"><span class="dot complete"></span>Ready</span>
+    </div>
+    <div class="row " data-id="3" role="button" tabindex="0" aria-label="John Birke, Ready">
+      <img src="/headshots/thumbnails/advisor_3.png" class="ravatar" alt="John Birke" loading="lazy">
+      <span class="rname">John Birke</span>
+      <span class="rmeta">NMLS #1150795 · Rock Hill (York County)</span>
+      <span class="rstatus complete"><span class="dot complete"></span>Ready</span>
+    </div>
+    <div class="row " data-id="4" role="button" tabindex="0" aria-label="Ben Singleton, Ready">
+      <img src="/headshots/thumbnails/advisor_4.png" class="ravatar" alt="Ben Singleton" loading="lazy">
+      <span class="rname">Ben Singleton</span>
+      <span class="rmeta">NMLS #2341198 · Myrtle Beach (Horry County)</span>
+      <span class="rstatus complete"><span class="dot complete"></span>Ready</span>
+    </div>
+    <div class="row " data-id="5" role="button" tabindex="0" aria-label="Christina Yudzitski, Ready">
+      <img src="/headshots/thumbnails/advisor_5.png" class="ravatar" alt="Christina Yudzitski" loading="lazy">
+      <span class="rname">Christina Yudzitski</span>
+      <span class="rmeta">NMLS #2663819 · Pinehurst (Moore County)</span>
+      <span class="rstatus complete"><span class="dot complete"></span>Ready</span>
+    </div>
+    <div class="row " data-id="6" role="button" tabindex="0" aria-label="Raymond M Pinkston, Ready">
+      <img src="/headshots/thumbnails/advisor_6.png" class="ravatar" alt="Raymond M Pinkston" loading="lazy">
+      <span class="rname">Raymond M Pinkston</span>
+      <span class="rmeta">NMLS #2823400 · Charlotte (Mecklenburg County)</span>
+      <span class="rstatus complete"><span class="dot complete"></span>Ready</span>
+    </div>
+    <div class="row " data-id="7" role="button" tabindex="0" aria-label="Khesey Silva, Ready">
+      <img src="/headshots/thumbnails/advisor_7.png" class="ravatar" alt="Khesey Silva" loading="lazy">
+      <span class="rname">Khesey Silva</span>
+      <span class="rmeta">NMLS #2358323 · St. Augustine (St. Johns &amp; Nassau Counties)</span>
+      <span class="rstatus complete"><span class="dot complete"></span>Ready</span>
+    </div>
+    <div class="row " data-id="8" role="button" tabindex="0" aria-label="Andrew Simmons, Pending">
+      <img src="/headshots/thumbnails/advisor_8.png" class="ravatar" alt="Andrew Simmons" loading="lazy">
+      <span class="rname">Andrew Simmons</span>
+      <span class="rmeta">NMLS #1679914 · Wilmington (New Hanover County)</span>
+      <span class="rstatus waiting"><span class="dot waiting"></span>Pending</span>
+    </div>
+    <div class="row " data-id="9" role="button" tabindex="0" aria-label="Mark Glatzmaier II, Ready">
+      <img src="/headshots/thumbnails/advisor_9.png" class="ravatar" alt="Mark Glatzmaier II" loading="lazy">
+      <span class="rname">Mark Glatzmaier II</span>
+      <span class="rmeta">NMLS #1085400 · Atlanta (Fulton County)</span>
+      <span class="rstatus complete"><span class="dot complete"></span>Ready</span>
+    </div>
+    <div class="row " data-id="10" role="button" tabindex="0" aria-label="Matthew Squires, Ready">
+      <img src="/headshots/thumbnails/advisor_10.png" class="ravatar" alt="Matthew Squires" loading="lazy">
+      <span class="rname">Matthew Squires</span>
+      <span class="rmeta">NMLS #1029875 · Tampa (Hillsborough &amp; Pinellas Counties)</span>
+      <span class="rstatus complete"><span class="dot complete"></span>Ready</span>
+    </div>
+    <div class="row " data-id="11" role="button" tabindex="0" aria-label="Paul Grady, Ready">
+      <img src="/headshots/thumbnails/advisor_11.png" class="ravatar" alt="Paul Grady" loading="lazy">
+      <span class="rname">Paul Grady</span>
+      <span class="rmeta">NMLS #2502731 · Miami (Miami-Dade County)</span>
+      <span class="rstatus complete"><span class="dot complete"></span>Ready</span>
+    </div>
+    <div class="row " data-id="12" role="button" tabindex="0" aria-label="Geneva Lynne Price, Ready">
+      <img src="/headshots/thumbnails/advisor_12.png" class="ravatar" alt="Geneva Lynne Price" loading="lazy">
+      <span class="rname">Geneva Lynne Price</span>
+      <span class="rmeta">NMLS #247066 · North Port (Sarasota &amp; Manatee Counties)</span>
+      <span class="rstatus complete"><span class="dot complete"></span>Ready</span>
+    </div>
+    <div class="row " data-id="13" role="button" tabindex="0" aria-label="Cleo Lewis, Pending">
+      <img src="/headshots/thumbnails/advisor_13.png" class="ravatar" alt="Cleo Lewis" loading="lazy">
+      <span class="rname">Cleo Lewis</span>
+      <span class="rmeta">NMLS #1451574 · Denver (Denver County)</span>
+      <span class="rstatus waiting"><span class="dot waiting"></span>Pending</span>
+    </div>
+    <div class="row " data-id="14" role="button" tabindex="0" aria-label="Brandon Metoyer, Pending">
+      <img src="/headshots/thumbnails/advisor_14.png" class="ravatar" alt="Brandon Metoyer" loading="lazy">
+      <span class="rname">Brandon Metoyer</span>
+      <span class="rmeta">NMLS #2055356 · Aurora (Arapahoe County)</span>
+      <span class="rstatus waiting"><span class="dot waiting"></span>Pending</span>
+    </div>
+    <div class="row " data-id="15" role="button" tabindex="0" aria-label="Gerise Wilson, Ready">
+      <img src="/headshots/thumbnails/advisor_15.png" class="ravatar" alt="Gerise Wilson" loading="lazy">
+      <span class="rname">Gerise Wilson</span>
+      <span class="rmeta">NMLS #2125467 · Boulder (Boulder County)</span>
+      <span class="rstatus complete"><span class="dot complete"></span>Ready</span>
+    </div>
+    <div class="row " data-id="16" role="button" tabindex="0" aria-label="Jeff Fenkell, Ready">
+      <img src="/headshots/thumbnails/advisor_16.png" class="ravatar" alt="Jeff Fenkell" loading="lazy">
+      <span class="rname">Jeff Fenkell</span>
+      <span class="rmeta">NMLS #1419136 · West Palm Beach (Palm Beach County)</span>
+      <span class="rstatus complete"><span class="dot complete"></span>Ready</span>
+    </div>
+    <div class="row " data-id="17" role="button" tabindex="0" aria-label="Tony Piccione, Ready">
+      <img src="/headshots/thumbnails/advisor_17.png" class="ravatar" alt="Tony Piccione" loading="lazy">
+      <span class="rname">Tony Piccione</span>
+      <span class="rmeta">NMLS #826808 · Naples (Collier County)</span>
+      <span class="rstatus complete"><span class="dot complete"></span>Ready</span>
+    </div>
+    <div class="row " data-id="18" role="button" tabindex="0" aria-label="Warren Potter, Ready">
+      <img src="/headshots/thumbnails/advisor_18.png" class="ravatar" alt="Warren Potter" loading="lazy">
+      <span class="rname">Warren Potter</span>
+      <span class="rmeta">NMLS #221747 · Gypsum (Eagle County)</span>
+      <span class="rstatus complete"><span class="dot complete"></span>Ready</span>
+    </div>
+    <div class="row " data-id="19" role="button" tabindex="0" aria-label="Michael Hakun, Ready">
+      <img src="/headshots/thumbnails/advisor_19.png" class="ravatar" alt="Michael Hakun" loading="lazy">
+      <span class="rname">Michael Hakun</span>
+      <span class="rmeta">NMLS #886450 · Seminole County</span>
+      <span class="rstatus complete"><span class="dot complete"></span>Ready</span>
+    </div>
+    <div class="row " data-id="20" role="button" tabindex="0" aria-label="Steve Fox, Ready">
+      <img src="/headshots/thumbnails/advisor_20.png" class="ravatar" alt="Steve Fox" loading="lazy">
+      <span class="rname">Steve Fox</span>
+      <span class="rmeta">NMLS #913411 · Guilford County (Greensboro)</span>
+      <span class="rstatus complete"><span class="dot complete"></span>Ready</span>
+    </div></div>
+    </aside>
+
+    <section aria-label="Advisor workspace">
+      <div class="ws" id="stagePanel">
+    <div class="id-header">
+      <div class="id-avatar-box" title="View in Headshot Studio" id="quickAvatarBtn">
+        <img src="/headshots/thumbnails/advisor_1.png" class="id-avatar-main" alt="Nick Campo">
+        <span class="id-avatar-tag">Studio HD</span>
+      </div>
+      <div class="id-header-info">
+        <div class="id-eyebrow"><span class="eyebrow">Chief Revenue Officer</span><span class="eyebrow" style="color:var(--faint)">·</span><span class="eyebrow">Finaya Home Loans</span></div>
+        <h2 class="id-name">Nick Campo</h2>
+        <div class="id-sub">Assigned: <b>Charleston, Goose Creek (Berkeley County)</b> (SC)</div>
+      </div>
+      <div class="id-header-actions">
+        <button class="btn-headshot-quick" id="btnGoHeadshot">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+          <span>Studio Portrait</span>
+        </button>
+      </div>
+    </div>
+    <div class="facts"><div class="fact"><span class="label">State</span><span class="val ">South Carolina</span></div><div class="fact"><span class="label">NMLS ID</span><span class="val mono">#2011753</span></div><div class="fact"><span class="label">OneCloud</span><span class="val mono">843-371-5755</span></div><div class="fact"><span class="label">Application</span><a class="val" href="https://finayahl.com/p/nicholasc" target="_blank" rel="noopener">finayahl.com/p/nicholasc</a></div></div>
+    
+    <div class="tabs" role="tablist"><button class="tab active" role="tab" aria-selected="true" data-tab="li">LinkedIn</button><button class="tab " role="tab" aria-selected="false" data-tab="scrub">LinkedIn Scrub</button><button class="tab " role="tab" aria-selected="false" data-tab="social">Facebook &amp; Instagram</button><button class="tab " role="tab" aria-selected="false" data-tab="sig">Email Signature</button><button class="tab " role="tab" aria-selected="false" data-tab="banner">Banner Generator</button><button class="tab " role="tab" aria-selected="false" data-tab="headshot">Studio Headshot</button></div>
+    <div class="pane active">
+      <div class="doc">
+    <div class="doc-head"><span class="t">LinkedIn headline</span><span class="hint">paste into the Headline field</span><button class="copy" data-copy="headline">Copy</button></div>
+    <div class="plain">Chief Revenue Officer at Finaya Home Loans | NMLS #2011753 | Serving Charleston, Goose Creek (Berkeley County), SC</div>
+  </div>
+      <div class="doc">
+      <div class="doc-head"><span class="t">About / bio</span><span class="hint">paste in full, disclosure included</span><button class="copy" data-copy="about">Copy</button></div>
+      <div class="doc-body"><p>Helping families and homebuyers across Charleston, Goose Creek (Berkeley County) navigate the home financing process with clarity and total confidence.</p><p>Whether this is a first home, a move to more space, or a refinance to reshape a monthly budget, I offer conventional, FHA, VA, jumbo, and refinancing solutions tailored to each client's financial timeline. My process is straightforward: listen first, explain every option in plain language, and build the loan around the life it needs to support.</p><p>Call or text me directly on my direct line at 843-371-5755, or start your pre-approval at finayahl.com/p/nicholasc. Serving Charleston, Goose Creek (Berkeley County), SC with one goal: a smooth, predictable path to the closing table.</p><p>NMLS #2011753 | Finaya Home Loans, Company NMLS #2470186</p><p class="legal">For informational purposes only. This is not a commitment to lend or extend credit. All loans are subject to credit approval. Finaya Home Loans. Equal Housing Lender. NMLS Consumer Access: www.nmlsconsumeraccess.org.</p></div>
+    </div>
+      <div class="doc">
+    <div class="doc-head"><span class="t">Experience</span><span class="hint">employer: Finaya Home Loans</span><button class="copy" data-copy="exp">Copy</button></div>
+    <div class="plain serif-plain">Chief Revenue Officer
+Finaya Home Loans | NMLS #2470186
+Oct 2026 - Present | SC
+
+• Originate and structure residential mortgage loans, including conventional, FHA, VA, and jumbo products, for homebuyers across Charleston, Goose Creek (Berkeley County).
+• Guide each client from first conversation to closing with clear communication, fast follow-up, and full transparency on rates, costs, and timelines.
+• Build lasting referral relationships with local real estate professionals by delivering a smooth, predictable lending experience for every client.</div>
+  </div>
+    </div></div>
+    </section>
+  </div>
+
+  <details class="corp" style="border-radius:0;border-left:none;border-right:none;border-bottom:none">
+    <summary>
+      <h3>Corporate LinkedIn page rebrand</h3>
+      <span class="label">Tagline · About · HQ · NBI cleanup</span>
+      <span class="corp-progress" id="corpProgress">0 of 5 done</span>
+      <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"></path></svg>
+    </summary>
+    <div class="corp-body" id="corpChecklist">
+    <label class="chk">
+      <input type="checkbox" data-corp="corp1">
+      <span class="ci"><div class="ct">Update page tagline</div><div class="cd">New tagline reflecting the Finaya Home Loans brand. No unapproved slogans until Naren confirms the official one.</div></span>
+    </label>
+    <label class="chk">
+      <input type="checkbox" data-corp="corp2">
+      <span class="ci"><div class="ct">Rewrite About section</div><div class="cd">Full company description with HQ address, company NMLS #2470186, Equal Housing Lender statement, NMLS Consumer Access link.</div></span>
+    </label>
+    <label class="chk">
+      <input type="checkbox" data-corp="corp3">
+      <span class="ci"><div class="ct">Confirm headquarters data</div><div class="cd">378 Technology Center Way, Suite 1002, Rock Hill, SC 29730, verified against the Google Business profile.</div></span>
+    </label>
+    <label class="chk">
+      <input type="checkbox" data-corp="corp4">
+      <span class="ci"><div class="ct">NBI post cleanup protocol</div><div class="cd">Review posts from the last 24 months. Archive or update anything referencing NBI or the old brokerage. Pin the rebrand announcement.</div></span>
+    </label>
+    <label class="chk">
+      <input type="checkbox" data-corp="corp5">
+      <span class="ci"><div class="ct">Banner and logo swap</div><div class="cd">Upload the new Finaya Home Loans logo and branded cover banner on the corporate page.</div></span>
+    </label></div>
+  </details>
+
+  <div class="shell-foot">
+    <span>Finaya Home Loans · Equal Housing Lender</span>
+    <span class="mono">Company NMLS #2470186</span>
+    <span>Internal tool · Tanim &amp; Nick Campo</span>
+    <span class="mono">Roster audited 2026-10-14</span>
+  </div>
+
+</div>
+
+<div id="toast"><span class="dot"></span><span id="toastMsg">Copied</span></div>
+
+<div id="modalOverlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="howtoTitle">
+    <div class="modal-head">
+      <div>
+        <h3 id="howtoTitle">Your profile, updated in 60 seconds</h3>
+        <p>Share this with every advisor. No passwords needed.</p>
+      </div>
+      <button class="modal-close" id="closeHowTo" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="step"><div class="step-num">01</div><div><h4>Open your LinkedIn profile and click Edit</h4><p>Profile page, then the pencil icon on the intro section.</p></div></div>5:[["children",{"s":"__PAGE__","h":512,"d":{"r":["$","$1","c",{"children":[[["$","div",null,{"className":"finaya-app","dangerouslySetInnerHTML":{"__html":"$6"}}],"$L7"],null,"$L8"]}],"p":false,"v":null}}]]
+0:{"P":null,"c":["",""],"q":"","i":false,"t":{"t":{"s":"","h":528,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1qcbo7p9g-q3s.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0umf92h1sb77c.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"_0bjUvq_variable F9WnGq_variable h-full","children":[["$","head",null,{"children":["$","script",null,{"src":"/dashboard.js","defer":true}]}],["$","body",null,{"className":"min-h-full","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],"p":false,"v":null},"c":"$Q5"},"h":{"r":["$","$1","h",{"children":[null,["$","$La",null,{"children":"$Lb"}],["$","$Ld",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$e",null,{"name":"Next.Metadata","children":"$Lf"}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":false,"v":null}},"m":"$undefined","G":["$10",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1qcbo7p9g-q3s.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"NsujULB-_EswTSrvfgIt9"}
+11:I[97367,["$2"],"OutletBoundary"]
+7:["$","script",null,{"src":"/dashboard.js"}]
+8:["$","$L11",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@12"}]}]
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#005F5A"}],["$","meta","3",{"name":"color-scheme","content":"light"}]]
+13:I[27201,["$2"],"IconMark"]
+f:[["$","title","0",{"children":"Finaya Home Loans | Advisor Scrub Operations"}],["$","meta","1",{"name":"description","content":"Internal advisor scrub operations dashboard for Finaya Home Loans."}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.117ezoe8m31dk.ico","sizes":"48x48","type":"image/x-icon"}],["$","link","3",{"rel":"icon","href":"/favicon.ico"}],["$","$L13","4",{}]]
+12:null
