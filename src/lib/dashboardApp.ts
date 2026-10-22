@@ -6,7 +6,11 @@
    import from a "use client" component (SSR-safe).
    ============================================================ */
 
+let _isDashboardInitialized = false;
 export function init(){
+  if (typeof window === "undefined") return;
+  if (_isDashboardInitialized) return;
+  _isDashboardInitialized = true;
 /* ============================================================
    FINAYA ADVISOR SCRUB OPERATIONS · application logic
    Data and copy generators unchanged from the audited build.
@@ -438,10 +442,10 @@ const HEADSHOT_MAP = {
 };
 function getHeadshotUrl(id, variant="clean"){
   const base = HEADSHOT_MAP[id] || "advisor_1_nick_campo";
-  return `headshots/studio/${base}_${variant}.png`;
+  return `/headshots/studio/${base}_${variant}.png`;
 }
 function getHeadshotThumb(id){
-  return `headshots/thumbnails/advisor_${id}.png`;
+  return `/headshots/thumbnails/advisor_${id}.png`;
 }
 const _advisorImgCache = {};
 function getAdvisorImg(id, cb){
@@ -854,7 +858,7 @@ function renderStage(){
             </a>
           </div>
           <div class="headshot-actions-box">
-            <a class="btn-download-bundle" href="headshots/Finaya_Advisor_Headshots_All20.zip" download="Finaya_Advisor_Headshots_All20.zip">
+            <a class="btn-download-bundle" href="/headshots/Finaya_Advisor_Headshots_All20.zip" download="Finaya_Advisor_Headshots_All20.zip">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               <span>Download All Headshots (ZIP Archive)</span>
             </a>
