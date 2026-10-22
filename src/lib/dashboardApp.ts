@@ -1,4 +1,5 @@
 // @ts-nocheck
+export //* @ts-nocheck
 /* ============================================================
    FINAYA ADVISOR SCRUB OPERATIONS · application logic
    Converted from standalone HTML build to a Next.js client module.
@@ -6,11 +7,7 @@
    import from a "use client" component (SSR-safe).
    ============================================================ */
 
-let _isDashboardInitialized = false;
-export function init(){
-  if (typeof window === "undefined") return;
-  if (_isDashboardInitialized) return;
-  _isDashboardInitialized = true;
+function init(){
 /* ============================================================
    FINAYA ADVISOR SCRUB OPERATIONS · application logic
    Data and copy generators unchanged from the audited build.
@@ -453,7 +450,7 @@ function getHeadshotThumb(id){
 }
 const _advisorImgCache = {};
 function getAdvisorImg(id, cb){
-  const url = getHeadshotUrl(id, "clean");
+  const url = getHeadshotDisplayUrl(id);
   if(_advisorImgCache[url]){
     cb(_advisorImgCache[url]);
     return;
@@ -827,7 +824,8 @@ function renderStage(){
       <div class="banner-meta" id="bannerMeta"></div>
     </div>`;
   } else if(activeTab==="headshot"){
-    const currentImgUrl = getHeadshotUrl(a.id, "clean");
+    const displayUrl = getHeadshotDisplayUrl(a.id);
+    const dlUrl = getHeadshotUrl(a.id, "clean");
     const dlFilename = `${HEADSHOT_MAP[a.id] || "advisor"}_high_res.png`;
     pane = `<div class="pane active">
       <div class="banner-controls">
@@ -840,7 +838,7 @@ function renderStage(){
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
             <span>Copy Portrait</span>
           </button>
-          <a class="btn-action btn-primary" id="dlHeadshotLink" href="${currentImgUrl}" download="${dlFilename}">
+          <a class="btn-action btn-primary" id="dlHeadshotLink" href="${dlUrl}" download="${dlFilename}">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v12M6 11l6 6 6-6M4 21h16"/></svg>
             <span>Download high-resolution image</span>
           </a>
@@ -849,14 +847,14 @@ function renderStage(){
 
       <div class="headshot-preview-container">
         <div class="headshot-card">
-          <img src="${currentImgUrl}" class="headshot-display-img" alt="${esc(a.name)} High-Resolution Photo">
+          <img src="${displayUrl}" class="headshot-display-img" alt="${esc(a.name)} High-Resolution Photo">
         </div>
         <div class="headshot-meta-card">
           <div class="eyebrow" style="margin-bottom:6px">FINAYA EXECUTIVE ADVISOR</div>
           <h3>${esc(a.name)}</h3>
           <p class="headshot-desc" style="margin-bottom:18px">${esc(a.title)} · NMLS #${a.nmls} · Assigned Market: ${mk(a)} (${a.state})</p>
           <div style="margin:20px 0 24px 0">
-            <a class="btn-action btn-primary" style="padding:12px 20px;font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:8px;text-decoration:none" href="${currentImgUrl}" download="${dlFilename}">
+            <a class="btn-action btn-primary" style="padding:12px 20px;font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:8px;text-decoration:none" href="${dlUrl}" download="${dlFilename}">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v12M6 11l6 6 6-6M4 21h16"/></svg>
               <span>Download high-resolution image</span>
             </a>
@@ -924,7 +922,7 @@ function renderStage(){
     b.onclick = ()=>{ headshotVariant = b.dataset.hstyle; renderStage(); };
   });
   const copyHs = $("#copyHeadshotBtn");
-  if(copyHs) copyHs.onclick = ()=>copyHeadshotToClipboard(getHeadshotUrl(a.id, headshotVariant));
+  if(copyHs) copyHs.onclick = ()=>copyHeadshotToClipboard(getHeadshotDisplayUrl(a.id));
 }
 
 /* ---------------- OFFICIAL FINAYA BRAND VECTOR LOGO ---------------- */
@@ -1779,3 +1777,177 @@ renderCorp();
   }
 })();
 }
+
+/* ---------------- ROBUST GLOBAL EVENT DELEGATION ---------------- */
+if (typeof document !== "undefined") {
+  document.addEventListener("click", function(e) {
+    const a = ADVISORS.find(x=>x.id===selectedId) || ADVISORS[0];
+
+    // 1. Tab click
+    const tab = e.target.closest(".tab[data-tab]");
+    if (tab) {
+      e.preventDefault();
+      activeTab = tab.dataset.tab;
+      renderTabs();
+      renderStage();
+      return;
+    }
+
+    // 2. Advisor row click
+    const row = e.target.closest(".row[data-id]");
+    if (row) {
+      e.preventDefault();
+      selectAdvisor(Number(row.dataset.id));
+      return;
+    }
+
+    // 3. Filter button click
+    const fbtn = e.target.closest(".fbtn[data-f]");
+    if (fbtn) {
+      e.preventDefault();
+      activeFilter = fbtn.dataset.f;
+      renderTabs();
+      renderRoster();
+      return;
+    }
+
+    // 4. Copy button click
+    const copyBtn = e.target.closest("[data-copy]");
+    if (copyBtn) {
+      e.preventDefault();
+      const id = copyBtn.dataset.copy;
+      const audit = LINKEDIN_AUDIT[a.id] || {};
+      const map = {
+        headline: linkedinHeadline,
+        about: linkedinAbout,
+        exp: experienceBlock,
+        sbio: socialBio,
+        slink: x=>x.link,
+        sdis: socialDisclosure,
+        sig: emailSignature,
+        curHeadline: ()=>audit.currentHeadline||""
+      };
+      if (map[id]) copyText(map[id](a), copyBtn);
+      return;
+    }
+
+    // 5. Banner preset click
+    const presetBtn = e.target.closest("[data-preset]");
+    if (presetBtn) {
+      e.preventDefault();
+      bannerPreset = presetBtn.dataset.preset;
+      renderStage();
+      return;
+    }
+
+    // 6. Banner style click
+    const styleBtn = e.target.closest("[data-style]");
+    if (styleBtn) {
+      e.preventDefault();
+      bannerStyle = styleBtn.dataset.style;
+      renderStage();
+      return;
+    }
+
+    // 7. Headshot variant style click
+    const hstyleBtn = e.target.closest("[data-hstyle]");
+    if (hstyleBtn) {
+      e.preventDefault();
+      headshotVariant = hstyleBtn.dataset.hstyle;
+      renderStage();
+      return;
+    }
+
+    // 8. Banner portrait toggle
+    if (e.target.closest("#togglePortrait")) {
+      e.preventDefault();
+      includePortrait = !includePortrait;
+      renderStage();
+      return;
+    }
+
+    // 9. Banner safe area toggle
+    if (e.target.closest("#toggleSafeAreas")) {
+      e.preventDefault();
+      showSafeArea = !showSafeArea;
+      renderStage();
+      return;
+    }
+
+    // 10. Banner copy button
+    if (e.target.closest("#copyBanner")) {
+      e.preventDefault();
+      copyBannerToClipboard();
+      return;
+    }
+
+    // 11. Banner download button
+    if (e.target.closest("#dlBanner")) {
+      e.preventDefault();
+      downloadBanner();
+      return;
+    }
+
+    // 12. Quick headshot button
+    if (e.target.closest("#btnGoHeadshot") || e.target.closest("#quickAvatarBtn")) {
+      e.preventDefault();
+      activeTab = "headshot";
+      renderTabs();
+      renderStage();
+      return;
+    }
+
+    // 13. Copy headshot button
+    if (e.target.closest("#copyHeadshotBtn")) {
+      e.preventDefault();
+      copyHeadshotToClipboard(getHeadshotDisplayUrl(a.id));
+      return;
+    }
+
+    // 14. How-to Modal open
+    if (e.target.closest("#openHowTo")) {
+      e.preventDefault();
+      document.getElementById("modalOverlay")?.classList.add("open");
+      return;
+    }
+
+    // 15. How-to Modal close
+    if (e.target.closest("#closeHowTo") || e.target.id === "modalOverlay") {
+      e.preventDefault();
+      document.getElementById("modalOverlay")?.classList.remove("open");
+      return;
+    }
+  });
+
+  document.addEventListener("input", function(e) {
+    if (e.target && e.target.id === "searchInput") {
+      searchTerm = e.target.value.trim().toLowerCase();
+      renderRoster();
+    }
+  });
+
+  document.addEventListener("change", function(e) {
+    if (e.target && e.target.dataset && e.target.dataset.corp) {
+      const cb = e.target;
+      const saved = JSON.parse(localStorage.getItem("finayaCorpChecklist") || "{}");
+      saved[cb.dataset.corp] = cb.checked;
+      localStorage.setItem("finayaCorpChecklist", JSON.stringify(saved));
+      const done = CORP_ITEMS.filter(i=>saved[i.id]).length;
+      const progEl = document.getElementById("corpProgress");
+      if (progEl) progEl.textContent = `${done} of ${CORP_ITEMS.length} done`;
+      toast(`Saved. ${done} of ${CORP_ITEMS.length} done`);
+    }
+  });
+}
+
+window.init = init;
+init();
+if (typeof document !== "undefined") {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  }
+  window.addEventListener("load", init);
+  setTimeout(init, 50);
+  setTimeout(init, 300);
+}
+

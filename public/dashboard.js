@@ -1776,4 +1776,177 @@ renderCorp();
   }
 })();
 }
-if(document.readyState!=="loading"){init()}else{document.addEventListener("DOMContentLoaded",init)}
+
+/* ---------------- ROBUST GLOBAL EVENT DELEGATION ---------------- */
+if (typeof document !== "undefined") {
+  document.addEventListener("click", function(e) {
+    const a = ADVISORS.find(x=>x.id===selectedId) || ADVISORS[0];
+
+    // 1. Tab click
+    const tab = e.target.closest(".tab[data-tab]");
+    if (tab) {
+      e.preventDefault();
+      activeTab = tab.dataset.tab;
+      renderTabs();
+      renderStage();
+      return;
+    }
+
+    // 2. Advisor row click
+    const row = e.target.closest(".row[data-id]");
+    if (row) {
+      e.preventDefault();
+      selectAdvisor(Number(row.dataset.id));
+      return;
+    }
+
+    // 3. Filter button click
+    const fbtn = e.target.closest(".fbtn[data-f]");
+    if (fbtn) {
+      e.preventDefault();
+      activeFilter = fbtn.dataset.f;
+      renderTabs();
+      renderRoster();
+      return;
+    }
+
+    // 4. Copy button click
+    const copyBtn = e.target.closest("[data-copy]");
+    if (copyBtn) {
+      e.preventDefault();
+      const id = copyBtn.dataset.copy;
+      const audit = LINKEDIN_AUDIT[a.id] || {};
+      const map = {
+        headline: linkedinHeadline,
+        about: linkedinAbout,
+        exp: experienceBlock,
+        sbio: socialBio,
+        slink: x=>x.link,
+        sdis: socialDisclosure,
+        sig: emailSignature,
+        curHeadline: ()=>audit.currentHeadline||""
+      };
+      if (map[id]) copyText(map[id](a), copyBtn);
+      return;
+    }
+
+    // 5. Banner preset click
+    const presetBtn = e.target.closest("[data-preset]");
+    if (presetBtn) {
+      e.preventDefault();
+      bannerPreset = presetBtn.dataset.preset;
+      renderStage();
+      return;
+    }
+
+    // 6. Banner style click
+    const styleBtn = e.target.closest("[data-style]");
+    if (styleBtn) {
+      e.preventDefault();
+      bannerStyle = styleBtn.dataset.style;
+      renderStage();
+      return;
+    }
+
+    // 7. Headshot variant style click
+    const hstyleBtn = e.target.closest("[data-hstyle]");
+    if (hstyleBtn) {
+      e.preventDefault();
+      headshotVariant = hstyleBtn.dataset.hstyle;
+      renderStage();
+      return;
+    }
+
+    // 8. Banner portrait toggle
+    if (e.target.closest("#togglePortrait")) {
+      e.preventDefault();
+      includePortrait = !includePortrait;
+      renderStage();
+      return;
+    }
+
+    // 9. Banner safe area toggle
+    if (e.target.closest("#toggleSafeAreas")) {
+      e.preventDefault();
+      showSafeArea = !showSafeArea;
+      renderStage();
+      return;
+    }
+
+    // 10. Banner copy button
+    if (e.target.closest("#copyBanner")) {
+      e.preventDefault();
+      copyBannerToClipboard();
+      return;
+    }
+
+    // 11. Banner download button
+    if (e.target.closest("#dlBanner")) {
+      e.preventDefault();
+      downloadBanner();
+      return;
+    }
+
+    // 12. Quick headshot button
+    if (e.target.closest("#btnGoHeadshot") || e.target.closest("#quickAvatarBtn")) {
+      e.preventDefault();
+      activeTab = "headshot";
+      renderTabs();
+      renderStage();
+      return;
+    }
+
+    // 13. Copy headshot button
+    if (e.target.closest("#copyHeadshotBtn")) {
+      e.preventDefault();
+      copyHeadshotToClipboard(getHeadshotDisplayUrl(a.id));
+      return;
+    }
+
+    // 14. How-to Modal open
+    if (e.target.closest("#openHowTo")) {
+      e.preventDefault();
+      document.getElementById("modalOverlay")?.classList.add("open");
+      return;
+    }
+
+    // 15. How-to Modal close
+    if (e.target.closest("#closeHowTo") || e.target.id === "modalOverlay") {
+      e.preventDefault();
+      document.getElementById("modalOverlay")?.classList.remove("open");
+      return;
+    }
+  });
+
+  document.addEventListener("input", function(e) {
+    if (e.target && e.target.id === "searchInput") {
+      searchTerm = e.target.value.trim().toLowerCase();
+      renderRoster();
+    }
+  });
+
+  document.addEventListener("change", function(e) {
+    if (e.target && e.target.dataset && e.target.dataset.corp) {
+      const cb = e.target;
+      const saved = JSON.parse(localStorage.getItem("finayaCorpChecklist") || "{}");
+      saved[cb.dataset.corp] = cb.checked;
+      localStorage.setItem("finayaCorpChecklist", JSON.stringify(saved));
+      const done = CORP_ITEMS.filter(i=>saved[i.id]).length;
+      const progEl = document.getElementById("corpProgress");
+      if (progEl) progEl.textContent = `${done} of ${CORP_ITEMS.length} done`;
+      toast(`Saved. ${done} of ${CORP_ITEMS.length} done`);
+    }
+  });
+}
+
+window.init = init;
+init();
+if (typeof document !== "undefined") {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  }
+  window.addEventListener("load", init);
+  setTimeout(init, 50);
+  setTimeout(init, 300);
+}
+

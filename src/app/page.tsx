@@ -2,6 +2,9 @@ const bodyHtml = "<div class=\"shell\">\n\n  <header class=\"topbar\">\n    <div
 
 export default function Page() {
   return (
-    <div className="finaya-app" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
+    <>
+      <div className="finaya-app" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
+      <script src="/dashboard.js" />
+    </>
   );
 }
