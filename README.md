@@ -1,4 +1,7 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Finaya Advisor Scrub Dashboard
+
+Internal advisor scrub operations dashboard for Finaya Home Loans.
+Auto-deploys to Vercel on every push to `main`.
 
 ## Getting Started
 

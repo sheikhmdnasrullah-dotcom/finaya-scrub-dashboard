@@ -36,6 +36,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} h-full`}>
+      <head>
+        <script src="/dashboard.js" defer />
+      </head>
       <body className="min-h-full">{children}</body>
     </html>
   );
