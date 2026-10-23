@@ -297,7 +297,6 @@ a.val:hover{text-decoration:underline}
   .fact{padding:11px 13px}
 }
 
-
 /* ---------- GOOGLE BUSINESS PROFILE (GBP) PANE ---------- */
 .gbp-hero{background:linear-gradient(135deg, rgba(0,95,90,0.06), rgba(0,150,137,0.12));border:1px solid rgba(0,150,137,0.25);border-radius:var(--r-md);padding:18px 22px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .gbp-hero-meta{flex:1;min-width:240px}
