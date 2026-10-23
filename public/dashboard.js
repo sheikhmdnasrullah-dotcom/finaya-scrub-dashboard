@@ -2,11 +2,8 @@
 /* ============================================================
    FINAYA ADVISOR SCRUB OPERATIONS · application logic
    Converted from standalone HTML build to a Next.js client module.
-   All DOM access is now scoped inside init() so it is safe to
-   import from a "use client" component (SSR-safe).
    ============================================================ */
 
-function init(){
 /* ============================================================
    FINAYA ADVISOR SCRUB OPERATIONS · application logic
    Data and copy generators unchanged from the audited build.
@@ -200,7 +197,8 @@ const ADVISORS = [
     ],
     "state": "GA",
     "phone": "720-715-7384",
-    "cell": "",
+    "cell": "509-990-1818",
+    "verificationAddress": "6911 N Argonaut Rd, Spokane, WA 99208",
     "email": "mark.glatzmaier@finayahl.com",
     "link": "finayahl.com/p/mglatzmaier",
     "linkedin": "linkedin.com/in/marksmortgage",
@@ -238,7 +236,8 @@ const ADVISORS = [
     ],
     "state": "FL",
     "phone": "720-776-0146",
-    "cell": "",
+    "cell": "206-228-2160",
+    "verificationAddress": "3881 W River Falls Drive, Post Falls, ID 83854",
     "email": "paul.grady@finayahl.com",
     "link": "finayahl.com/p/paulg",
     "linkedin": "linkedin.com/in/paul-grady-a848b231",
@@ -448,6 +447,7 @@ const ADVISORS = [
     "state": "CO",
     "phone": "424-305-5228",
     "cell": "608-449-9859",
+    "verificationAddress": "640 Vermilion Peak Dr, Windsor, CO 80550",
     "email": "jamie.repasky@finayahl.com",
     "link": "finayahl.com/p/jamier",
     "linkedin": "linkedin.com/in/james-repasky-cude-a1104292",
@@ -798,7 +798,8 @@ const GBP_DATA = {
     "desc": "Mark Glatzmaier II is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers and homeowners across Greater Atlanta, Fulton County, Cobb County (Marietta), and Forsyth County, Georgia. Offering comprehensive conventional, FHA, VA, jumbo, and refinance options designed around each client's financial timeline and wealth-building goals. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Mark Glatzmaier II NMLS #1085400. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
     "onHold": false,
     "email": "mark.glatzmaier@finayahl.com",
-    "cell": ""
+    "cell": "509-990-1818",
+    "verificationAddress": "6911 N Argonaut Rd, Spokane, WA 99208"
   },
   "10": {
     "bname": "Matthew Squires, Executive Mortgage Advisor - Finaya Home Loans",
@@ -842,7 +843,8 @@ const GBP_DATA = {
     "desc": "Paul Grady is an Executive Mortgage Advisor at Finaya Home Loans, guiding home buyers and real estate investors across Miami and Miami-Dade County, Florida. Specializing in conventional, jumbo, FHA, VA, and condo financing structured for South Florida's dynamic residential market. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Paul Grady NMLS #2502731. Visit www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
     "onHold": false,
     "email": "paul.grady@finayahl.com",
-    "cell": ""
+    "cell": "206-228-2160",
+    "verificationAddress": "3881 W River Falls Drive, Post Falls, ID 83854"
   },
   "12": {
     "bname": "Geneva Price, Executive Mortgage Advisor - Finaya Home Loans",
@@ -1065,7 +1067,8 @@ const GBP_DATA = {
     "website": "https://finayahl.com/p/jamier",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Jamie Repasky is Director of Mortgage Sales at Finaya Home Loans, leading sales origination and advising clients across Colorado, Georgia, and North Carolina. Offering conventional, FHA, VA, and residential mortgage financing with personalized guidance and dependable execution. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Jamie Repasky NMLS #1095360. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "verificationAddress": "640 Vermilion Peak Dr, Windsor, CO 80550"
   },
   "22": {
     "bname": "Kevin Fox, Director of Mortgage Sales - Finaya Home Loans",
@@ -1499,11 +1502,11 @@ const LINKEDIN_AUDIT = {
 
 const FILTERS = [
   {key:"all", label:"All",            test:a=>true},
-  {key:"SC",  label:"South Carolina", test:a=>a.state==="SC"},
-  {key:"NC",  label:"North Carolina", test:a=>a.state==="NC"},
-  {key:"FL",  label:"Florida",        test:a=>a.state==="FL"},
-  {key:"GA",  label:"Georgia",        test:a=>a.state==="GA"},
-  {key:"CO",  label:"Colorado",       test:a=>a.state==="CO"},
+  {key:"SC",  label:"South Carolina", test:a=>a.state==="SC" || (a.licensedStates && a.licensedStates.includes("SC"))},
+  {key:"NC",  label:"North Carolina", test:a=>a.state==="NC" || (a.licensedStates && a.licensedStates.includes("NC"))},
+  {key:"FL",  label:"Florida",        test:a=>a.state==="FL" || (a.licensedStates && a.licensedStates.includes("FL"))},
+  {key:"GA",  label:"Georgia",        test:a=>a.state==="GA" || (a.licensedStates && a.licensedStates.includes("GA"))},
+  {key:"CO",  label:"Colorado",       test:a=>a.state==="CO" || (a.licensedStates && a.licensedStates.includes("CO"))},
   {key:"PEN", label:"Pending",        test:a=>a.state==="Pending" || a.status==="waiting"}
 ];
 
@@ -1588,22 +1591,19 @@ const HEADSHOT_MAP = {
   17: "advisor_17_tony_piccione",
   18: "advisor_18_warren_potter",
   19: "advisor_19_michael_hakun",
-  20: "advisor_20_steve_fox"
+  20: "advisor_20_steve_fox",
+  21: "advisor_21_jamie_repasky"
 };
 function getHeadshotUrl(id, variant="clean"){
   const base = HEADSHOT_MAP[id] || "advisor_1_nick_campo";
   return `/headshots/studio/${base}_${variant}.png`;
 }
-function getHeadshotDisplayUrl(id){
-  return `/headshots/webp/advisor_${id}.webp`;
-}
 function getHeadshotThumb(id){
-  const base = (HEADSHOT_MAP[id] || "advisor_1_nick_campo").replace(/^advisor_/, "");
-  return `/headshots/webp_thumbs/${base}_thumb.webp`;
+  return `/headshots/thumbnails/advisor_${id}.png`;
 }
 const _advisorImgCache = {};
 function getAdvisorImg(id, cb){
-  const url = getHeadshotDisplayUrl(id);
+  const url = getHeadshotUrl(id, "clean");
   if(_advisorImgCache[url]){
     cb(_advisorImgCache[url]);
     return;
@@ -1956,6 +1956,14 @@ function renderGbpPane(a){
         <div class="gbp-card-body">
           <div class="gbp-val" style="color:var(--lock)">SELECT "NO" (Address Hidden)</div>
           <div style="font-size:11.5px;color:var(--muted);margin-top:6px">Home address is strictly private for verification; never displayed publicly</div>
+          ${g.verificationAddress ? `
+          <div style="margin-top:10px;padding:8px 10px;background:var(--paper);border:1px dashed var(--line-strong);border-radius:6px;font-size:12px">
+            <div style="font-size:10.5px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:2px">Google Backend Verification Address:</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span class="mono" style="font-weight:600;color:var(--ink)">${esc(g.verificationAddress)}</span>
+              <button class="copy-mini" data-copy-val="${esc(g.verificationAddress)}">Copy</button>
+            </div>
+          </div>` : ''}
         </div>
       </div>
 
@@ -2220,8 +2228,7 @@ function renderStage(){
       <div class="banner-meta" id="bannerMeta"></div>
     </div>`;
   } else if(activeTab==="headshot"){
-    const displayUrl = getHeadshotDisplayUrl(a.id);
-    const dlUrl = getHeadshotUrl(a.id, "clean");
+    const currentImgUrl = getHeadshotUrl(a.id, "clean");
     const dlFilename = `${HEADSHOT_MAP[a.id] || "advisor"}_high_res.png`;
     pane = `<div class="pane active">
       <div class="banner-controls">
@@ -2234,7 +2241,7 @@ function renderStage(){
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
             <span>Copy Portrait</span>
           </button>
-          <a class="btn-action btn-primary" id="dlHeadshotLink" href="${dlUrl}" download="${dlFilename}">
+          <a class="btn-action btn-primary" id="dlHeadshotLink" href="${currentImgUrl}" download="${dlFilename}">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v12M6 11l6 6 6-6M4 21h16"/></svg>
             <span>Download high-resolution image</span>
           </a>
@@ -2243,14 +2250,14 @@ function renderStage(){
 
       <div class="headshot-preview-container">
         <div class="headshot-card">
-          <img src="${displayUrl}" class="headshot-display-img" alt="${esc(a.name)} High-Resolution Photo">
+          <img src="${currentImgUrl}" class="headshot-display-img" alt="${esc(a.name)} High-Resolution Photo">
         </div>
         <div class="headshot-meta-card">
           <div class="eyebrow" style="margin-bottom:6px">FINAYA EXECUTIVE ADVISOR</div>
           <h3>${esc(a.name)}</h3>
           <p class="headshot-desc" style="margin-bottom:18px">${esc(a.title)} · NMLS #${a.nmls} · Assigned Market: ${mk(a)} (${a.state})</p>
           <div style="margin:20px 0 24px 0">
-            <a class="btn-action btn-primary" style="padding:12px 20px;font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:8px;text-decoration:none" href="${dlUrl}" download="${dlFilename}">
+            <a class="btn-action btn-primary" style="padding:12px 20px;font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:8px;text-decoration:none" href="${currentImgUrl}" download="${dlFilename}">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v12M6 11l6 6 6-6M4 21h16"/></svg>
               <span>Download high-resolution image</span>
             </a>
@@ -2290,6 +2297,12 @@ function renderStage(){
     ${pane}`;
 
   document.querySelectorAll(".tab").forEach(b=>{ b.onclick = ()=>{ activeTab = b.dataset.tab; renderStage(); }; });
+  document.querySelectorAll("[data-copy-val]").forEach(b=>{
+    b.onclick = (e)=>{
+      e.stopPropagation();
+      copyText(b.dataset.copyVal, b);
+    };
+  });
   document.querySelectorAll("[data-copy]").forEach(b=>{
     b.onclick = ()=>{
       const id = b.dataset.copy;
@@ -2331,7 +2344,7 @@ function renderStage(){
     b.onclick = ()=>{ headshotVariant = b.dataset.hstyle; renderStage(); };
   });
   const copyHs = $("#copyHeadshotBtn");
-  if(copyHs) copyHs.onclick = ()=>copyHeadshotToClipboard(getHeadshotDisplayUrl(a.id));
+  if(copyHs) copyHs.onclick = ()=>copyHeadshotToClipboard(getHeadshotUrl(a.id, headshotVariant));
 }
 
 /* ---------------- OFFICIAL FINAYA BRAND VECTOR LOGO ---------------- */
@@ -3185,166 +3198,14 @@ renderCorp();
     renderStage();
   }
 })();
-}
 
 /* ---------------- ROBUST GLOBAL EVENT DELEGATION ---------------- */
 if (typeof document !== "undefined") {
   document.addEventListener("click", function(e) {
-    const a = ADVISORS.find(x=>x.id===selectedId) || ADVISORS[0];
-
-    // 1. Tab click
-    const tab = e.target.closest(".tab[data-tab]");
-    if (tab) {
-      e.preventDefault();
-      activeTab = tab.dataset.tab;
-      renderTabs();
-      renderStage();
-      return;
-    }
-
-    // 2. Advisor row click
-    const row = e.target.closest(".row[data-id]");
-    if (row) {
-      e.preventDefault();
-      selectAdvisor(Number(row.dataset.id));
-      return;
-    }
-
-    // 3. Filter button click
-    const fbtn = e.target.closest(".fbtn[data-f]");
-    if (fbtn) {
-      e.preventDefault();
-      activeFilter = fbtn.dataset.f;
-      renderTabs();
-      renderRoster();
-      return;
-    }
-
-    // 4. Copy button click
-    const copyBtn = e.target.closest("[data-copy]");
-    if (copyBtn) {
-      e.preventDefault();
-      const id = copyBtn.dataset.copy;
-      const audit = LINKEDIN_AUDIT[a.id] || {};
-      const map = {
-        headline: linkedinHeadline,
-        about: linkedinAbout,
-        exp: experienceBlock,
-        sbio: socialBio,
-        slink: x=>x.link,
-        sdis: socialDisclosure,
-        sig: emailSignature,
-        curHeadline: ()=>audit.currentHeadline||""
-      };
-      if (map[id]) copyText(map[id](a), copyBtn);
-      return;
-    }
-
-    // 5. Banner preset click
-    const presetBtn = e.target.closest("[data-preset]");
-    if (presetBtn) {
-      e.preventDefault();
-      bannerPreset = presetBtn.dataset.preset;
-      renderStage();
-      return;
-    }
-
-    // 6. Banner style click
-    const styleBtn = e.target.closest("[data-style]");
-    if (styleBtn) {
-      e.preventDefault();
-      bannerStyle = styleBtn.dataset.style;
-      renderStage();
-      return;
-    }
-
-    // 7. Headshot variant style click
-    const hstyleBtn = e.target.closest("[data-hstyle]");
-    if (hstyleBtn) {
-      e.preventDefault();
-      headshotVariant = hstyleBtn.dataset.hstyle;
-      renderStage();
-      return;
-    }
-
-    // 8. Banner portrait toggle
-    if (e.target.closest("#togglePortrait")) {
-      e.preventDefault();
-      includePortrait = !includePortrait;
-      renderStage();
-      return;
-    }
-
-    // 9. Banner safe area toggle
-    if (e.target.closest("#toggleSafeAreas")) {
-      e.preventDefault();
-      showSafeArea = !showSafeArea;
-      renderStage();
-      return;
-    }
-
-    // 10. Banner copy button
-    if (e.target.closest("#copyBanner")) {
-      e.preventDefault();
-      copyBannerToClipboard();
-      return;
-    }
-
-    // 11. Banner download button
-    if (e.target.closest("#dlBanner")) {
-      e.preventDefault();
-      downloadBanner();
-      return;
-    }
-
-    // 12. Quick headshot button
-    if (e.target.closest("#btnGoHeadshot") || e.target.closest("#quickAvatarBtn")) {
-      e.preventDefault();
-      activeTab = "headshot";
-      renderTabs();
-      renderStage();
-      return;
-    }
-
-    // 13. Copy headshot button
-    if (e.target.closest("#copyHeadshotBtn")) {
-      e.preventDefault();
-      copyHeadshotToClipboard(getHeadshotDisplayUrl(a.id));
-      return;
-    }
-
-    // 14. How-to Modal open
-    if (e.target.closest("#openHowTo")) {
-      e.preventDefault();
-      document.getElementById("modalOverlay")?.classList.add("open");
-      return;
-    }
-
-    // 15. How-to Modal close
-    if (e.target.closest("#closeHowTo") || e.target.id === "modalOverlay") {
-      e.preventDefault();
-      document.getElementById("modalOverlay")?.classList.remove("open");
-      return;
-    }
-  });
-
-  document.addEventListener("input", function(e) {
-    if (e.target && e.target.id === "searchInput") {
-      searchTerm = e.target.value.trim().toLowerCase();
-      renderRoster();
-    }
-  });
-
-  document.addEventListener("change", function(e) {
-    if (e.target && e.target.dataset && e.target.dataset.corp) {
-      const cb = e.target;
-      const saved = JSON.parse(localStorage.getItem("finayaCorpChecklist") || "{}");
-      saved[cb.dataset.corp] = cb.checked;
-      localStorage.setItem("finayaCorpChecklist", JSON.stringify(saved));
-      const done = CORP_ITEMS.filter(i=>saved[i.id]).length;
-      const progEl = document.getElementById("corpProgress");
-      if (progEl) progEl.textContent = `${done} of ${CORP_ITEMS.length} done`;
-      toast(`Saved. ${done} of ${CORP_ITEMS.length} done`);
+    const btn = e.target.closest("[data-copy-val]");
+    if (btn) {
+      e.stopPropagation();
+      copyText(btn.dataset.copyVal, btn);
     }
   });
 }
@@ -3359,4 +3220,3 @@ if (typeof document !== "undefined") {
   setTimeout(init, 50);
   setTimeout(init, 300);
 }
-
