@@ -20,26 +20,567 @@ const COMPANY = {
 };
 
 const ADVISORS = [
-  {id:1,  name:"Nick Campo",            title:"Chief Revenue Officer",        nmls:"2011753",  markets:["Charleston","Goose Creek (Berkeley County)"],                    state:"SC", phone:"843-371-5755",   link:"finayahl.com/p/nicholasc",   linkedin:"linkedin.com/in/nicholas-campo-sr-90230686", facebook:"facebook.com/nick.campo.37017", instagram:"", status:"complete"},
-  {id:2,  name:"Alan Sacks",            title:"Executive Mortgage Advisor",   nmls:"159915",   markets:["Indian Trail (Union County)","Mooresville (Iredell County)","Raleigh (Wake County)"], state:"NC", phone:"704-733-8700", link:"finayahl.com/p/alans",       linkedin:"linkedin.com/in/alan-sacks-92b20313", facebook:"facebook.com/mortgagewithalan", instagram:"", status:"complete"},
-  {id:3,  name:"John Birke",            title:"Executive Mortgage Advisor",   nmls:"1150795",  markets:["Rock Hill (York County)","Greenville","Easley (Oconee & Pickens Counties)","Hilton Head Island (Beaufort County)"], state:"SC", phone:"479-445-5062", link:"finayahl.com/p/johnb", linkedin:"linkedin.com/in/johnbirke", facebook:"", instagram:"", status:"complete"},
-  {id:4,  name:"Ben Singleton",         title:"Executive Mortgage Advisor",   nmls:"2341198",  markets:["Myrtle Beach (Horry County)"],                                   state:"SC", phone:"803-262-2641",   link:"finayahl.com/p/bens",        linkedin:"linkedin.com/in/benjamin-singleton-57319a161", facebook:"facebook.com/ben.singleton.50", instagram:"", status:"complete"},
-  {id:5,  name:"Christina Yudzitski",   title:"Executive Mortgage Advisor",   nmls:"2663819",  markets:["Pinehurst (Moore County)","Durham & Orange County","Raleigh (Wake County)"], state:"NC", phone:"704-849-9210", link:"finayahl.com/p/christinay",  linkedin:"linkedin.com/in/christinayudzitski", facebook:"facebook.com/cbelov", instagram:"@homeloansxchristina", status:"complete"},
-  {id:6,  name:"Raymond M Pinkston",    title:"Executive Mortgage Advisor",   nmls:"2823400",  markets:["Charlotte (Mecklenburg County)","Boone (Watauga & Avery Counties)"], state:"NC", phone:"704-751-5278", link:"finayahl.com/p/rpinkston",   linkedin:"linkedin.com/in/raymond-pinkston-9113483b", facebook:"facebook.com/raymondmpinkston", instagram:"", status:"complete"},
-  {id:7,  name:"Khesey Silva",          title:"Executive Mortgage Advisor",   nmls:"2358323",  markets:["St. Augustine (St. Johns & Nassau Counties)","Crestview (Walton & Okaloosa Counties)"], state:"FL", phone:"720-715-7524", link:"finayahl.com/p/kheseys", linkedin:"linkedin.com/in/kheseypich", facebook:"facebook.com/KheseySilva", instagram:"@kheseysilva_nmls2358323", status:"complete"},
-  {id:8,  name:"Andrew Simmons",        title:"Executive Mortgage Advisor",   nmls:"1679914",  markets:["Wilmington (New Hanover County)","Leland (Brunswick County)","Asheville (Buncombe County)","Franklin","Kill Devil Hills"], state:"NC", phone:"404-480-8630", link:"finayahl.com/p/andrews", linkedin:"linkedin.com/in/andrew-simmons-289379141", facebook:"", instagram:"", status:"waiting", note:"Headshot pending from JB Frye."},
-  {id:9,  name:"Mark Glatzmaier II",    title:"Executive Mortgage Advisor",   nmls:"1085400",  markets:["Atlanta (Fulton County)","Marietta (Cobb & Forsyth Counties)"], state:"GA", phone:"720-715-7384", link:"finayahl.com/p/mglatzmaier", linkedin:"linkedin.com/in/marksmortgage", facebook:"facebook.com/MarksMortgage", instagram:"", status:"complete"},
-  {id:10, name:"Matthew Squires",       title:"Executive Mortgage Advisor",   nmls:"1029875",  markets:["Tampa (Hillsborough & Pinellas Counties)"],                      state:"FL", phone:"864-375-4640",   link:"finayahl.com/p/matthews",    linkedin:"linkedin.com/in/mattsquires11", facebook:"facebook.com/matt.squires.79", instagram:"@matt._squires_", status:"complete"},
-  {id:11, name:"Paul Grady",            title:"Executive Mortgage Advisor",   nmls:"2502731",  markets:["Miami (Miami-Dade County)"],                                     state:"FL", phone:"720-776-0146",   link:"finayahl.com/p/paulg",       linkedin:"linkedin.com/in/paul-grady-a848b231", facebook:"", instagram:"", status:"complete"},
-  {id:12, name:"Geneva Lynne Price",    title:"Executive Mortgage Advisor",   nmls:"247066",   markets:["North Port (Sarasota & Manatee Counties)","Fort Lauderdale (Broward County)"], state:"FL", phone:"843-605-9744", link:"finayahl.com/p/genevap", linkedin:"linkedin.com/in/geneva-price-mortgage", facebook:"", instagram:"", status:"complete"},
-  {id:13, name:"Cleo Lewis",            title:"Executive Mortgage Advisor",   nmls:"1451574",  markets:["Denver (Denver County)"],                                        state:"CO", phone:"720-770-1530",   link:"finayahl.com/p/cleol",       linkedin:"linkedin.com/in/cleo-lewis-837aba85", facebook:"facebook.com/cleo.lewis.775", instagram:"", status:"waiting", note:"Headshot pending from JB Frye."},
-  {id:14, name:"Brandon Metoyer",       title:"Executive Mortgage Advisor",   nmls:"2055356",  markets:["Aurora (Arapahoe County)","Lakewood (Jefferson County)","Castle Rock (Douglas County)"], state:"CO", phone:"Pending", link:"finayahl.com/p/brandonm", linkedin:"linkedin.com/in/brandon-metoyer-51276a59", facebook:"facebook.com/TheFaceOfDualLicensing", instagram:"", status:"waiting", note:"On hold per Nick Campo: Part-time, OneCloud phone pending. Do not launch until approved."},
-  {id:15, name:"Gerise Wilson",         title:"Executive Mortgage Advisor",   nmls:"2125467",  markets:["Boulder (Boulder County)","Colorado Springs (El Paso County)"],  state:"CO", phone:"720-394-5849",   link:"finayahl.com/p/gerisew",     linkedin:"linkedin.com/in/ashley-gerise", facebook:"facebook.com/ashley.brannon.90", instagram:"", status:"complete"},
-  {id:16, name:"Jeff Fenkell",          title:"Executive Mortgage Advisor",   nmls:"1419136",  markets:["West Palm Beach (Palm Beach County)","Stuart (Martin County)"], state:"FL", phone:"704-303-8670", link:"finayahl.com/p/jefff", linkedin:"linkedin.com/in/jfenkell", facebook:"facebook.com/jafenkell", instagram:"@jaf192304", status:"complete"},
-  {id:17, name:"Tony Piccione",         title:"Executive Mortgage Advisor",   nmls:"826808",   markets:["Naples (Collier County)","Orlando (Orange County)"],             state:"FL", phone:"803-526-7193",   link:"finayahl.com/p/tonyp",       linkedin:"linkedin.com/in/anthony-piccione-17b0ab110", facebook:"", instagram:"", status:"complete"},
-  {id:18, name:"Warren Potter",         title:"Executive Mortgage Advisor",   nmls:"221747",   markets:["Gypsum (Eagle County)","Telluride (San Miguel County)","Breckenridge (Summit County)"], state:"CO", phone:"720-739-5730", link:"finayahl.com/p/warrenp", linkedin:"", facebook:"facebook.com/cwarrenpotter", instagram:"", status:"complete"},
-  {id:19, name:"Michael Hakun",         title:"Executive Mortgage Advisor",   nmls:"886450",   markets:["Seminole County","Volusia County","Brevard County","Pasco County"], state:"FL", phone:"803-526-7190", link:"finayahl.com/p/mikeh", linkedin:"linkedin.com/in/michael-hakun-5516aa31", facebook:"facebook.com/mike.hakun", instagram:"", status:"complete", note:"Territories assigned: Seminole, Volusia, Brevard, Pasco (FL)."},
-  {id:20, name:"Steve Fox",             title:"Executive Mortgage Advisor",   nmls:"913411",   markets:["Guilford County (Greensboro)","Winston-Salem (Forsyth County)"], state:"NC", phone:"336-265-7341", link:"finayahl.com/p/stevef", linkedin:"linkedin.com/in/steven-fox-9bba7a60", facebook:"facebook.com/steve.fox.9655", instagram:"", status:"complete", note:"NMLS #913411 verified by Nick Campo. Territories: Guilford, Winston-Salem, Forsyth (NC)."}
+  {
+    "id": 1,
+    "name": "Nick Campo",
+    "title": "Chief Revenue Officer",
+    "nmls": "2011753",
+    "licensedStates": "CO, FL, GA, LA, NC, SC (DCA)",
+    "markets": [
+      "Charleston",
+      "Goose Creek (Berkeley County)"
+    ],
+    "state": "SC",
+    "phone": "843-371-5755",
+    "cell": "980-263-7274",
+    "email": "nick.campo@finayahl.com",
+    "link": "finayahl.com/p/nicholasc",
+    "linkedin": "linkedin.com/in/nicholas-campo-sr-90230686",
+    "facebook": "facebook.com/nick.campo.37017",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 2,
+    "name": "Alan Sacks",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "159915",
+    "licensedStates": "NC, SC (DCA)",
+    "markets": [
+      "Indian Trail (Union County)",
+      "Mooresville (Iredell County)",
+      "Raleigh (Wake County)"
+    ],
+    "state": "NC",
+    "phone": "704-733-8700",
+    "cell": "",
+    "email": "alan.sacks@finayahl.com",
+    "link": "finayahl.com/p/alans",
+    "linkedin": "linkedin.com/in/alan-sacks-92b20313",
+    "facebook": "facebook.com/mortgagewithalan",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 3,
+    "name": "John Birke",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "1150795",
+    "licensedStates": "NC, SC (DCA)",
+    "markets": [
+      "Rock Hill (York County)",
+      "Greenville",
+      "Easley (Oconee & Pickens Counties)",
+      "Hilton Head Island (Beaufort County)"
+    ],
+    "state": "SC",
+    "phone": "479-445-5062",
+    "cell": "",
+    "email": "john.birke@finayahl.com",
+    "link": "finayahl.com/p/johnb",
+    "linkedin": "linkedin.com/in/johnbmortgage",
+    "facebook": "facebook.com/john.birke",
+    "instagram": "@johnbmortgage",
+    "tiktok": "@johnbmortgage",
+    "status": "complete"
+  },
+  {
+    "id": 4,
+    "name": "Ben Singleton",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "2341198",
+    "licensedStates": "CO, NC, SC (DCA)",
+    "markets": [
+      "Myrtle Beach (Horry County)"
+    ],
+    "state": "SC",
+    "phone": "803-262-2641",
+    "cell": "980-402-2866",
+    "email": "ben.singleton@finayahl.com",
+    "link": "finayahl.com/p/bens",
+    "linkedin": "linkedin.com/in/benjamin-singleton-57319a161",
+    "facebook": "facebook.com/ben.singleton.50",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 5,
+    "name": "Christina Yudzitski",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "2663819",
+    "licensedStates": "NC, SC (BFI), SC (DCA)",
+    "markets": [
+      "Pinehurst (Moore County)",
+      "Durham & Orange County",
+      "Raleigh (Wake County)"
+    ],
+    "state": "NC",
+    "phone": "401-207-1464",
+    "cell": "",
+    "email": "christina.yudzitski@finayahl.com",
+    "link": "finayahl.com/p/christinay",
+    "linkedin": "linkedin.com/in/christinayudzitski",
+    "facebook": "facebook.com/cbelov",
+    "instagram": "@homeloansxchristina",
+    "status": "complete"
+  },
+  {
+    "id": 6,
+    "name": "Raymond M Pinkston",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "2823400",
+    "licensedStates": "NC",
+    "markets": [
+      "Charlotte (Mecklenburg County)",
+      "Boone (Watauga & Avery Counties)"
+    ],
+    "state": "NC",
+    "phone": "704-728-7798",
+    "cell": "",
+    "email": "ray.pinkston@finayahl.com",
+    "link": "finayahl.com/p/rpinkston",
+    "linkedin": "linkedin.com/in/raymond-pinkston-9113483b",
+    "facebook": "facebook.com/raymondmpinkston",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 7,
+    "name": "Khesey Silva",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "2358323",
+    "licensedStates": "CO, FL, GA, NC, NJ, SC (DCA)",
+    "markets": [
+      "St. Augustine (St. Johns & Nassau Counties)",
+      "Crestview (Walton & Okaloosa Counties)"
+    ],
+    "state": "FL",
+    "phone": "720-715-7524",
+    "cell": "",
+    "email": "khesey.silva@finayahl.com",
+    "link": "finayahl.com/p/kheseys",
+    "linkedin": "linkedin.com/in/kheseypich",
+    "facebook": "facebook.com/KheseySilva",
+    "instagram": "@kheseysilva_nmls2358323",
+    "status": "complete"
+  },
+  {
+    "id": 8,
+    "name": "Andrew Simmons",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "1679914",
+    "licensedStates": "CO, FL, GA, NC",
+    "markets": [
+      "Wilmington (New Hanover County)",
+      "Leland (Brunswick County)",
+      "Asheville (Buncombe County)",
+      "Franklin",
+      "Kill Devil Hills"
+    ],
+    "state": "NC",
+    "phone": "404-480-8630",
+    "cell": "",
+    "email": "andrew.simmons@finayahl.com",
+    "link": "finayahl.com/p/andrews",
+    "linkedin": "linkedin.com/in/andrew-simmons-289379141",
+    "facebook": "",
+    "instagram": "",
+    "status": "waiting",
+    "note": "Headshot pending from JB Frye."
+  },
+  {
+    "id": 9,
+    "name": "Mark Glatzmaier II",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "1085400",
+    "licensedStates": "FL, GA, SC (DCA)",
+    "markets": [
+      "Atlanta (Fulton County)",
+      "Marietta (Cobb & Forsyth Counties)"
+    ],
+    "state": "GA",
+    "phone": "720-715-7384",
+    "cell": "",
+    "email": "mark.glatzmaier@finayahl.com",
+    "link": "finayahl.com/p/mglatzmaier",
+    "linkedin": "linkedin.com/in/marksmortgage",
+    "facebook": "facebook.com/MarksMortgage",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 10,
+    "name": "Matthew Squires",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "1029875",
+    "licensedStates": "CO, FL, GA, KY, NC, NE, SC (BFI), UT (DRE)",
+    "markets": [
+      "Tampa (Hillsborough & Pinellas Counties)"
+    ],
+    "state": "FL",
+    "phone": "864-375-4640",
+    "cell": "",
+    "email": "matthew.squires@finayahl.com",
+    "link": "finayahl.com/p/matthews",
+    "linkedin": "linkedin.com/in/mattsquires11",
+    "facebook": "facebook.com/matt.squires.79",
+    "instagram": "@matt._squires_",
+    "status": "complete"
+  },
+  {
+    "id": 11,
+    "name": "Paul Grady",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "2502731",
+    "licensedStates": "FL, NC",
+    "markets": [
+      "Miami (Miami-Dade County)"
+    ],
+    "state": "FL",
+    "phone": "720-776-0146",
+    "cell": "",
+    "email": "paul.grady@finayahl.com",
+    "link": "finayahl.com/p/paulg",
+    "linkedin": "linkedin.com/in/paul-grady-a848b231",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 12,
+    "name": "Geneva Lynne Price",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "247066",
+    "licensedStates": "FL, GA, ME, UT (DRE)",
+    "markets": [
+      "North Port (Sarasota & Manatee Counties)",
+      "Fort Lauderdale (Broward County)"
+    ],
+    "state": "FL",
+    "phone": "843-605-9744",
+    "cell": "",
+    "email": "geneva.price@finayahl.com",
+    "link": "finayahl.com/p/genevap",
+    "linkedin": "linkedin.com/in/geneva-price-mortgage",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 13,
+    "name": "Cleo Lewis",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "1451574",
+    "licensedStates": "CO",
+    "markets": [
+      "Denver (Denver County)"
+    ],
+    "state": "CO",
+    "phone": "720-770-1530",
+    "cell": "",
+    "email": "cleo.lewis@finayahl.com",
+    "link": "finayahl.com/p/cleol",
+    "linkedin": "linkedin.com/in/cleo-lewis-837aba85",
+    "facebook": "facebook.com/cleo.lewis.775",
+    "instagram": "",
+    "status": "waiting",
+    "note": "Headshot pending from JB Frye."
+  },
+  {
+    "id": 14,
+    "name": "Brandon Metoyer",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "2055356",
+    "licensedStates": "CO",
+    "markets": [
+      "Aurora (Arapahoe County)",
+      "Lakewood (Jefferson County)",
+      "Castle Rock (Douglas County)"
+    ],
+    "state": "CO",
+    "phone": "Pending",
+    "cell": "",
+    "email": "brandon.metoyer@finayahl.com",
+    "link": "finayahl.com/p/brandonm",
+    "linkedin": "linkedin.com/in/brandon-metoyer-51276a59",
+    "facebook": "facebook.com/TheFaceOfDualLicensing",
+    "instagram": "",
+    "status": "waiting",
+    "note": "On hold per Nick Campo: Part-time, OneCloud phone pending. Do not launch until approved."
+  },
+  {
+    "id": 15,
+    "name": "Gerise Wilson",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "2125467",
+    "licensedStates": "CO",
+    "markets": [
+      "Boulder (Boulder County)",
+      "Colorado Springs (El Paso County)"
+    ],
+    "state": "CO",
+    "phone": "720-394-5849",
+    "cell": "720-394-5849",
+    "email": "gerise.wilson@finayahl.com",
+    "link": "finayahl.com/p/gerisew",
+    "linkedin": "linkedin.com/in/ashley-gerise",
+    "facebook": "facebook.com/ashley.brannon.90",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 16,
+    "name": "Jeff Fenkell",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "1419136",
+    "licensedStates": "AZ, CO, FL, GA, RI, UT (DRE)",
+    "markets": [
+      "West Palm Beach (Palm Beach County)",
+      "Stuart (Martin County)"
+    ],
+    "state": "FL",
+    "phone": "704-303-8670",
+    "cell": "",
+    "email": "jeff.fenkell@finayahl.com",
+    "link": "finayahl.com/p/jefff",
+    "linkedin": "linkedin.com/in/jfenkell",
+    "facebook": "facebook.com/jafenkell",
+    "instagram": "@jaf192304",
+    "status": "complete"
+  },
+  {
+    "id": 17,
+    "name": "Tony Piccione",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "826808",
+    "licensedStates": "CO, FL, GA, ME",
+    "markets": [
+      "Naples (Collier County)",
+      "Orlando (Orange County)"
+    ],
+    "state": "FL",
+    "phone": "803-526-7193",
+    "cell": "",
+    "email": "tony.piccione@finayahl.com",
+    "link": "finayahl.com/p/tonyp",
+    "linkedin": "linkedin.com/in/anthony-piccione-17b0ab110",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 18,
+    "name": "Warren Potter",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "221747",
+    "licensedStates": "CO",
+    "markets": [
+      "Gypsum (Eagle County)",
+      "Telluride (San Miguel County)",
+      "Breckenridge (Summit County)"
+    ],
+    "state": "CO",
+    "phone": "720-739-5730",
+    "cell": "",
+    "email": "warren.potter@finayahl.com",
+    "link": "finayahl.com/p/warrenp",
+    "linkedin": "",
+    "facebook": "facebook.com/cwarrenpotter",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 19,
+    "name": "Michael Hakun",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "886450",
+    "licensedStates": "None active",
+    "markets": [
+      "Seminole County",
+      "Volusia County",
+      "Brevard County",
+      "Pasco County"
+    ],
+    "state": "FL",
+    "phone": "803-526-7190",
+    "cell": "",
+    "email": "mike.hakun@finayahl.com",
+    "link": "finayahl.com/p/mikeh",
+    "linkedin": "linkedin.com/in/michael-hakun-5516aa31",
+    "facebook": "facebook.com/share/1JEnUQbEJ7",
+    "instagram": "",
+    "status": "complete",
+    "note": "Territories assigned: Seminole, Volusia, Brevard, Pasco (FL)."
+  },
+  {
+    "id": 20,
+    "name": "Steve Fox",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "913411",
+    "licensedStates": "GA, NC",
+    "markets": [
+      "Guilford County (Greensboro)",
+      "Winston-Salem (Forsyth County)"
+    ],
+    "state": "NC",
+    "phone": "336-265-7341",
+    "cell": "",
+    "email": "steve.fox@finayahl.com",
+    "link": "finayahl.com/p/stevef",
+    "linkedin": "linkedin.com/in/steven-fox-9bba7a60",
+    "facebook": "facebook.com/steve.fox.9655",
+    "instagram": "",
+    "status": "complete",
+    "note": "NMLS #913411 verified by Nick Campo. Territories: Guilford, Winston-Salem, Forsyth (NC)."
+  },
+  {
+    "id": 21,
+    "name": "Jamie Repasky",
+    "title": "Director of Mortgage Sales",
+    "nmls": "1095360",
+    "licensedStates": "CO, GA, NC",
+    "markets": [
+      "National Team Lead",
+      "Denver, CO",
+      "Atlanta, GA",
+      "Charlotte, NC"
+    ],
+    "state": "CO",
+    "phone": "424-305-5228",
+    "cell": "608-449-9859",
+    "email": "jamie.repasky@finayahl.com",
+    "link": "finayahl.com/p/jamier",
+    "linkedin": "linkedin.com/in/james-repasky-cude-a1104292",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 22,
+    "name": "Kevin Fox",
+    "title": "Director of Mortgage Sales",
+    "nmls": "775402",
+    "licensedStates": "CO, FL, KY, MI, MO, OH, PA, TN, TX (SML)",
+    "markets": [
+      "National Team Lead",
+      "Rock Hill HQ",
+      "Charlotte, NC",
+      "Tampa, FL"
+    ],
+    "state": "SC",
+    "phone": "704-751-5278",
+    "cell": "810-449-3558",
+    "email": "kevin.fox@finayahl.com",
+    "link": "finayahl.com/p/kevinf",
+    "linkedin": "linkedin.com/in/kevin-fox-ba98b250",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 23,
+    "name": "Brian Banks",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "2037092",
+    "licensedStates": "AR, AZ, CA (DFPI), FL, GA, HI, IA, KS, LA, NC, NH, NM, NV, TX (SML), WA",
+    "markets": [
+      "Palm Beach (West Palm Beach)",
+      "Duval (Jacksonville)"
+    ],
+    "state": "FL",
+    "phone": "704-849-9210",
+    "cell": "678-897-3045",
+    "email": "brian.banks@finayahl.com",
+    "link": "finayahl.com/p/brianb",
+    "linkedin": "linkedin.com/in/banks1127",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 24,
+    "name": "Scott Cleaver",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "963074",
+    "licensedStates": "FL, GA",
+    "markets": [
+      "DeKalb (Stonecrest)",
+      "Chatham (Savannah)",
+      "Greene/Putnam (Eatonton)",
+      "Glynn (Brunswick)",
+      "Floyd (Rome)",
+      "Rabun (Clayton)"
+    ],
+    "state": "GA",
+    "phone": "919-589-7445",
+    "cell": "945-365-5345",
+    "email": "scott.cleaver@finayahl.com",
+    "link": "finayahl.com/p/scottc",
+    "linkedin": "linkedin.com/in/scott-cleaver-34914216",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 25,
+    "name": "Bryan Anstandig",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "591342",
+    "licensedStates": "FL",
+    "markets": [
+      "Miami-Dade (Miami)",
+      "Lee (Cape Coral)"
+    ],
+    "state": "FL",
+    "phone": "803-526-7196",
+    "cell": "248-320-9640",
+    "email": "bryan.anstandig@finayahl.com",
+    "link": "finayahl.com/p/bryana",
+    "linkedin": "linkedin.com/in/bryan-anstandig-63229414",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 26,
+    "name": "Kirk Rasmussen",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "1737435",
+    "licensedStates": "CO",
+    "markets": [
+      "Pitkin (Aspen)",
+      "Routt (Steamboat Springs)",
+      "Gunnison"
+    ],
+    "state": "CO",
+    "phone": "720-770-1530",
+    "cell": "303-956-6487",
+    "email": "kirk.rasmussen@finayahl.com",
+    "link": "finayahl.com/p/kirkr",
+    "linkedin": "linkedin.com/in/kirk-rasmussen-45222a13",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 27,
+    "name": "Cashmere Jones",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "2092763",
+    "licensedStates": "FL, GA, NC",
+    "markets": [
+      "Fulton (Atlanta)"
+    ],
+    "state": "GA",
+    "phone": "803-262-0724",
+    "cell": "980-417-4200",
+    "email": "cashmere.jones@finayahl.com",
+    "link": "finayahl.com/p/cashmerej",
+    "linkedin": "linkedin.com/in/cashmerejones",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  }
 ];
 
 /* ---------------- LINKEDIN SCRUB AUDIT DATA ---------------- */
@@ -61,11 +602,13 @@ const GBP_DATA = {
       "North Charleston, SC",
       "Summerville, SC"
     ],
-    "phone": "(843) 371-5755",
+    "phone": "843-371-5755",
     "website": "https://finayahl.com/p/nicholasc",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Nicholas Campo Sr. is Chief Revenue Officer and Executive Mortgage Advisor at Finaya Home Loans, serving home buyers and homeowners across Charleston and Berkeley County, South Carolina. Specializing in conventional, FHA, VA, jumbo, and refinance residential mortgage solutions. With transparent guidance and local market insight, Nick helps families structure smart financing tailored to their long-term financial goals. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Nick Campo NMLS #2011753. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "email": "nick.campo@finayahl.com",
+    "cell": "980-263-7274"
   },
   "2": {
     "bname": "Alan Sacks, Executive Mortgage Advisor - Finaya Home Loans",
@@ -83,11 +626,13 @@ const GBP_DATA = {
       "Matthews, NC",
       "Lake Norman, NC"
     ],
-    "phone": "(704) 733-8700",
+    "phone": "704-733-8700",
     "website": "https://finayahl.com/p/alans",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Alan Sacks is an Executive Mortgage Advisor at Finaya Home Loans, guiding home buyers and homeowners across Indian Trail, Mooresville, Raleigh, and surrounding North Carolina communities. Providing conventional, FHA, VA, USDA, and jumbo mortgage financing with clear communication and dependable execution. Alan takes time to understand your financial objectives to secure the right home loan structure. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Alan Sacks NMLS #159915. Visit www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "email": "alan.sacks@finayahl.com",
+    "cell": ""
   },
   "3": {
     "bname": "John Birke, Executive Mortgage Advisor - Finaya Home Loans",
@@ -106,11 +651,13 @@ const GBP_DATA = {
       "Beaufort County, SC",
       "Fort Mill, SC"
     ],
-    "phone": "(479) 445-5062",
+    "phone": "479-445-5062",
     "website": "https://finayahl.com/p/johnb",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "John Birke is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers across Rock Hill, Greenville, Easley, Hilton Head Island, and the greater Upstate and Lowcountry regions of South Carolina. Specializing in first-time buyer financing, conventional, FHA, VA, and second-home mortgage options. John delivers dedicated support from pre-approval through closing. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. John Birke NMLS #1150795. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "email": "john.birke@finayahl.com",
+    "cell": ""
   },
   "4": {
     "bname": "Ben Singleton, Executive Mortgage Advisor - Finaya Home Loans",
@@ -126,11 +673,13 @@ const GBP_DATA = {
       "Murrells Inlet, SC",
       "Pawleys Island, SC"
     ],
-    "phone": "(803) 262-2641",
+    "phone": "803-262-2641",
     "website": "https://finayahl.com/p/bens",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Ben Singleton is an Executive Mortgage Advisor at Finaya Home Loans, specializing in residential home financing across Myrtle Beach, Conway, and Horry County, South Carolina. From primary residences and vacation retreats to investment properties, Ben offers conventional, FHA, VA, and coastal mortgage programs tailored to coastal South Carolina buyers. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Ben Singleton NMLS #2341198. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "email": "ben.singleton@finayahl.com",
+    "cell": "980-402-2866"
   },
   "5": {
     "bname": "Christina Yudzitski, Executive Mortgage Advisor - Finaya Home Loans",
@@ -148,11 +697,13 @@ const GBP_DATA = {
       "Wake County, NC",
       "Southern Pines, NC"
     ],
-    "phone": "(704) 849-9210",
+    "phone": "401-207-1464",
     "website": "https://finayahl.com/p/christinay",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Christina Yudzitski is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers across Pinehurst, Moore County, the Triangle (Durham, Orange, Raleigh), and North Carolina. Christina provides personalized mortgage consultations for conventional, FHA, VA, and jumbo loan options, ensuring home buyers feel confident and informed throughout every step of the mortgage process. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Christina Yudzitski NMLS #2663819. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "email": "christina.yudzitski@finayahl.com",
+    "cell": ""
   },
   "6": {
     "bname": "Raymond Pinkston, Executive Mortgage Advisor - Finaya Home Loans",
@@ -169,11 +720,13 @@ const GBP_DATA = {
       "Cornelius, NC",
       "Blowing Rock, NC"
     ],
-    "phone": "(704) 751-5278",
+    "phone": "704-728-7798",
     "website": "https://finayahl.com/p/rpinkston",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Raymond M. Pinkston is an Executive Mortgage Advisor at Finaya Home Loans, delivering comprehensive home financing solutions across Charlotte, Mecklenburg County, and the High Country (Boone, Watauga, Avery Counties). Offering conventional, FHA, VA, mountain retreat, and refinance mortgage loans tailored to North Carolina families and investors. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Raymond M. Pinkston NMLS #2823400. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "email": "ray.pinkston@finayahl.com",
+    "cell": ""
   },
   "7": {
     "bname": "Khesey Silva, Executive Mortgage Advisor - Finaya Home Loans",
@@ -191,11 +744,13 @@ const GBP_DATA = {
       "Destin, FL",
       "Ponte Vedra, FL"
     ],
-    "phone": "(720) 715-7524",
+    "phone": "720-715-7524",
     "website": "https://finayahl.com/p/kheseys",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Khesey Silva is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers throughout Northeast Florida (St. Augustine, St. Johns, Nassau Counties) and the Florida Panhandle (Crestview, Walton, Okaloosa Counties). Offering conventional, FHA, VA, jumbo, and condo residential financing. Khesey pairs personalized attention with competitive mortgage solutions. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Khesey Silva NMLS #2358323. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "email": "khesey.silva@finayahl.com",
+    "cell": ""
   },
   "8": {
     "bname": "Andrew Simmons, Executive Mortgage Advisor - Finaya Home Loans",
@@ -213,11 +768,13 @@ const GBP_DATA = {
       "Kill Devil Hills, NC",
       "Outer Banks, NC"
     ],
-    "phone": "(404) 480-8630",
+    "phone": "404-480-8630",
     "website": "https://finayahl.com/p/andrews",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Andrew Simmons is an Executive Mortgage Advisor at Finaya Home Loans, assisting home buyers across coastal and western North Carolina, including Wilmington, Brunswick County, Asheville, and the Outer Banks. Specializing in conventional, FHA, VA, second homes, and coastal residential lending. Andrew delivers transparent guidance throughout your home buying journey. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Andrew Simmons NMLS #1679914. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "email": "andrew.simmons@finayahl.com",
+    "cell": ""
   },
   "9": {
     "bname": "Mark Glatzmaier, Executive Mortgage Advisor - Finaya Home Loans",
@@ -235,11 +792,13 @@ const GBP_DATA = {
       "Alpharetta, GA",
       "Roswell, GA"
     ],
-    "phone": "(720) 715-7384",
+    "phone": "720-715-7384",
     "website": "https://finayahl.com/p/mglatzmaier",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Mark Glatzmaier II is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers and homeowners across Greater Atlanta, Fulton County, Cobb County (Marietta), and Forsyth County, Georgia. Offering comprehensive conventional, FHA, VA, jumbo, and refinance options designed around each client's financial timeline and wealth-building goals. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Mark Glatzmaier II NMLS #1085400. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "email": "mark.glatzmaier@finayahl.com",
+    "cell": ""
   },
   "10": {
     "bname": "Matthew Squires, Executive Mortgage Advisor - Finaya Home Loans",
@@ -255,11 +814,13 @@ const GBP_DATA = {
       "Brandon, FL",
       "Riverview, FL"
     ],
-    "phone": "(864) 375-4640",
+    "phone": "864-375-4640",
     "website": "https://finayahl.com/p/matthews",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Matthew Squires is an Executive Mortgage Advisor at Finaya Home Loans, delivering residential mortgage solutions across the Tampa Bay area, Hillsborough County, and Pinellas County, Florida. Providing conventional, FHA, VA, jumbo, and home equity refinance loans with clear advice and attentive communication. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Matthew Squires NMLS #1029875. Visit www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "email": "matthew.squires@finayahl.com",
+    "cell": ""
   },
   "11": {
     "bname": "Paul Grady, Executive Mortgage Advisor - Finaya Home Loans",
@@ -275,11 +836,13 @@ const GBP_DATA = {
       "Kendall, FL",
       "Homestead, FL"
     ],
-    "phone": "(720) 776-0146",
+    "phone": "720-776-0146",
     "website": "https://finayahl.com/p/paulg",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Paul Grady is an Executive Mortgage Advisor at Finaya Home Loans, guiding home buyers and real estate investors across Miami and Miami-Dade County, Florida. Specializing in conventional, jumbo, FHA, VA, and condo financing structured for South Florida's dynamic residential market. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Paul Grady NMLS #2502731. Visit www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "email": "paul.grady@finayahl.com",
+    "cell": ""
   },
   "12": {
     "bname": "Geneva Price, Executive Mortgage Advisor - Finaya Home Loans",
@@ -297,11 +860,13 @@ const GBP_DATA = {
       "Hollywood, FL",
       "Pompano Beach, FL"
     ],
-    "phone": "(843) 605-9744",
+    "phone": "843-605-9744",
     "website": "https://finayahl.com/p/genevap",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Geneva Lynne Price is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers across Southwest Florida (North Port, Sarasota, Manatee Counties) and South Florida (Fort Lauderdale, Broward County). Specializing in conventional, FHA, VA, retirement relocations, and residential purchases with attentive, caring service. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Geneva Lynne Price NMLS #247066. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "email": "geneva.price@finayahl.com",
+    "cell": ""
   },
   "13": {
     "bname": "Cleo Lewis, Executive Mortgage Advisor - Finaya Home Loans",
@@ -317,11 +882,13 @@ const GBP_DATA = {
       "Thornton, CO",
       "Arvada, CO"
     ],
-    "phone": "(720) 770-1530",
+    "phone": "720-770-1530",
     "website": "https://finayahl.com/p/cleol",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Cleo Lewis is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers across Denver, Denver County, and the Front Range of Colorado. Providing conventional, FHA, VA, jumbo, and first-time home buyer financing programs tailored to the Colorado market with transparent and responsive service. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Cleo Lewis NMLS #1451574. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "email": "cleo.lewis@finayahl.com",
+    "cell": ""
   },
   "14": {
     "bname": "Brandon Metoyer, Executive Mortgage Advisor - Finaya Home Loans",
@@ -336,11 +903,13 @@ const GBP_DATA = {
       "Castle Rock, CO",
       "Douglas County, CO"
     ],
-    "phone": "Pending OneCloud Provisioning",
+    "phone": "Pending",
     "website": "https://finayahl.com/p/brandonm",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Brandon Metoyer is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers and homeowners across Aurora, Arapahoe County, Lakewood, and Castle Rock, Colorado. Specializing in conventional, FHA, VA, and jumbo residential mortgage solutions designed for Colorado families and investors. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Brandon Metoyer NMLS #2055356. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": true
+    "onHold": true,
+    "email": "brandon.metoyer@finayahl.com",
+    "cell": ""
   },
   "15": {
     "bname": "Gerise Wilson, Executive Mortgage Advisor - Finaya Home Loans",
@@ -356,11 +925,13 @@ const GBP_DATA = {
       "Monument, CO",
       "Fountain, CO"
     ],
-    "phone": "(720) 394-5849",
+    "phone": "720-394-5849",
     "website": "https://finayahl.com/p/gerisew",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Gerise Wilson is an Executive Mortgage Advisor at Finaya Home Loans, providing residential mortgage financing for families across Boulder County and the Pikes Peak region (Colorado Springs, El Paso County). Specializing in conventional, VA military loans, FHA, and mountain residential programs with proactive communication. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Gerise Wilson NMLS #2125467. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "email": "gerise.wilson@finayahl.com",
+    "cell": "720-394-5849"
   },
   "16": {
     "bname": "Jeff Fenkell, Executive Mortgage Advisor - Finaya Home Loans",
@@ -376,11 +947,13 @@ const GBP_DATA = {
       "Boca Raton, FL",
       "Palm Beach Gardens, FL"
     ],
-    "phone": "(704) 303-8670",
+    "phone": "704-303-8670",
     "website": "https://finayahl.com/p/jefff",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Jeff Fenkell is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers and homeowners across West Palm Beach, Palm Beach County, Stuart, and the Treasure Coast of Florida. Offering tailored conventional, FHA, VA, jumbo, and luxury second-home mortgage financing backed by personal service. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Jeff Fenkell NMLS #1419136. Visit www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "email": "jeff.fenkell@finayahl.com",
+    "cell": ""
   },
   "17": {
     "bname": "Tony Piccione, Executive Mortgage Advisor - Finaya Home Loans",
@@ -396,11 +969,13 @@ const GBP_DATA = {
       "Winter Park, FL",
       "Windermere, FL"
     ],
-    "phone": "(803) 526-7193",
+    "phone": "803-526-7193",
     "website": "https://finayahl.com/p/tonyp",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Tony Piccione is an Executive Mortgage Advisor at Finaya Home Loans, guiding home buyers across Southwest Florida (Naples, Collier County) and Central Florida (Orlando, Orange County). Specializing in conventional, jumbo, FHA, VA, and resort condominium residential financing with transparent advice throughout the loan process. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Tony Piccione NMLS #826808. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "email": "tony.piccione@finayahl.com",
+    "cell": ""
   },
   "18": {
     "bname": "Warren Potter, Executive Mortgage Advisor - Finaya Home Loans",
@@ -416,11 +991,13 @@ const GBP_DATA = {
       "Breckenridge, CO",
       "Summit County, CO"
     ],
-    "phone": "(720) 739-5730",
+    "phone": "720-739-5730",
     "website": "https://finayahl.com/p/warrenp",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Warren Potter is an Executive Mortgage Advisor at Finaya Home Loans, delivering specialized residential financing across Colorado's mountain communities, including Eagle County (Gypsum, Vail), Telluride, and Summit County (Breckenridge). Expertise in primary homes, vacation properties, and mountain resort mortgages. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Warren Potter NMLS #221747. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "email": "warren.potter@finayahl.com",
+    "cell": ""
   },
   "19": {
     "bname": "Michael Hakun, Executive Mortgage Advisor - Finaya Home Loans",
@@ -440,11 +1017,13 @@ const GBP_DATA = {
       "Pasco County, FL",
       "Wesley Chapel, FL"
     ],
-    "phone": "(803) 526-7190",
+    "phone": "803-526-7190",
     "website": "https://finayahl.com/p/mikeh",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Michael Hakun is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers across Central Florida, including Seminole, Volusia, Brevard (Space Coast), and Pasco Counties. Offering conventional, FHA, VA, USDA, and jumbo mortgage loans designed to make buying or refinancing a home clear and stress-free. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Michael Hakun NMLS #886450. Visit www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
-    "onHold": false
+    "onHold": false,
+    "email": "mike.hakun@finayahl.com",
+    "cell": ""
   },
   "20": {
     "bname": "Steve Fox, Executive Mortgage Advisor - Finaya Home Loans",
@@ -460,10 +1039,158 @@ const GBP_DATA = {
       "Kernersville, NC",
       "Clemmons, NC"
     ],
-    "phone": "(336) 265-7341",
+    "phone": "336-265-7341",
     "website": "https://finayahl.com/p/stevef",
     "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
     "desc": "Steve Fox is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers across the North Carolina Piedmont Triad, including Greensboro, Guilford County, Winston-Salem, and Forsyth County. Offering conventional, FHA, VA, and refinance solutions backed by trusted guidance and local market know-how. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Steve Fox NMLS #913411 (Verified Active). www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "steve.fox@finayahl.com",
+    "cell": ""
+  },
+  "21": {
+    "bname": "Jamie Repasky, Director of Mortgage Sales - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Denver, CO, Atlanta, GA, Charlotte, NC, Fulton County, GA, Mecklenburg County, NC",
+    "areasList": [
+      "Denver, CO",
+      "Atlanta, GA",
+      "Charlotte, NC",
+      "Fulton County, GA",
+      "Mecklenburg County, NC"
+    ],
+    "phone": "(424) 305-5228",
+    "cell": "608-449-9859",
+    "email": "jamie.repasky@finayahl.com",
+    "website": "https://finayahl.com/p/jamier",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Jamie Repasky is Director of Mortgage Sales at Finaya Home Loans, leading sales origination and advising clients across Colorado, Georgia, and North Carolina. Offering conventional, FHA, VA, and residential mortgage financing with personalized guidance and dependable execution. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Jamie Repasky NMLS #1095360. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false
+  },
+  "22": {
+    "bname": "Kevin Fox, Director of Mortgage Sales - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Rock Hill, SC, York County, SC, Charlotte, NC, Mecklenburg County, NC, Tampa, FL",
+    "areasList": [
+      "Rock Hill, SC",
+      "York County, SC",
+      "Charlotte, NC",
+      "Mecklenburg County, NC",
+      "Tampa, FL"
+    ],
+    "phone": "(704) 751-5278",
+    "cell": "810-449-3558",
+    "email": "kevin.fox@finayahl.com",
+    "website": "https://finayahl.com/p/kevinf",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Kevin Fox is Director of Mortgage Sales at Finaya Home Loans, guiding residential lending teams and serving home buyers across South Carolina, North Carolina, and Florida. Specializing in conventional, FHA, VA, jumbo, and home purchase financing tailored to each family's goals. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Kevin Fox NMLS #775402. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false
+  },
+  "23": {
+    "bname": "Brian Banks, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "West Palm Beach, FL, Palm Beach County, FL, Jacksonville, FL, Duval County, FL, Boca Raton, FL, Jupiter, FL",
+    "areasList": [
+      "West Palm Beach, FL",
+      "Palm Beach County, FL",
+      "Jacksonville, FL",
+      "Duval County, FL",
+      "Boca Raton, FL",
+      "Jupiter, FL"
+    ],
+    "phone": "(704) 849-9210",
+    "cell": "678-897-3045",
+    "email": "brian.banks@finayahl.com",
+    "website": "https://finayahl.com/p/brianb",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Brian Banks is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers across Florida including Palm Beach County (West Palm Beach, Boca Raton) and Duval County (Jacksonville). Providing conventional, FHA, VA, and jumbo loan options with dedicated client support. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Brian Banks NMLS #2037092. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false
+  },
+  "24": {
+    "bname": "Scott Cleaver, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Stonecrest, GA, DeKalb County, GA, Savannah, GA, Chatham County, GA, Eatonton, GA, Brunswick, GA, Rome, GA",
+    "areasList": [
+      "Stonecrest, GA",
+      "DeKalb County, GA",
+      "Savannah, GA",
+      "Chatham County, GA",
+      "Eatonton, GA",
+      "Brunswick, GA",
+      "Rome, GA"
+    ],
+    "phone": "(919) 589-7445",
+    "cell": "945-365-5345",
+    "email": "scott.cleaver@finayahl.com",
+    "website": "https://finayahl.com/p/scottc",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Scott Cleaver is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers and homeowners across Georgia, including Greater Atlanta (DeKalb County), Savannah (Chatham County), and Lake Oconee (Greene County). Specializing in conventional, FHA, VA, and coastal residential lending. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Scott Cleaver NMLS #963074. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false
+  },
+  "25": {
+    "bname": "Bryan Anstandig, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Miami, FL, Miami-Dade County, FL, Cape Coral, FL, Lee County, FL, Fort Myers, FL, Coral Gables, FL",
+    "areasList": [
+      "Miami, FL",
+      "Miami-Dade County, FL",
+      "Cape Coral, FL",
+      "Lee County, FL",
+      "Fort Myers, FL",
+      "Coral Gables, FL"
+    ],
+    "phone": "(803) 526-7196",
+    "cell": "248-320-9640",
+    "email": "bryan.anstandig@finayahl.com",
+    "website": "https://finayahl.com/p/bryana",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Bryan Anstandig is an Executive Mortgage Advisor at Finaya Home Loans, assisting home buyers and real estate investors across Miami-Dade County and Southwest Florida (Cape Coral, Lee County). Providing conventional, jumbo, FHA, VA, and second-home financing with attentive personal service. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Bryan Anstandig NMLS #591342. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false
+  },
+  "26": {
+    "bname": "Kirk Rasmussen, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Aspen, CO, Pitkin County, CO, Steamboat Springs, CO, Routt County, CO, Crested Butte, CO, Gunnison County, CO",
+    "areasList": [
+      "Aspen, CO",
+      "Pitkin County, CO",
+      "Steamboat Springs, CO",
+      "Routt County, CO",
+      "Crested Butte, CO",
+      "Gunnison County, CO"
+    ],
+    "phone": "(720) 770-1530",
+    "cell": "303-956-6487",
+    "email": "kirk.rasmussen@finayahl.com",
+    "website": "https://finayahl.com/p/kirkr",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Kirk Rasmussen is an Executive Mortgage Advisor at Finaya Home Loans, delivering specialized mortgage solutions across Colorado's mountain resort regions, including Pitkin County (Aspen), Routt County (Steamboat Springs), and Gunnison County. Expertise in luxury mountain homes, jumbo loans, and vacation retreats. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Kirk Rasmussen NMLS #1737435. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false
+  },
+  "27": {
+    "bname": "Cashmere Jones, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Atlanta, GA, Fulton County, GA, Sandy Springs, GA, Alpharetta, GA, Roswell, GA, Johns Creek, GA",
+    "areasList": [
+      "Atlanta, GA",
+      "Fulton County, GA",
+      "Sandy Springs, GA",
+      "Alpharetta, GA",
+      "Roswell, GA",
+      "Johns Creek, GA"
+    ],
+    "phone": "(803) 262-0724",
+    "cell": "980-417-4200",
+    "email": "cashmere.jones@finayahl.com",
+    "website": "https://finayahl.com/p/cashmerej",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Cashmere Jones is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers and homeowners across Greater Atlanta and Fulton County, Georgia. Offering comprehensive conventional, FHA, VA, and first-time buyer financing structured around each client's financial future. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Cashmere Jones NMLS #2092763. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
     "onHold": false
   }
 };
@@ -817,10 +1544,12 @@ function socialBio(a){
 function socialDisclosure(a){ return `NMLS #${a.nmls} | ${COMPANY.name}, NMLS #${COMPANY.nmls}. Equal Housing Lender. ${COMPANY.disclosure}`; }
 function emailSignature(a){
   const phone = a.phone==="Pending" ? "Direct line: assigned shortly" : `Direct: ${a.phone}`;
+  const cell  = a.cell ? ` | Cell: ${a.cell}` : "";
+  const email = a.email ? `\nEmail: ${a.email}` : "";
   const link  = a.link==="Pending"  ? "" : `\nStart your pre-approval: ${a.link}`;
   return `${a.name}
 ${a.title} | ${COMPANY.name}
-${phone}${link}
+${phone}${cell}${email}${link}
 
 NMLS #${a.nmls} | Company NMLS #${COMPANY.nmls}
 Equal Housing Lender | NMLS Consumer Access: www.nmlsconsumeraccess.org
@@ -1337,11 +2066,25 @@ function renderStage(){
   const locked = a.status==="blocked";
 
   const facts = [
-    ["State", STATE_LABEL[a.state], false, null],
-    ["NMLS ID", "#"+a.nmls + (locked?" (flagged)":""), true, null],
-    ["OneCloud", a.phone==="Pending"?"Pending from JB":a.phone, true, null],
-    ["Application", a.link==="Pending"?"Pending from JB":a.link, false, a.link]
-  ].map(([l,v,mono,href])=>`<div class="fact"><span class="label">${l}</span>${href?`<a class="val" href="https://${href}" target="_blank" rel="noopener">${esc(v)}</a>`:`<span class="val ${mono?'mono':''}">${esc(v)}</span>`}</div>`).join("");
+    ["Assigned Territory", a.markets.join("; "), false, null, null],
+    ["NMLS ID", "#"+a.nmls + (locked?" (flagged)":""), true, null, null],
+    ["Corporate Email", a.email || "Pending", true, null, a.email],
+    ["OneCloud VoIP", a.phone==="Pending"?"Pending from JB":a.phone, true, null, a.phone!=="Pending"?a.phone:null],
+    ["Direct Cell", a.cell || "—", true, null, a.cell || null],
+    ["Licensed States", a.licensedStates || a.state, false, null, null],
+    ["Digital Application", a.link==="Pending"?"Pending from JB":a.link, false, a.link, null]
+  ];
+
+  const factsHTML = facts.map(([l,v,mono,href,copyVal])=>`
+    <div class="fact">
+      <div style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:2px">
+        <span class="label">${l}</span>
+        ${copyVal?`<button class="copy-mini" data-copy-val="${esc(copyVal)}" title="Copy ${l}">Copy</button>`:""}
+      </div>
+      ${href?`<a class="val" href="https://${href}" target="_blank" rel="noopener">${esc(v)}</a>`:
+        (l==="Corporate Email" && v && !v.includes("Pending")?`<a class="val mono" href="mailto:${esc(v)}" style="color:var(--teal);text-decoration:none">${esc(v)}</a>`:
+        `<span class="val ${mono?'mono':''}">${esc(v)}</span>`)}
+    </div>`).join("");
 
   let strip = "";
   if(locked){
@@ -1375,6 +2118,7 @@ function renderStage(){
     if(a.linkedin) verifiedAccounts.push({platform:"LinkedIn", val:a.linkedin, url:"https://"+a.linkedin.replace(/^https?:\/\//,"")});
     if(a.facebook) verifiedAccounts.push({platform:"Facebook", val:a.facebook, url:"https://"+a.facebook.replace(/^https?:\/\//,"")});
     if(a.instagram) verifiedAccounts.push({platform:"Instagram", val:a.instagram, url:a.instagram.startsWith("@")?"https://instagram.com/"+a.instagram.slice(1):"https://"+a.instagram.replace(/^https?:\/\//,"")});
+    if(a.tiktok) verifiedAccounts.push({platform:"TikTok", val:a.tiktok, url:a.tiktok.startsWith("@")?"https://tiktok.com/"+a.tiktok:"https://"+a.tiktok.replace(/^https?:\/\//,"")});
 
     const acctsHTML = verifiedAccounts.length ? `
       <div class="doc" style="margin-bottom:18px">
@@ -1398,8 +2142,33 @@ function renderStage(){
       </div>
     `;
 
+    const contactCard = `
+      <div class="doc" style="margin-bottom:18px">
+        <div class="doc-head"><span class="t">Official Contact & Communication Directory</span><span class="hint">Verified Finaya Directory</span></div>
+        <div class="doc-body" style="padding:16px 22px">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+            <div style="padding:10px 14px;background:var(--paper);border:1px solid var(--line);border-radius:6px;display:flex;align-items:center;justify-content:space-between">
+              <div><small style="color:var(--muted);text-transform:uppercase;font-size:10px;font-weight:700">Corporate Email</small><div style="font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink)">${esc(a.email || "Pending")}</div></div>
+              ${a.email?`<button class="copy-mini" data-copy-val="${esc(a.email)}">Copy</button>`:""}
+            </div>
+            <div style="padding:10px 14px;background:var(--paper);border:1px solid var(--line);border-radius:6px;display:flex;align-items:center;justify-content:space-between">
+              <div><small style="color:var(--muted);text-transform:uppercase;font-size:10px;font-weight:700">OneCloud VoIP</small><div style="font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink)">${esc(a.phone)}</div></div>
+              ${a.phone && a.phone!=="Pending"?`<button class="copy-mini" data-copy-val="${esc(a.phone)}">Copy</button>`:""}
+            </div>
+            ${a.cell?`
+            <div style="padding:10px 14px;background:var(--paper);border:1px solid var(--line);border-radius:6px;display:flex;align-items:center;justify-content:space-between">
+              <div><small style="color:var(--muted);text-transform:uppercase;font-size:10px;font-weight:700">Direct Cell</small><div style="font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink)">${esc(a.cell)}</div></div>
+              <button class="copy-mini" data-copy-val="${esc(a.cell)}">Copy</button>
+            </div>
+            `:""}
+          </div>
+        </div>
+      </div>
+    `;
+
     pane = `<div class="pane active">
       ${acctsHTML}
+      ${contactCard}
       ${docSection("sbio","Bio","under 160 characters · "+socialBio(a).length+" chars", esc(socialBio(a)))}
       ${docSection("slink","Link in bio", null, esc(a.link))}
       ${docSection("sdis","Required disclosure","profile field or pinned post", `<p class="legal" style="border-top:none;padding-top:0">${esc(socialDisclosure(a))}</p>`, "doc-body")}
@@ -1515,7 +2284,7 @@ function renderStage(){
         </button>
       </div>
     </div>
-    <div class="facts">${facts}</div>
+    <div class="facts">${factsHTML}</div>
     ${strip}
     ${tabbar()}
     ${pane}`;
