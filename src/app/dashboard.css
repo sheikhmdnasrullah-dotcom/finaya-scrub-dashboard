@@ -327,3 +327,8 @@ a.val:hover{text-decoration:underline}
 @media (max-width:768px){
   .gbp-grid{grid-template-columns:1fr}
 }
+
+
+.copy-mini{background:transparent;border:1px solid var(--line-strong);border-radius:4px;color:var(--muted);font-size:10px;font-weight:600;padding:2px 7px;cursor:pointer;transition:.12s;line-height:1}
+.copy-mini:hover{background:var(--teal);border-color:var(--teal);color:#fff}
+.copy-mini.done{background:var(--ok);border-color:var(--ok);color:#fff}
