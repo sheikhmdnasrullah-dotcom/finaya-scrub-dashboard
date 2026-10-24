@@ -1,9 +1,3 @@
-//* @ts-nocheck
-/* ============================================================
-   FINAYA ADVISOR SCRUB OPERATIONS · application logic
-   Converted from standalone HTML build to a Next.js client module.
-   ============================================================ */
-
 /* ============================================================
    FINAYA ADVISOR SCRUB OPERATIONS · application logic
    Data and copy generators unchanged from the audited build.
@@ -1592,14 +1586,24 @@ const HEADSHOT_MAP = {
   18: "advisor_18_warren_potter",
   19: "advisor_19_michael_hakun",
   20: "advisor_20_steve_fox",
-  21: "advisor_21_jamie_repasky"
+  21: "advisor_21_jamie_repasky",
+  22: "advisor_22_kevin_fox",
+  23: "advisor_23_brian_banks",
+  24: "advisor_24_scott_cleaver",
+  25: "advisor_25_bryan_anstandig",
+  26: "advisor_26_kirk_rasmussen",
+  27: "advisor_27_cashmere_jones"
 };
+const ADVISORS_WITHOUT_PHOTO = new Set([8, 13, 14, 22, 23, 24, 25, 26, 27]);
+function hasAdvisorPhoto(id){
+  return !ADVISORS_WITHOUT_PHOTO.has(id);
+}
 function getHeadshotUrl(id, variant="clean"){
-  const base = HEADSHOT_MAP[id] || "advisor_1_nick_campo";
-  return `/headshots/studio/${base}_${variant}.png`;
+  const base = HEADSHOT_MAP[id] || `advisor_${id}`;
+  return `headshots/studio/${base}_${variant}.png`;
 }
 function getHeadshotThumb(id){
-  return `/headshots/thumbnails/advisor_${id}.png`;
+  return `headshots/thumbnails/advisor_${id}.png`;
 }
 const _advisorImgCache = {};
 function getAdvisorImg(id, cb){
@@ -2256,14 +2260,19 @@ function renderStage(){
           <div class="eyebrow" style="margin-bottom:6px">FINAYA EXECUTIVE ADVISOR</div>
           <h3>${esc(a.name)}</h3>
           <p class="headshot-desc" style="margin-bottom:18px">${esc(a.title)} · NMLS #${a.nmls} · Assigned Market: ${mk(a)} (${a.state})</p>
+          ${!hasAdvisorPhoto(a.id) ? `
+          <div style="background:rgba(0,95,90,0.15);border:1px dashed rgba(0,150,137,0.4);border-radius:8px;padding:12px 14px;margin-bottom:18px;font-size:12.5px;line-height:1.5;color:#5EEAD4">
+            <strong style="display:block;color:#FFFFFF;margin-bottom:2px">Profile Picture Pending</strong>
+            Official studio photo has not been provided yet. Social banners are automatically configured in the clean typographic layout without a portrait frame.
+          </div>` : ''}
           <div style="margin:20px 0 24px 0">
             <a class="btn-action btn-primary" style="padding:12px 20px;font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:8px;text-decoration:none" href="${currentImgUrl}" download="${dlFilename}">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v12M6 11l6 6 6-6M4 21h16"/></svg>
-              <span>Download high-resolution image</span>
+              <span>${hasAdvisorPhoto(a.id) ? "Download high-resolution image" : "Download Monogram Crest"}</span>
             </a>
           </div>
           <div class="headshot-actions-box">
-            <a class="btn-download-bundle" href="/headshots/Finaya_Advisor_Headshots_All20.zip" download="Finaya_Advisor_Headshots_All20.zip">
+            <a class="btn-download-bundle" href="headshots/Finaya_Advisor_Headshots_All20.zip" download="Finaya_Advisor_Headshots_All20.zip">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               <span>Download All Headshots (ZIP Archive)</span>
             </a>
@@ -2277,7 +2286,7 @@ function renderStage(){
     <div class="id-header">
       <div class="id-avatar-box" title="View in Headshot Studio" id="quickAvatarBtn">
         <img src="${getHeadshotThumb(a.id)}" class="id-avatar-main" alt="${esc(a.name)}">
-        <span class="id-avatar-tag">Studio HD</span>
+        <span class="id-avatar-tag">${hasAdvisorPhoto(a.id) ? "Studio HD" : "Monogram"}</span>
       </div>
       <div class="id-header-info">
         <div class="id-eyebrow"><span class="eyebrow">${esc(a.title)}</span><span class="eyebrow" style="color:var(--faint)">·</span><span class="eyebrow">${COMPANY.name}</span></div>
@@ -2287,7 +2296,7 @@ function renderStage(){
       <div class="id-header-actions">
         <button class="btn-headshot-quick" id="btnGoHeadshot">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-          <span>Studio Portrait</span>
+          <span>${hasAdvisorPhoto(a.id) ? "Studio Portrait" : "Monogram Crest"}</span>
         </button>
       </div>
     </div>
@@ -2643,15 +2652,16 @@ function drawBanner(a){
     paintBanner(ctx, p.w, p.h, a, bannerStyle, showSafeArea, img, includePortrait);
     ctx.restore();
 
+    const hasActualPhoto = hasAdvisorPhoto(a.id);
     $("#bannerMeta").innerHTML = `
-      <span><b>${p.label}</b> · ${p.w} × ${p.h} px (2× Retina Buffer: ${view.width} × ${view.height} px) · Style: <b>${BANNER_STYLES[bannerStyle].label}</b> · <b>${includePortrait && a.status!=="waiting" ? "Executive Portrait Frame Included" : "Typographic Layout"}</b></span>
+      <span><b>${p.label}</b> · ${p.w} × ${p.h} px (2× Retina Buffer: ${view.width} × ${view.height} px) · Style: <b>${BANNER_STYLES[bannerStyle].label}</b> · <b>${includePortrait && a.status!=="waiting" && hasActualPhoto ? "Executive Portrait Frame Included" : "Typographic Layout (No Photo Available)"}</b></span>
       <span class="meta-tag">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         Ultra-sharp 2× Retina export · Equal Housing Lender mark included
       </span>`;
   };
 
-  if(includePortrait && a.status !== "waiting"){
+  if(includePortrait && a.status !== "waiting" && hasAdvisorPhoto(a.id)){
     getAdvisorImg(a.id, (img)=>{
       if(document.fonts && document.fonts.ready){
         document.fonts.ready.then(()=>render(img));
@@ -2675,7 +2685,7 @@ function paintBanner(ctx, W, H, a, styleKey="corporate", showSafe=false, advImg=
   const isX  = (W === 1500 && H === 500);
 
   const safeLeft = isLI ? 380 : (isFB ? 160 : 380);
-  const hasPortrait = withPortrait && !!advImg && a.status !== "waiting";
+  const hasPortrait = withPortrait && !!advImg && a.status !== "waiting" && hasAdvisorPhoto(a.id);
 
   const outerMargin = isFB ? 18 : 22;
   const padX = isFB ? 32 : 52;
@@ -3092,7 +3102,7 @@ function copyBannerToClipboard(){
     }
   };
 
-  if(includePortrait && a.status !== "waiting"){
+  if(includePortrait && a.status !== "waiting" && hasAdvisorPhoto(a.id)){
     getAdvisorImg(a.id, doCopy);
   } else {
     doCopy(null);
@@ -3123,7 +3133,7 @@ function downloadBanner(){
     toast(`Downloaded ultra-crisp ${p.label} banner (${c.width}×${c.height}px)`);
   };
 
-  if(includePortrait && a.status !== "waiting"){
+  if(includePortrait && a.status !== "waiting" && hasAdvisorPhoto(a.id)){
     getAdvisorImg(a.id, doDownload);
   } else {
     doDownload(null);
@@ -3198,25 +3208,3 @@ renderCorp();
     renderStage();
   }
 })();
-
-/* ---------------- ROBUST GLOBAL EVENT DELEGATION ---------------- */
-if (typeof document !== "undefined") {
-  document.addEventListener("click", function(e) {
-    const btn = e.target.closest("[data-copy-val]");
-    if (btn) {
-      e.stopPropagation();
-      copyText(btn.dataset.copyVal, btn);
-    }
-  });
-}
-
-window.init = init;
-init();
-if (typeof document !== "undefined") {
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  }
-  window.addEventListener("load", init);
-  setTimeout(init, 50);
-  setTimeout(init, 300);
-}

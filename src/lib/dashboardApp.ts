@@ -1,13 +1,10 @@
 // @ts-nocheck
-export //* @ts-nocheck
 /* ============================================================
    FINAYA ADVISOR SCRUB OPERATIONS · application logic
    Converted from standalone HTML build to a Next.js client module.
-   All DOM access is now scoped inside init() so it is safe to
-   import from a "use client" component (SSR-safe).
    ============================================================ */
 
-function init(){
+export function init() {
 /* ============================================================
    FINAYA ADVISOR SCRUB OPERATIONS · application logic
    Data and copy generators unchanged from the audited build.
@@ -21,29 +18,1187 @@ const COMPANY = {
 };
 
 const ADVISORS = [
-  {id:1,  name:"Nick Campo",            title:"Chief Revenue Officer",        nmls:"2011753",  markets:["Charleston","Goose Creek (Berkeley County)"],                    state:"SC", phone:"843-371-5755",   link:"finayahl.com/p/nicholasc",   linkedin:"linkedin.com/in/nicholas-campo-sr-90230686", facebook:"facebook.com/nick.campo.37017", instagram:"", status:"complete"},
-  {id:2,  name:"Alan Sacks",            title:"Executive Mortgage Advisor",   nmls:"159915",   markets:["Indian Trail (Union County)","Mooresville (Iredell County)","Raleigh (Wake County)"], state:"NC", phone:"704-733-8700", link:"finayahl.com/p/alans",       linkedin:"linkedin.com/in/alan-sacks-92b20313", facebook:"facebook.com/mortgagewithalan", instagram:"", status:"complete"},
-  {id:3,  name:"John Birke",            title:"Executive Mortgage Advisor",   nmls:"1150795",  markets:["Rock Hill (York County)","Greenville","Easley (Oconee & Pickens Counties)","Hilton Head Island (Beaufort County)"], state:"SC", phone:"479-445-5062", link:"finayahl.com/p/johnb", linkedin:"linkedin.com/in/johnbirke", facebook:"", instagram:"", status:"complete"},
-  {id:4,  name:"Ben Singleton",         title:"Executive Mortgage Advisor",   nmls:"2341198",  markets:["Myrtle Beach (Horry County)"],                                   state:"SC", phone:"803-262-2641",   link:"finayahl.com/p/bens",        linkedin:"linkedin.com/in/benjamin-singleton-57319a161", facebook:"facebook.com/ben.singleton.50", instagram:"", status:"complete"},
-  {id:5,  name:"Christina Yudzitski",   title:"Executive Mortgage Advisor",   nmls:"2663819",  markets:["Pinehurst (Moore County)","Durham & Orange County","Raleigh (Wake County)"], state:"NC", phone:"704-849-9210", link:"finayahl.com/p/christinay",  linkedin:"linkedin.com/in/christinayudzitski", facebook:"facebook.com/cbelov", instagram:"@homeloansxchristina", status:"complete"},
-  {id:6,  name:"Raymond M Pinkston",    title:"Executive Mortgage Advisor",   nmls:"2823400",  markets:["Charlotte (Mecklenburg County)","Boone (Watauga & Avery Counties)"], state:"NC", phone:"704-751-5278", link:"finayahl.com/p/rpinkston",   linkedin:"linkedin.com/in/raymond-pinkston-9113483b", facebook:"facebook.com/raymondmpinkston", instagram:"", status:"complete"},
-  {id:7,  name:"Khesey Silva",          title:"Executive Mortgage Advisor",   nmls:"2358323",  markets:["St. Augustine (St. Johns & Nassau Counties)","Crestview (Walton & Okaloosa Counties)"], state:"FL", phone:"720-715-7524", link:"finayahl.com/p/kheseys", linkedin:"linkedin.com/in/kheseypich", facebook:"facebook.com/KheseySilva", instagram:"@kheseysilva_nmls2358323", status:"complete"},
-  {id:8,  name:"Andrew Simmons",        title:"Executive Mortgage Advisor",   nmls:"1679914",  markets:["Wilmington (New Hanover County)","Leland (Brunswick County)","Asheville (Buncombe County)","Franklin","Kill Devil Hills"], state:"NC", phone:"404-480-8630", link:"finayahl.com/p/andrews", linkedin:"linkedin.com/in/andrew-simmons-289379141", facebook:"", instagram:"", status:"waiting", note:"Headshot pending from JB Frye."},
-  {id:9,  name:"Mark Glatzmaier II",    title:"Executive Mortgage Advisor",   nmls:"1085400",  markets:["Atlanta (Fulton County)","Marietta (Cobb & Forsyth Counties)"], state:"GA", phone:"720-715-7384", link:"finayahl.com/p/mglatzmaier", linkedin:"linkedin.com/in/marksmortgage", facebook:"facebook.com/MarksMortgage", instagram:"", status:"complete"},
-  {id:10, name:"Matthew Squires",       title:"Executive Mortgage Advisor",   nmls:"1029875",  markets:["Tampa (Hillsborough & Pinellas Counties)"],                      state:"FL", phone:"864-375-4640",   link:"finayahl.com/p/matthews",    linkedin:"linkedin.com/in/mattsquires11", facebook:"facebook.com/matt.squires.79", instagram:"@matt._squires_", status:"complete"},
-  {id:11, name:"Paul Grady",            title:"Executive Mortgage Advisor",   nmls:"2502731",  markets:["Miami (Miami-Dade County)"],                                     state:"FL", phone:"720-776-0146",   link:"finayahl.com/p/paulg",       linkedin:"linkedin.com/in/paul-grady-a848b231", facebook:"", instagram:"", status:"complete"},
-  {id:12, name:"Geneva Lynne Price",    title:"Executive Mortgage Advisor",   nmls:"247066",   markets:["North Port (Sarasota & Manatee Counties)","Fort Lauderdale (Broward County)"], state:"FL", phone:"843-605-9744", link:"finayahl.com/p/genevap", linkedin:"linkedin.com/in/geneva-price-mortgage", facebook:"", instagram:"", status:"complete"},
-  {id:13, name:"Cleo Lewis",            title:"Executive Mortgage Advisor",   nmls:"1451574",  markets:["Denver (Denver County)"],                                        state:"CO", phone:"720-770-1530",   link:"finayahl.com/p/cleol",       linkedin:"linkedin.com/in/cleo-lewis-837aba85", facebook:"facebook.com/cleo.lewis.775", instagram:"", status:"waiting", note:"Headshot pending from JB Frye."},
-  {id:14, name:"Brandon Metoyer",       title:"Executive Mortgage Advisor",   nmls:"2055356",  markets:["Aurora (Arapahoe County)","Lakewood (Jefferson County)","Castle Rock (Douglas County)"], state:"CO", phone:"Pending", link:"finayahl.com/p/brandonm", linkedin:"linkedin.com/in/brandon-metoyer-51276a59", facebook:"facebook.com/TheFaceOfDualLicensing", instagram:"", status:"waiting", note:"On hold per Nick Campo: Part-time, OneCloud phone pending. Do not launch until approved."},
-  {id:15, name:"Gerise Wilson",         title:"Executive Mortgage Advisor",   nmls:"2125467",  markets:["Boulder (Boulder County)","Colorado Springs (El Paso County)"],  state:"CO", phone:"720-394-5849",   link:"finayahl.com/p/gerisew",     linkedin:"linkedin.com/in/ashley-gerise", facebook:"facebook.com/ashley.brannon.90", instagram:"", status:"complete"},
-  {id:16, name:"Jeff Fenkell",          title:"Executive Mortgage Advisor",   nmls:"1419136",  markets:["West Palm Beach (Palm Beach County)","Stuart (Martin County)"], state:"FL", phone:"704-303-8670", link:"finayahl.com/p/jefff", linkedin:"linkedin.com/in/jfenkell", facebook:"facebook.com/jafenkell", instagram:"@jaf192304", status:"complete"},
-  {id:17, name:"Tony Piccione",         title:"Executive Mortgage Advisor",   nmls:"826808",   markets:["Naples (Collier County)","Orlando (Orange County)"],             state:"FL", phone:"803-526-7193",   link:"finayahl.com/p/tonyp",       linkedin:"linkedin.com/in/anthony-piccione-17b0ab110", facebook:"", instagram:"", status:"complete"},
-  {id:18, name:"Warren Potter",         title:"Executive Mortgage Advisor",   nmls:"221747",   markets:["Gypsum (Eagle County)","Telluride (San Miguel County)","Breckenridge (Summit County)"], state:"CO", phone:"720-739-5730", link:"finayahl.com/p/warrenp", linkedin:"", facebook:"facebook.com/cwarrenpotter", instagram:"", status:"complete"},
-  {id:19, name:"Michael Hakun",         title:"Executive Mortgage Advisor",   nmls:"886450",   markets:["Seminole County","Volusia County","Brevard County","Pasco County"], state:"FL", phone:"803-526-7190", link:"finayahl.com/p/mikeh", linkedin:"linkedin.com/in/michael-hakun-5516aa31", facebook:"facebook.com/mike.hakun", instagram:"", status:"complete", note:"Territories assigned: Seminole, Volusia, Brevard, Pasco (FL)."},
-  {id:20, name:"Steve Fox",             title:"Executive Mortgage Advisor",   nmls:"913411",   markets:["Guilford County (Greensboro)","Winston-Salem (Forsyth County)"], state:"NC", phone:"336-265-7341", link:"finayahl.com/p/stevef", linkedin:"linkedin.com/in/steven-fox-9bba7a60", facebook:"facebook.com/steve.fox.9655", instagram:"", status:"complete", note:"NMLS #913411 verified by Nick Campo. Territories: Guilford, Winston-Salem, Forsyth (NC)."}
+  {
+    "id": 1,
+    "name": "Nick Campo",
+    "title": "Chief Revenue Officer",
+    "nmls": "2011753",
+    "licensedStates": "CO, FL, GA, LA, NC, SC (DCA)",
+    "markets": [
+      "Charleston",
+      "Goose Creek (Berkeley County)"
+    ],
+    "state": "SC",
+    "phone": "843-371-5755",
+    "cell": "980-263-7274",
+    "email": "nick.campo@finayahl.com",
+    "link": "finayahl.com/p/nicholasc",
+    "linkedin": "linkedin.com/in/nicholas-campo-sr-90230686",
+    "facebook": "facebook.com/nick.campo.37017",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 2,
+    "name": "Alan Sacks",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "159915",
+    "licensedStates": "NC, SC (DCA)",
+    "markets": [
+      "Indian Trail (Union County)",
+      "Mooresville (Iredell County)",
+      "Raleigh (Wake County)"
+    ],
+    "state": "NC",
+    "phone": "704-733-8700",
+    "cell": "",
+    "email": "alan.sacks@finayahl.com",
+    "link": "finayahl.com/p/alans",
+    "linkedin": "linkedin.com/in/alan-sacks-92b20313",
+    "facebook": "facebook.com/mortgagewithalan",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 3,
+    "name": "John Birke",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "1150795",
+    "licensedStates": "NC, SC (DCA)",
+    "markets": [
+      "Rock Hill (York County)",
+      "Greenville",
+      "Easley (Oconee & Pickens Counties)",
+      "Hilton Head Island (Beaufort County)"
+    ],
+    "state": "SC",
+    "phone": "479-445-5062",
+    "cell": "",
+    "email": "john.birke@finayahl.com",
+    "link": "finayahl.com/p/johnb",
+    "linkedin": "linkedin.com/in/johnbmortgage",
+    "facebook": "facebook.com/john.birke",
+    "instagram": "@johnbmortgage",
+    "tiktok": "@johnbmortgage",
+    "status": "complete"
+  },
+  {
+    "id": 4,
+    "name": "Ben Singleton",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "2341198",
+    "licensedStates": "CO, NC, SC (DCA)",
+    "markets": [
+      "Myrtle Beach (Horry County)"
+    ],
+    "state": "SC",
+    "phone": "803-262-2641",
+    "cell": "980-402-2866",
+    "email": "ben.singleton@finayahl.com",
+    "link": "finayahl.com/p/bens",
+    "linkedin": "linkedin.com/in/benjamin-singleton-57319a161",
+    "facebook": "facebook.com/ben.singleton.50",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 5,
+    "name": "Christina Yudzitski",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "2663819",
+    "licensedStates": "NC, SC (BFI), SC (DCA)",
+    "markets": [
+      "Pinehurst (Moore County)",
+      "Durham & Orange County",
+      "Raleigh (Wake County)"
+    ],
+    "state": "NC",
+    "phone": "401-207-1464",
+    "cell": "",
+    "email": "christina.yudzitski@finayahl.com",
+    "link": "finayahl.com/p/christinay",
+    "linkedin": "linkedin.com/in/christinayudzitski",
+    "facebook": "facebook.com/cbelov",
+    "instagram": "@homeloansxchristina",
+    "status": "complete"
+  },
+  {
+    "id": 6,
+    "name": "Raymond M Pinkston",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "2823400",
+    "licensedStates": "NC",
+    "markets": [
+      "Charlotte (Mecklenburg County)",
+      "Boone (Watauga & Avery Counties)"
+    ],
+    "state": "NC",
+    "phone": "704-728-7798",
+    "cell": "",
+    "email": "ray.pinkston@finayahl.com",
+    "link": "finayahl.com/p/rpinkston",
+    "linkedin": "linkedin.com/in/raymond-pinkston-9113483b",
+    "facebook": "facebook.com/raymondmpinkston",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 7,
+    "name": "Khesey Silva",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "2358323",
+    "licensedStates": "CO, FL, GA, NC, NJ, SC (DCA)",
+    "markets": [
+      "St. Augustine (St. Johns & Nassau Counties)",
+      "Crestview (Walton & Okaloosa Counties)"
+    ],
+    "state": "FL",
+    "phone": "720-715-7524",
+    "cell": "",
+    "email": "khesey.silva@finayahl.com",
+    "link": "finayahl.com/p/kheseys",
+    "linkedin": "linkedin.com/in/kheseypich",
+    "facebook": "facebook.com/KheseySilva",
+    "instagram": "@kheseysilva_nmls2358323",
+    "status": "complete"
+  },
+  {
+    "id": 8,
+    "name": "Andrew Simmons",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "1679914",
+    "licensedStates": "CO, FL, GA, NC",
+    "markets": [
+      "Wilmington (New Hanover County)",
+      "Leland (Brunswick County)",
+      "Asheville (Buncombe County)",
+      "Franklin",
+      "Kill Devil Hills"
+    ],
+    "state": "NC",
+    "phone": "404-480-8630",
+    "cell": "",
+    "email": "andrew.simmons@finayahl.com",
+    "link": "finayahl.com/p/andrews",
+    "linkedin": "linkedin.com/in/andrew-simmons-289379141",
+    "facebook": "",
+    "instagram": "",
+    "status": "waiting",
+    "note": "Headshot pending from JB Frye."
+  },
+  {
+    "id": 9,
+    "name": "Mark Glatzmaier II",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "1085400",
+    "licensedStates": "FL, GA, SC (DCA)",
+    "markets": [
+      "Atlanta (Fulton County)",
+      "Marietta (Cobb & Forsyth Counties)"
+    ],
+    "state": "GA",
+    "phone": "720-715-7384",
+    "cell": "509-990-1818",
+    "verificationAddress": "6911 N Argonaut Rd, Spokane, WA 99208",
+    "email": "mark.glatzmaier@finayahl.com",
+    "link": "finayahl.com/p/mglatzmaier",
+    "linkedin": "linkedin.com/in/marksmortgage",
+    "facebook": "facebook.com/MarksMortgage",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 10,
+    "name": "Matthew Squires",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "1029875",
+    "licensedStates": "CO, FL, GA, KY, NC, NE, SC (BFI), UT (DRE)",
+    "markets": [
+      "Tampa (Hillsborough & Pinellas Counties)"
+    ],
+    "state": "FL",
+    "phone": "864-375-4640",
+    "cell": "",
+    "email": "matthew.squires@finayahl.com",
+    "link": "finayahl.com/p/matthews",
+    "linkedin": "linkedin.com/in/mattsquires11",
+    "facebook": "facebook.com/matt.squires.79",
+    "instagram": "@matt._squires_",
+    "status": "complete"
+  },
+  {
+    "id": 11,
+    "name": "Paul Grady",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "2502731",
+    "licensedStates": "FL, NC",
+    "markets": [
+      "Miami (Miami-Dade County)"
+    ],
+    "state": "FL",
+    "phone": "720-776-0146",
+    "cell": "206-228-2160",
+    "verificationAddress": "3881 W River Falls Drive, Post Falls, ID 83854",
+    "email": "paul.grady@finayahl.com",
+    "link": "finayahl.com/p/paulg",
+    "linkedin": "linkedin.com/in/paul-grady-a848b231",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 12,
+    "name": "Geneva Lynne Price",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "247066",
+    "licensedStates": "FL, GA, ME, UT (DRE)",
+    "markets": [
+      "North Port (Sarasota & Manatee Counties)",
+      "Fort Lauderdale (Broward County)"
+    ],
+    "state": "FL",
+    "phone": "843-605-9744",
+    "cell": "",
+    "email": "geneva.price@finayahl.com",
+    "link": "finayahl.com/p/genevap",
+    "linkedin": "linkedin.com/in/geneva-price-mortgage",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 13,
+    "name": "Cleo Lewis",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "1451574",
+    "licensedStates": "CO",
+    "markets": [
+      "Denver (Denver County)"
+    ],
+    "state": "CO",
+    "phone": "720-770-1530",
+    "cell": "",
+    "email": "cleo.lewis@finayahl.com",
+    "link": "finayahl.com/p/cleol",
+    "linkedin": "linkedin.com/in/cleo-lewis-837aba85",
+    "facebook": "facebook.com/cleo.lewis.775",
+    "instagram": "",
+    "status": "waiting",
+    "note": "Headshot pending from JB Frye."
+  },
+  {
+    "id": 14,
+    "name": "Brandon Metoyer",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "2055356",
+    "licensedStates": "CO",
+    "markets": [
+      "Aurora (Arapahoe County)",
+      "Lakewood (Jefferson County)",
+      "Castle Rock (Douglas County)"
+    ],
+    "state": "CO",
+    "phone": "Pending",
+    "cell": "",
+    "email": "brandon.metoyer@finayahl.com",
+    "link": "finayahl.com/p/brandonm",
+    "linkedin": "linkedin.com/in/brandon-metoyer-51276a59",
+    "facebook": "facebook.com/TheFaceOfDualLicensing",
+    "instagram": "",
+    "status": "waiting",
+    "note": "On hold per Nick Campo: Part-time, OneCloud phone pending. Do not launch until approved."
+  },
+  {
+    "id": 15,
+    "name": "Gerise Wilson",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "2125467",
+    "licensedStates": "CO",
+    "markets": [
+      "Boulder (Boulder County)",
+      "Colorado Springs (El Paso County)"
+    ],
+    "state": "CO",
+    "phone": "720-394-5849",
+    "cell": "720-394-5849",
+    "email": "gerise.wilson@finayahl.com",
+    "link": "finayahl.com/p/gerisew",
+    "linkedin": "linkedin.com/in/ashley-gerise",
+    "facebook": "facebook.com/ashley.brannon.90",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 16,
+    "name": "Jeff Fenkell",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "1419136",
+    "licensedStates": "AZ, CO, FL, GA, RI, UT (DRE)",
+    "markets": [
+      "West Palm Beach (Palm Beach County)",
+      "Stuart (Martin County)"
+    ],
+    "state": "FL",
+    "phone": "704-303-8670",
+    "cell": "",
+    "email": "jeff.fenkell@finayahl.com",
+    "link": "finayahl.com/p/jefff",
+    "linkedin": "linkedin.com/in/jfenkell",
+    "facebook": "facebook.com/jafenkell",
+    "instagram": "@jaf192304",
+    "status": "complete"
+  },
+  {
+    "id": 17,
+    "name": "Tony Piccione",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "826808",
+    "licensedStates": "CO, FL, GA, ME",
+    "markets": [
+      "Naples (Collier County)",
+      "Orlando (Orange County)"
+    ],
+    "state": "FL",
+    "phone": "803-526-7193",
+    "cell": "",
+    "email": "tony.piccione@finayahl.com",
+    "link": "finayahl.com/p/tonyp",
+    "linkedin": "linkedin.com/in/anthony-piccione-17b0ab110",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 18,
+    "name": "Warren Potter",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "221747",
+    "licensedStates": "CO",
+    "markets": [
+      "Gypsum (Eagle County)",
+      "Telluride (San Miguel County)",
+      "Breckenridge (Summit County)"
+    ],
+    "state": "CO",
+    "phone": "720-739-5730",
+    "cell": "",
+    "email": "warren.potter@finayahl.com",
+    "link": "finayahl.com/p/warrenp",
+    "linkedin": "",
+    "facebook": "facebook.com/cwarrenpotter",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 19,
+    "name": "Michael Hakun",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "886450",
+    "licensedStates": "None active",
+    "markets": [
+      "Seminole County",
+      "Volusia County",
+      "Brevard County",
+      "Pasco County"
+    ],
+    "state": "FL",
+    "phone": "803-526-7190",
+    "cell": "",
+    "email": "mike.hakun@finayahl.com",
+    "link": "finayahl.com/p/mikeh",
+    "linkedin": "linkedin.com/in/michael-hakun-5516aa31",
+    "facebook": "facebook.com/share/1JEnUQbEJ7",
+    "instagram": "",
+    "status": "complete",
+    "note": "Territories assigned: Seminole, Volusia, Brevard, Pasco (FL)."
+  },
+  {
+    "id": 20,
+    "name": "Steve Fox",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "913411",
+    "licensedStates": "GA, NC",
+    "markets": [
+      "Guilford County (Greensboro)",
+      "Winston-Salem (Forsyth County)"
+    ],
+    "state": "NC",
+    "phone": "336-265-7341",
+    "cell": "",
+    "email": "steve.fox@finayahl.com",
+    "link": "finayahl.com/p/stevef",
+    "linkedin": "linkedin.com/in/steven-fox-9bba7a60",
+    "facebook": "facebook.com/steve.fox.9655",
+    "instagram": "",
+    "status": "complete",
+    "note": "NMLS #913411 verified by Nick Campo. Territories: Guilford, Winston-Salem, Forsyth (NC)."
+  },
+  {
+    "id": 21,
+    "name": "Jamie Repasky",
+    "title": "Director of Mortgage Sales",
+    "nmls": "1095360",
+    "licensedStates": "CO, GA, NC",
+    "markets": [
+      "National Team Lead",
+      "Denver, CO",
+      "Atlanta, GA",
+      "Charlotte, NC"
+    ],
+    "state": "CO",
+    "phone": "424-305-5228",
+    "cell": "608-449-9859",
+    "verificationAddress": "640 Vermilion Peak Dr, Windsor, CO 80550",
+    "email": "jamie.repasky@finayahl.com",
+    "link": "finayahl.com/p/jamier",
+    "linkedin": "linkedin.com/in/james-repasky-cude-a1104292",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 22,
+    "name": "Kevin Fox",
+    "title": "Director of Mortgage Sales",
+    "nmls": "775402",
+    "licensedStates": "CO, FL, KY, MI, MO, OH, PA, TN, TX (SML)",
+    "markets": [
+      "National Team Lead",
+      "Rock Hill HQ",
+      "Charlotte, NC",
+      "Tampa, FL"
+    ],
+    "state": "SC",
+    "phone": "704-751-5278",
+    "cell": "810-449-3558",
+    "email": "kevin.fox@finayahl.com",
+    "link": "finayahl.com/p/kevinf",
+    "linkedin": "linkedin.com/in/kevin-fox-ba98b250",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 23,
+    "name": "Brian Banks",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "2037092",
+    "licensedStates": "AR, AZ, CA (DFPI), FL, GA, HI, IA, KS, LA, NC, NH, NM, NV, TX (SML), WA",
+    "markets": [
+      "Palm Beach (West Palm Beach)",
+      "Duval (Jacksonville)"
+    ],
+    "state": "FL",
+    "phone": "704-849-9210",
+    "cell": "678-897-3045",
+    "email": "brian.banks@finayahl.com",
+    "link": "finayahl.com/p/brianb",
+    "linkedin": "linkedin.com/in/banks1127",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 24,
+    "name": "Scott Cleaver",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "963074",
+    "licensedStates": "FL, GA",
+    "markets": [
+      "DeKalb (Stonecrest)",
+      "Chatham (Savannah)",
+      "Greene/Putnam (Eatonton)",
+      "Glynn (Brunswick)",
+      "Floyd (Rome)",
+      "Rabun (Clayton)"
+    ],
+    "state": "GA",
+    "phone": "919-589-7445",
+    "cell": "945-365-5345",
+    "email": "scott.cleaver@finayahl.com",
+    "link": "finayahl.com/p/scottc",
+    "linkedin": "linkedin.com/in/scott-cleaver-34914216",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 25,
+    "name": "Bryan Anstandig",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "591342",
+    "licensedStates": "FL",
+    "markets": [
+      "Miami-Dade (Miami)",
+      "Lee (Cape Coral)"
+    ],
+    "state": "FL",
+    "phone": "803-526-7196",
+    "cell": "248-320-9640",
+    "email": "bryan.anstandig@finayahl.com",
+    "link": "finayahl.com/p/bryana",
+    "linkedin": "linkedin.com/in/bryan-anstandig-63229414",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 26,
+    "name": "Kirk Rasmussen",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "1737435",
+    "licensedStates": "CO",
+    "markets": [
+      "Pitkin (Aspen)",
+      "Routt (Steamboat Springs)",
+      "Gunnison"
+    ],
+    "state": "CO",
+    "phone": "720-770-1530",
+    "cell": "303-956-6487",
+    "email": "kirk.rasmussen@finayahl.com",
+    "link": "finayahl.com/p/kirkr",
+    "linkedin": "linkedin.com/in/kirk-rasmussen-45222a13",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  },
+  {
+    "id": 27,
+    "name": "Cashmere Jones",
+    "title": "Executive Mortgage Advisor",
+    "nmls": "2092763",
+    "licensedStates": "FL, GA, NC",
+    "markets": [
+      "Fulton (Atlanta)"
+    ],
+    "state": "GA",
+    "phone": "803-262-0724",
+    "cell": "980-417-4200",
+    "email": "cashmere.jones@finayahl.com",
+    "link": "finayahl.com/p/cashmerej",
+    "linkedin": "linkedin.com/in/cashmerejones",
+    "facebook": "",
+    "instagram": "",
+    "status": "complete"
+  }
 ];
 
 /* ---------------- LINKEDIN SCRUB AUDIT DATA ---------------- */
+
+/* ---------------- GOOGLE BUSINESS PROFILE (GBP) DATA ---------------- */
+const GBP_DATA = {
+  "1": {
+    "bname": "Nick Campo, Chief Revenue Officer - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Charleston, SC, Goose Creek, SC, Berkeley County, SC, Charleston County, SC, Dorchester County, SC, Mount Pleasant, SC, North Charleston, SC, Summerville, SC",
+    "areasList": [
+      "Charleston, SC",
+      "Goose Creek, SC",
+      "Berkeley County, SC",
+      "Charleston County, SC",
+      "Dorchester County, SC",
+      "Mount Pleasant, SC",
+      "North Charleston, SC",
+      "Summerville, SC"
+    ],
+    "phone": "843-371-5755",
+    "website": "https://finayahl.com/p/nicholasc",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Nicholas Campo Sr. is Chief Revenue Officer and Executive Mortgage Advisor at Finaya Home Loans, serving home buyers and homeowners across Charleston and Berkeley County, South Carolina. Specializing in conventional, FHA, VA, jumbo, and refinance residential mortgage solutions. With transparent guidance and local market insight, Nick helps families structure smart financing tailored to their long-term financial goals. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Nick Campo NMLS #2011753. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "nick.campo@finayahl.com",
+    "cell": "980-263-7274"
+  },
+  "2": {
+    "bname": "Alan Sacks, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Indian Trail, NC, Union County, NC, Mooresville, NC, Iredell County, NC, Raleigh, NC, Wake County, NC, Waxhaw, NC, Matthews, NC, Lake Norman, NC",
+    "areasList": [
+      "Indian Trail, NC",
+      "Union County, NC",
+      "Mooresville, NC",
+      "Iredell County, NC",
+      "Raleigh, NC",
+      "Wake County, NC",
+      "Waxhaw, NC",
+      "Matthews, NC",
+      "Lake Norman, NC"
+    ],
+    "phone": "704-733-8700",
+    "website": "https://finayahl.com/p/alans",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Alan Sacks is an Executive Mortgage Advisor at Finaya Home Loans, guiding home buyers and homeowners across Indian Trail, Mooresville, Raleigh, and surrounding North Carolina communities. Providing conventional, FHA, VA, USDA, and jumbo mortgage financing with clear communication and dependable execution. Alan takes time to understand your financial objectives to secure the right home loan structure. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Alan Sacks NMLS #159915. Visit www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "alan.sacks@finayahl.com",
+    "cell": ""
+  },
+  "3": {
+    "bname": "John Birke, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Rock Hill, SC, York County, SC, Greenville, SC, Greenville County, SC, Easley, SC, Pickens County, SC, Oconee County, SC, Hilton Head Island, SC, Beaufort County, SC, Fort Mill, SC",
+    "areasList": [
+      "Rock Hill, SC",
+      "York County, SC",
+      "Greenville, SC",
+      "Greenville County, SC",
+      "Easley, SC",
+      "Pickens County, SC",
+      "Oconee County, SC",
+      "Hilton Head Island, SC",
+      "Beaufort County, SC",
+      "Fort Mill, SC"
+    ],
+    "phone": "479-445-5062",
+    "website": "https://finayahl.com/p/johnb",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "John Birke is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers across Rock Hill, Greenville, Easley, Hilton Head Island, and the greater Upstate and Lowcountry regions of South Carolina. Specializing in first-time buyer financing, conventional, FHA, VA, and second-home mortgage options. John delivers dedicated support from pre-approval through closing. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. John Birke NMLS #1150795. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "john.birke@finayahl.com",
+    "cell": ""
+  },
+  "4": {
+    "bname": "Ben Singleton, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Myrtle Beach, SC, Horry County, SC, Conway, SC, North Myrtle Beach, SC, Georgetown County, SC, Murrells Inlet, SC, Pawleys Island, SC",
+    "areasList": [
+      "Myrtle Beach, SC",
+      "Horry County, SC",
+      "Conway, SC",
+      "North Myrtle Beach, SC",
+      "Georgetown County, SC",
+      "Murrells Inlet, SC",
+      "Pawleys Island, SC"
+    ],
+    "phone": "803-262-2641",
+    "website": "https://finayahl.com/p/bens",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Ben Singleton is an Executive Mortgage Advisor at Finaya Home Loans, specializing in residential home financing across Myrtle Beach, Conway, and Horry County, South Carolina. From primary residences and vacation retreats to investment properties, Ben offers conventional, FHA, VA, and coastal mortgage programs tailored to coastal South Carolina buyers. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Ben Singleton NMLS #2341198. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "ben.singleton@finayahl.com",
+    "cell": "980-402-2866"
+  },
+  "5": {
+    "bname": "Christina Yudzitski, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Pinehurst, NC, Moore County, NC, Durham, NC, Durham County, NC, Orange County, NC, Chapel Hill, NC, Raleigh, NC, Wake County, NC, Southern Pines, NC",
+    "areasList": [
+      "Pinehurst, NC",
+      "Moore County, NC",
+      "Durham, NC",
+      "Durham County, NC",
+      "Orange County, NC",
+      "Chapel Hill, NC",
+      "Raleigh, NC",
+      "Wake County, NC",
+      "Southern Pines, NC"
+    ],
+    "phone": "401-207-1464",
+    "website": "https://finayahl.com/p/christinay",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Christina Yudzitski is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers across Pinehurst, Moore County, the Triangle (Durham, Orange, Raleigh), and North Carolina. Christina provides personalized mortgage consultations for conventional, FHA, VA, and jumbo loan options, ensuring home buyers feel confident and informed throughout every step of the mortgage process. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Christina Yudzitski NMLS #2663819. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "christina.yudzitski@finayahl.com",
+    "cell": ""
+  },
+  "6": {
+    "bname": "Raymond Pinkston, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Charlotte, NC, Mecklenburg County, NC, Boone, NC, Watauga County, NC, Avery County, NC, Huntersville, NC, Cornelius, NC, Blowing Rock, NC",
+    "areasList": [
+      "Charlotte, NC",
+      "Mecklenburg County, NC",
+      "Boone, NC",
+      "Watauga County, NC",
+      "Avery County, NC",
+      "Huntersville, NC",
+      "Cornelius, NC",
+      "Blowing Rock, NC"
+    ],
+    "phone": "704-728-7798",
+    "website": "https://finayahl.com/p/rpinkston",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Raymond M. Pinkston is an Executive Mortgage Advisor at Finaya Home Loans, delivering comprehensive home financing solutions across Charlotte, Mecklenburg County, and the High Country (Boone, Watauga, Avery Counties). Offering conventional, FHA, VA, mountain retreat, and refinance mortgage loans tailored to North Carolina families and investors. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Raymond M. Pinkston NMLS #2823400. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "ray.pinkston@finayahl.com",
+    "cell": ""
+  },
+  "7": {
+    "bname": "Khesey Silva, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "St. Augustine, FL, St. Johns County, FL, Nassau County, FL, Fernandina Beach, FL, Crestview, FL, Okaloosa County, FL, Walton County, FL, Destin, FL, Ponte Vedra, FL",
+    "areasList": [
+      "St. Augustine, FL",
+      "St. Johns County, FL",
+      "Nassau County, FL",
+      "Fernandina Beach, FL",
+      "Crestview, FL",
+      "Okaloosa County, FL",
+      "Walton County, FL",
+      "Destin, FL",
+      "Ponte Vedra, FL"
+    ],
+    "phone": "720-715-7524",
+    "website": "https://finayahl.com/p/kheseys",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Khesey Silva is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers throughout Northeast Florida (St. Augustine, St. Johns, Nassau Counties) and the Florida Panhandle (Crestview, Walton, Okaloosa Counties). Offering conventional, FHA, VA, jumbo, and condo residential financing. Khesey pairs personalized attention with competitive mortgage solutions. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Khesey Silva NMLS #2358323. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "khesey.silva@finayahl.com",
+    "cell": ""
+  },
+  "8": {
+    "bname": "Andrew Simmons, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Wilmington, NC, New Hanover County, NC, Leland, NC, Brunswick County, NC, Asheville, NC, Buncombe County, NC, Franklin, NC, Kill Devil Hills, NC, Outer Banks, NC",
+    "areasList": [
+      "Wilmington, NC",
+      "New Hanover County, NC",
+      "Leland, NC",
+      "Brunswick County, NC",
+      "Asheville, NC",
+      "Buncombe County, NC",
+      "Franklin, NC",
+      "Kill Devil Hills, NC",
+      "Outer Banks, NC"
+    ],
+    "phone": "404-480-8630",
+    "website": "https://finayahl.com/p/andrews",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Andrew Simmons is an Executive Mortgage Advisor at Finaya Home Loans, assisting home buyers across coastal and western North Carolina, including Wilmington, Brunswick County, Asheville, and the Outer Banks. Specializing in conventional, FHA, VA, second homes, and coastal residential lending. Andrew delivers transparent guidance throughout your home buying journey. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Andrew Simmons NMLS #1679914. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "andrew.simmons@finayahl.com",
+    "cell": ""
+  },
+  "9": {
+    "bname": "Mark Glatzmaier, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Atlanta, GA, Fulton County, GA, Marietta, GA, Cobb County, GA, Forsyth County, GA, Cumming, GA, Sandy Springs, GA, Alpharetta, GA, Roswell, GA",
+    "areasList": [
+      "Atlanta, GA",
+      "Fulton County, GA",
+      "Marietta, GA",
+      "Cobb County, GA",
+      "Forsyth County, GA",
+      "Cumming, GA",
+      "Sandy Springs, GA",
+      "Alpharetta, GA",
+      "Roswell, GA"
+    ],
+    "phone": "720-715-7384",
+    "website": "https://finayahl.com/p/mglatzmaier",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Mark Glatzmaier II is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers and homeowners across Greater Atlanta, Fulton County, Cobb County (Marietta), and Forsyth County, Georgia. Offering comprehensive conventional, FHA, VA, jumbo, and refinance options designed around each client's financial timeline and wealth-building goals. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Mark Glatzmaier II NMLS #1085400. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "mark.glatzmaier@finayahl.com",
+    "cell": "509-990-1818",
+    "verificationAddress": "6911 N Argonaut Rd, Spokane, WA 99208"
+  },
+  "10": {
+    "bname": "Matthew Squires, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Tampa, FL, Hillsborough County, FL, Pinellas County, FL, St. Petersburg, FL, Clearwater, FL, Brandon, FL, Riverview, FL",
+    "areasList": [
+      "Tampa, FL",
+      "Hillsborough County, FL",
+      "Pinellas County, FL",
+      "St. Petersburg, FL",
+      "Clearwater, FL",
+      "Brandon, FL",
+      "Riverview, FL"
+    ],
+    "phone": "864-375-4640",
+    "website": "https://finayahl.com/p/matthews",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Matthew Squires is an Executive Mortgage Advisor at Finaya Home Loans, delivering residential mortgage solutions across the Tampa Bay area, Hillsborough County, and Pinellas County, Florida. Providing conventional, FHA, VA, jumbo, and home equity refinance loans with clear advice and attentive communication. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Matthew Squires NMLS #1029875. Visit www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "matthew.squires@finayahl.com",
+    "cell": ""
+  },
+  "11": {
+    "bname": "Paul Grady, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Miami, FL, Miami-Dade County, FL, Coral Gables, FL, Miami Beach, FL, Doral, FL, Kendall, FL, Homestead, FL",
+    "areasList": [
+      "Miami, FL",
+      "Miami-Dade County, FL",
+      "Coral Gables, FL",
+      "Miami Beach, FL",
+      "Doral, FL",
+      "Kendall, FL",
+      "Homestead, FL"
+    ],
+    "phone": "720-776-0146",
+    "website": "https://finayahl.com/p/paulg",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Paul Grady is an Executive Mortgage Advisor at Finaya Home Loans, guiding home buyers and real estate investors across Miami and Miami-Dade County, Florida. Specializing in conventional, jumbo, FHA, VA, and condo financing structured for South Florida's dynamic residential market. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Paul Grady NMLS #2502731. Visit www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "paul.grady@finayahl.com",
+    "cell": "206-228-2160",
+    "verificationAddress": "3881 W River Falls Drive, Post Falls, ID 83854"
+  },
+  "12": {
+    "bname": "Geneva Price, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "North Port, FL, Sarasota County, FL, Manatee County, FL, Fort Lauderdale, FL, Broward County, FL, Bradenton, FL, Venice, FL, Hollywood, FL, Pompano Beach, FL",
+    "areasList": [
+      "North Port, FL",
+      "Sarasota County, FL",
+      "Manatee County, FL",
+      "Fort Lauderdale, FL",
+      "Broward County, FL",
+      "Bradenton, FL",
+      "Venice, FL",
+      "Hollywood, FL",
+      "Pompano Beach, FL"
+    ],
+    "phone": "843-605-9744",
+    "website": "https://finayahl.com/p/genevap",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Geneva Lynne Price is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers across Southwest Florida (North Port, Sarasota, Manatee Counties) and South Florida (Fort Lauderdale, Broward County). Specializing in conventional, FHA, VA, retirement relocations, and residential purchases with attentive, caring service. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Geneva Lynne Price NMLS #247066. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "geneva.price@finayahl.com",
+    "cell": ""
+  },
+  "13": {
+    "bname": "Cleo Lewis, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Denver, CO, Denver County, CO, Centennial, CO, Highlands Ranch, CO, Cherry Creek, CO, Thornton, CO, Arvada, CO",
+    "areasList": [
+      "Denver, CO",
+      "Denver County, CO",
+      "Centennial, CO",
+      "Highlands Ranch, CO",
+      "Cherry Creek, CO",
+      "Thornton, CO",
+      "Arvada, CO"
+    ],
+    "phone": "720-770-1530",
+    "website": "https://finayahl.com/p/cleol",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Cleo Lewis is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers across Denver, Denver County, and the Front Range of Colorado. Providing conventional, FHA, VA, jumbo, and first-time home buyer financing programs tailored to the Colorado market with transparent and responsive service. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Cleo Lewis NMLS #1451574. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "cleo.lewis@finayahl.com",
+    "cell": ""
+  },
+  "14": {
+    "bname": "Brandon Metoyer, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Aurora, CO, Arapahoe County, CO, Lakewood, CO, Jefferson County, CO, Castle Rock, CO, Douglas County, CO",
+    "areasList": [
+      "Aurora, CO",
+      "Arapahoe County, CO",
+      "Lakewood, CO",
+      "Jefferson County, CO",
+      "Castle Rock, CO",
+      "Douglas County, CO"
+    ],
+    "phone": "Pending",
+    "website": "https://finayahl.com/p/brandonm",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Brandon Metoyer is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers and homeowners across Aurora, Arapahoe County, Lakewood, and Castle Rock, Colorado. Specializing in conventional, FHA, VA, and jumbo residential mortgage solutions designed for Colorado families and investors. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Brandon Metoyer NMLS #2055356. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": true,
+    "email": "brandon.metoyer@finayahl.com",
+    "cell": ""
+  },
+  "15": {
+    "bname": "Gerise Wilson, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Boulder, CO, Boulder County, CO, Colorado Springs, CO, El Paso County, CO, Longmont, CO, Monument, CO, Fountain, CO",
+    "areasList": [
+      "Boulder, CO",
+      "Boulder County, CO",
+      "Colorado Springs, CO",
+      "El Paso County, CO",
+      "Longmont, CO",
+      "Monument, CO",
+      "Fountain, CO"
+    ],
+    "phone": "720-394-5849",
+    "website": "https://finayahl.com/p/gerisew",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Gerise Wilson is an Executive Mortgage Advisor at Finaya Home Loans, providing residential mortgage financing for families across Boulder County and the Pikes Peak region (Colorado Springs, El Paso County). Specializing in conventional, VA military loans, FHA, and mountain residential programs with proactive communication. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Gerise Wilson NMLS #2125467. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "gerise.wilson@finayahl.com",
+    "cell": "720-394-5849"
+  },
+  "16": {
+    "bname": "Jeff Fenkell, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "West Palm Beach, FL, Palm Beach County, FL, Stuart, FL, Martin County, FL, Jupiter, FL, Boca Raton, FL, Palm Beach Gardens, FL",
+    "areasList": [
+      "West Palm Beach, FL",
+      "Palm Beach County, FL",
+      "Stuart, FL",
+      "Martin County, FL",
+      "Jupiter, FL",
+      "Boca Raton, FL",
+      "Palm Beach Gardens, FL"
+    ],
+    "phone": "704-303-8670",
+    "website": "https://finayahl.com/p/jefff",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Jeff Fenkell is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers and homeowners across West Palm Beach, Palm Beach County, Stuart, and the Treasure Coast of Florida. Offering tailored conventional, FHA, VA, jumbo, and luxury second-home mortgage financing backed by personal service. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Jeff Fenkell NMLS #1419136. Visit www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "jeff.fenkell@finayahl.com",
+    "cell": ""
+  },
+  "17": {
+    "bname": "Tony Piccione, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Naples, FL, Collier County, FL, Orlando, FL, Orange County, FL, Marco Island, FL, Winter Park, FL, Windermere, FL",
+    "areasList": [
+      "Naples, FL",
+      "Collier County, FL",
+      "Orlando, FL",
+      "Orange County, FL",
+      "Marco Island, FL",
+      "Winter Park, FL",
+      "Windermere, FL"
+    ],
+    "phone": "803-526-7193",
+    "website": "https://finayahl.com/p/tonyp",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Tony Piccione is an Executive Mortgage Advisor at Finaya Home Loans, guiding home buyers across Southwest Florida (Naples, Collier County) and Central Florida (Orlando, Orange County). Specializing in conventional, jumbo, FHA, VA, and resort condominium residential financing with transparent advice throughout the loan process. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Tony Piccione NMLS #826808. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "tony.piccione@finayahl.com",
+    "cell": ""
+  },
+  "18": {
+    "bname": "Warren Potter, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Gypsum, CO, Eagle County, CO, Vail, CO, Telluride, CO, San Miguel County, CO, Breckenridge, CO, Summit County, CO",
+    "areasList": [
+      "Gypsum, CO",
+      "Eagle County, CO",
+      "Vail, CO",
+      "Telluride, CO",
+      "San Miguel County, CO",
+      "Breckenridge, CO",
+      "Summit County, CO"
+    ],
+    "phone": "720-739-5730",
+    "website": "https://finayahl.com/p/warrenp",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Warren Potter is an Executive Mortgage Advisor at Finaya Home Loans, delivering specialized residential financing across Colorado's mountain communities, including Eagle County (Gypsum, Vail), Telluride, and Summit County (Breckenridge). Expertise in primary homes, vacation properties, and mountain resort mortgages. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Warren Potter NMLS #221747. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "warren.potter@finayahl.com",
+    "cell": ""
+  },
+  "19": {
+    "bname": "Michael Hakun, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Seminole County, FL, Sanford, FL, Altamonte Springs, FL, Volusia County, FL, Daytona Beach, FL, Deltona, FL, Brevard County, FL, Melbourne, FL, Palm Bay, FL, Pasco County, FL, Wesley Chapel, FL",
+    "areasList": [
+      "Seminole County, FL",
+      "Sanford, FL",
+      "Altamonte Springs, FL",
+      "Volusia County, FL",
+      "Daytona Beach, FL",
+      "Deltona, FL",
+      "Brevard County, FL",
+      "Melbourne, FL",
+      "Palm Bay, FL",
+      "Pasco County, FL",
+      "Wesley Chapel, FL"
+    ],
+    "phone": "803-526-7190",
+    "website": "https://finayahl.com/p/mikeh",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Michael Hakun is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers across Central Florida, including Seminole, Volusia, Brevard (Space Coast), and Pasco Counties. Offering conventional, FHA, VA, USDA, and jumbo mortgage loans designed to make buying or refinancing a home clear and stress-free. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Michael Hakun NMLS #886450. Visit www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "mike.hakun@finayahl.com",
+    "cell": ""
+  },
+  "20": {
+    "bname": "Steve Fox, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Greensboro, NC, Guilford County, NC, Winston-Salem, NC, Forsyth County, NC, High Point, NC, Kernersville, NC, Clemmons, NC",
+    "areasList": [
+      "Greensboro, NC",
+      "Guilford County, NC",
+      "Winston-Salem, NC",
+      "Forsyth County, NC",
+      "High Point, NC",
+      "Kernersville, NC",
+      "Clemmons, NC"
+    ],
+    "phone": "336-265-7341",
+    "website": "https://finayahl.com/p/stevef",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Steve Fox is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers across the North Carolina Piedmont Triad, including Greensboro, Guilford County, Winston-Salem, and Forsyth County. Offering conventional, FHA, VA, and refinance solutions backed by trusted guidance and local market know-how. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Steve Fox NMLS #913411 (Verified Active). www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "email": "steve.fox@finayahl.com",
+    "cell": ""
+  },
+  "21": {
+    "bname": "Jamie Repasky, Director of Mortgage Sales - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Denver, CO, Atlanta, GA, Charlotte, NC, Fulton County, GA, Mecklenburg County, NC",
+    "areasList": [
+      "Denver, CO",
+      "Atlanta, GA",
+      "Charlotte, NC",
+      "Fulton County, GA",
+      "Mecklenburg County, NC"
+    ],
+    "phone": "(424) 305-5228",
+    "cell": "608-449-9859",
+    "email": "jamie.repasky@finayahl.com",
+    "website": "https://finayahl.com/p/jamier",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Jamie Repasky is Director of Mortgage Sales at Finaya Home Loans, leading sales origination and advising clients across Colorado, Georgia, and North Carolina. Offering conventional, FHA, VA, and residential mortgage financing with personalized guidance and dependable execution. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Jamie Repasky NMLS #1095360. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false,
+    "verificationAddress": "640 Vermilion Peak Dr, Windsor, CO 80550"
+  },
+  "22": {
+    "bname": "Kevin Fox, Director of Mortgage Sales - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Rock Hill, SC, York County, SC, Charlotte, NC, Mecklenburg County, NC, Tampa, FL",
+    "areasList": [
+      "Rock Hill, SC",
+      "York County, SC",
+      "Charlotte, NC",
+      "Mecklenburg County, NC",
+      "Tampa, FL"
+    ],
+    "phone": "(704) 751-5278",
+    "cell": "810-449-3558",
+    "email": "kevin.fox@finayahl.com",
+    "website": "https://finayahl.com/p/kevinf",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Kevin Fox is Director of Mortgage Sales at Finaya Home Loans, guiding residential lending teams and serving home buyers across South Carolina, North Carolina, and Florida. Specializing in conventional, FHA, VA, jumbo, and home purchase financing tailored to each family's goals. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Kevin Fox NMLS #775402. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false
+  },
+  "23": {
+    "bname": "Brian Banks, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "West Palm Beach, FL, Palm Beach County, FL, Jacksonville, FL, Duval County, FL, Boca Raton, FL, Jupiter, FL",
+    "areasList": [
+      "West Palm Beach, FL",
+      "Palm Beach County, FL",
+      "Jacksonville, FL",
+      "Duval County, FL",
+      "Boca Raton, FL",
+      "Jupiter, FL"
+    ],
+    "phone": "(704) 849-9210",
+    "cell": "678-897-3045",
+    "email": "brian.banks@finayahl.com",
+    "website": "https://finayahl.com/p/brianb",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Brian Banks is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers across Florida including Palm Beach County (West Palm Beach, Boca Raton) and Duval County (Jacksonville). Providing conventional, FHA, VA, and jumbo loan options with dedicated client support. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Brian Banks NMLS #2037092. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false
+  },
+  "24": {
+    "bname": "Scott Cleaver, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Stonecrest, GA, DeKalb County, GA, Savannah, GA, Chatham County, GA, Eatonton, GA, Brunswick, GA, Rome, GA",
+    "areasList": [
+      "Stonecrest, GA",
+      "DeKalb County, GA",
+      "Savannah, GA",
+      "Chatham County, GA",
+      "Eatonton, GA",
+      "Brunswick, GA",
+      "Rome, GA"
+    ],
+    "phone": "(919) 589-7445",
+    "cell": "945-365-5345",
+    "email": "scott.cleaver@finayahl.com",
+    "website": "https://finayahl.com/p/scottc",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Scott Cleaver is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers and homeowners across Georgia, including Greater Atlanta (DeKalb County), Savannah (Chatham County), and Lake Oconee (Greene County). Specializing in conventional, FHA, VA, and coastal residential lending. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Scott Cleaver NMLS #963074. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false
+  },
+  "25": {
+    "bname": "Bryan Anstandig, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Miami, FL, Miami-Dade County, FL, Cape Coral, FL, Lee County, FL, Fort Myers, FL, Coral Gables, FL",
+    "areasList": [
+      "Miami, FL",
+      "Miami-Dade County, FL",
+      "Cape Coral, FL",
+      "Lee County, FL",
+      "Fort Myers, FL",
+      "Coral Gables, FL"
+    ],
+    "phone": "(803) 526-7196",
+    "cell": "248-320-9640",
+    "email": "bryan.anstandig@finayahl.com",
+    "website": "https://finayahl.com/p/bryana",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Bryan Anstandig is an Executive Mortgage Advisor at Finaya Home Loans, assisting home buyers and real estate investors across Miami-Dade County and Southwest Florida (Cape Coral, Lee County). Providing conventional, jumbo, FHA, VA, and second-home financing with attentive personal service. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Bryan Anstandig NMLS #591342. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false
+  },
+  "26": {
+    "bname": "Kirk Rasmussen, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Aspen, CO, Pitkin County, CO, Steamboat Springs, CO, Routt County, CO, Crested Butte, CO, Gunnison County, CO",
+    "areasList": [
+      "Aspen, CO",
+      "Pitkin County, CO",
+      "Steamboat Springs, CO",
+      "Routt County, CO",
+      "Crested Butte, CO",
+      "Gunnison County, CO"
+    ],
+    "phone": "(720) 770-1530",
+    "cell": "303-956-6487",
+    "email": "kirk.rasmussen@finayahl.com",
+    "website": "https://finayahl.com/p/kirkr",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Kirk Rasmussen is an Executive Mortgage Advisor at Finaya Home Loans, delivering specialized mortgage solutions across Colorado's mountain resort regions, including Pitkin County (Aspen), Routt County (Steamboat Springs), and Gunnison County. Expertise in luxury mountain homes, jumbo loans, and vacation retreats. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Kirk Rasmussen NMLS #1737435. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false
+  },
+  "27": {
+    "bname": "Cashmere Jones, Executive Mortgage Advisor - Finaya Home Loans",
+    "primaryCat": "Mortgage broker",
+    "secCats": "Mortgage lender, Loan agency, Financial consultant",
+    "areas": "Atlanta, GA, Fulton County, GA, Sandy Springs, GA, Alpharetta, GA, Roswell, GA, Johns Creek, GA",
+    "areasList": [
+      "Atlanta, GA",
+      "Fulton County, GA",
+      "Sandy Springs, GA",
+      "Alpharetta, GA",
+      "Roswell, GA",
+      "Johns Creek, GA"
+    ],
+    "phone": "(803) 262-0724",
+    "cell": "980-417-4200",
+    "email": "cashmere.jones@finayahl.com",
+    "website": "https://finayahl.com/p/cashmerej",
+    "hours": "Monday\u2013Friday: 8:30 AM \u2013 6:00 PM\nSaturday: 10:00 AM \u2013 2:00 PM\nSunday: Closed",
+    "desc": "Cashmere Jones is an Executive Mortgage Advisor at Finaya Home Loans, serving home buyers and homeowners across Greater Atlanta and Fulton County, Georgia. Offering comprehensive conventional, FHA, VA, and first-time buyer financing structured around each client's financial future. Finaya Home Loans is an Equal Housing Lender. Company NMLS #2470186. Cashmere Jones NMLS #2092763. www.nmlsconsumeraccess.org. For informational purposes only. This is not a commitment to lend. All loans subject to credit approval.",
+    "onHold": false
+  }
+};
+
 const LINKEDIN_AUDIT = {
   1: {
     found: true, username: "nicholas-campo-sr-90230686", profileUrl: "https://www.linkedin.com/in/nicholas-campo-sr-90230686/",
@@ -348,11 +1503,11 @@ const LINKEDIN_AUDIT = {
 
 const FILTERS = [
   {key:"all", label:"All",            test:a=>true},
-  {key:"SC",  label:"South Carolina", test:a=>a.state==="SC"},
-  {key:"NC",  label:"North Carolina", test:a=>a.state==="NC"},
-  {key:"FL",  label:"Florida",        test:a=>a.state==="FL"},
-  {key:"GA",  label:"Georgia",        test:a=>a.state==="GA"},
-  {key:"CO",  label:"Colorado",       test:a=>a.state==="CO"},
+  {key:"SC",  label:"South Carolina", test:a=>a.state==="SC" || (a.licensedStates && a.licensedStates.includes("SC"))},
+  {key:"NC",  label:"North Carolina", test:a=>a.state==="NC" || (a.licensedStates && a.licensedStates.includes("NC"))},
+  {key:"FL",  label:"Florida",        test:a=>a.state==="FL" || (a.licensedStates && a.licensedStates.includes("FL"))},
+  {key:"GA",  label:"Georgia",        test:a=>a.state==="GA" || (a.licensedStates && a.licensedStates.includes("GA"))},
+  {key:"CO",  label:"Colorado",       test:a=>a.state==="CO" || (a.licensedStates && a.licensedStates.includes("CO"))},
   {key:"PEN", label:"Pending",        test:a=>a.state==="Pending" || a.status==="waiting"}
 ];
 
@@ -393,10 +1548,12 @@ function socialBio(a){
 function socialDisclosure(a){ return `NMLS #${a.nmls} | ${COMPANY.name}, NMLS #${COMPANY.nmls}. Equal Housing Lender. ${COMPANY.disclosure}`; }
 function emailSignature(a){
   const phone = a.phone==="Pending" ? "Direct line: assigned shortly" : `Direct: ${a.phone}`;
+  const cell  = a.cell ? ` | Cell: ${a.cell}` : "";
+  const email = a.email ? `\nEmail: ${a.email}` : "";
   const link  = a.link==="Pending"  ? "" : `\nStart your pre-approval: ${a.link}`;
   return `${a.name}
 ${a.title} | ${COMPANY.name}
-${phone}${link}
+${phone}${cell}${email}${link}
 
 NMLS #${a.nmls} | Company NMLS #${COMPANY.nmls}
 Equal Housing Lender | NMLS Consumer Access: www.nmlsconsumeraccess.org
@@ -435,22 +1592,29 @@ const HEADSHOT_MAP = {
   17: "advisor_17_tony_piccione",
   18: "advisor_18_warren_potter",
   19: "advisor_19_michael_hakun",
-  20: "advisor_20_steve_fox"
+  20: "advisor_20_steve_fox",
+  21: "advisor_21_jamie_repasky",
+  22: "advisor_22_kevin_fox",
+  23: "advisor_23_brian_banks",
+  24: "advisor_24_scott_cleaver",
+  25: "advisor_25_bryan_anstandig",
+  26: "advisor_26_kirk_rasmussen",
+  27: "advisor_27_cashmere_jones"
 };
-function getHeadshotUrl(id, variant="clean"){
-  const base = HEADSHOT_MAP[id] || "advisor_1_nick_campo";
-  return `/headshots/studio/${base}_${variant}.png`;
+const ADVISORS_WITHOUT_PHOTO = new Set([8, 13, 14, 22, 23, 24, 25, 26, 27]);
+function hasAdvisorPhoto(id){
+  return !ADVISORS_WITHOUT_PHOTO.has(id);
 }
-function getHeadshotDisplayUrl(id){
-  return `/headshots/webp/advisor_${id}.webp`;
+function getHeadshotUrl(id, variant="clean"){
+  const base = HEADSHOT_MAP[id] || `advisor_${id}`;
+  return `headshots/studio/${base}_${variant}.png`;
 }
 function getHeadshotThumb(id){
-  const base = (HEADSHOT_MAP[id] || "advisor_1_nick_campo").replace(/^advisor_/, "");
-  return `/headshots/webp_thumbs/${base}_thumb.webp`;
+  return `headshots/thumbnails/advisor_${id}.png`;
 }
 const _advisorImgCache = {};
 function getAdvisorImg(id, cb){
-  const url = getHeadshotDisplayUrl(id);
+  const url = getHeadshotUrl(id, "clean");
   if(_advisorImgCache[url]){
     cb(_advisorImgCache[url]);
     return;
@@ -595,7 +1759,7 @@ function aboutHTML(a){
   return `<div class="doc-body">${paras.map(p=>`<p>${esc(p)}</p>`).join("")}<p class="legal">${esc(legal)}</p></div>`;
 }
 function tabbar(){
-  const tabs = [["li","LinkedIn"],["scrub","LinkedIn Scrub"],["social","Facebook & Instagram"],["sig","Email Signature"],["banner","Banner Generator"],["headshot","Studio Headshot"]];
+  const tabs = [["li","LinkedIn"],["scrub","LinkedIn Scrub"],["social","Facebook & Instagram"],["gbp","Google Business Profile"],["sig","Email Signature"],["banner","Banner Generator"],["headshot","Studio Headshot"]];
   return `<div class="tabs" role="tablist">${tabs.map(([k,l])=>`<button class="tab ${k===activeTab?'active':''}" role="tab" aria-selected="${k===activeTab}" data-tab="${k}">${l}</button>`).join("")}</div>`;
 }
 
@@ -707,16 +1871,239 @@ function renderScrubPane(a){
   </div>`;
 }
 
+
+function renderGbpPane(a){
+  const g = GBP_DATA[a.id] || {
+    bname: `${a.name}, ${a.title} - Finaya Home Loans`,
+    primaryCat: "Mortgage broker",
+    secCats: "Mortgage lender, Loan agency, Financial consultant",
+    areas: a.markets.join(", ") + ", " + (STATE_LABEL[a.state] || a.state),
+    areasList: a.markets,
+    phone: a.phone,
+    website: "https://" + a.link,
+    hours: "Monday–Friday: 8:30 AM – 6:00 PM\nSaturday: 10:00 AM – 2:00 PM\nSunday: Closed",
+    desc: `Licensed mortgage advisor at Finaya Home Loans serving home buyers across ${a.state}. NMLS #${a.nmls}. Equal Housing Lender.`
+  };
+
+  const onHold = a.status === "waiting" || g.onHold;
+  const holdBanner = onHold ? `
+    <div class="gbp-alert">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <div>
+        <b>Configuration Staged · Onboarding On Hold:</b> Nick Campo has placed ${esc(a.name)} on hold (part-time transition / OneCloud phone pending). Data below is pre-staged for turnkey publishing once approved.
+      </div>
+    </div>
+  ` : "";
+
+  const pillsHTML = g.areasList && g.areasList.length ? `
+    <div class="gbp-pills">
+      ${g.areasList.map(area=>`<span class="gbp-pill" data-copy-area="${esc(area)}" title="Click to copy this area">${esc(area)}</span>`).join("")}
+    </div>
+  ` : "";
+
+  return `<div class="pane active">
+    <div class="gbp-hero">
+      <div class="gbp-hero-meta">
+        <div class="gbp-hero-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Google Business Profile (GBP) Turnkey Setup Kit
+        </div>
+        <div class="gbp-hero-sub">
+          Service Area Business (SAB) Mode · Address Hidden on Google Maps · Deliverable 2 & 3 Compliance Standard
+        </div>
+      </div>
+      <div class="gbp-hero-actions">
+        <button class="btn-action btn-secondary" data-copy="gbpBundle">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span>Copy All Fields</span>
+        </button>
+        <a class="btn-action btn-primary" href="https://business.google.com/create" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <span>Open Google Manager ↗</span>
+        </a>
+      </div>
+    </div>
+
+    ${holdBanner}
+
+    <div class="gbp-alert" style="background:rgba(0,95,90,0.06);border-color:rgba(0,150,137,0.25);color:var(--teal-deep)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div>
+        <b>Mandatory Rule during Step 2:</b> When Google asks <em>"Do you want to add a location customers can visit, like a store or office?"</em> 👉 <b>Always select "NO"</b>. This ensures the loan officer's personal home address is hidden from the public, and Google creates an approved regional Service Area polygon.
+      </div>
+    </div>
+
+    <div class="gbp-grid">
+      <!-- 1. Business Name -->
+      <div class="gbp-card">
+        <div class="gbp-card-head">
+          <span class="gbp-card-title">1. Business Name</span>
+          <button class="copy" data-copy="gbpName">Copy</button>
+        </div>
+        <div class="gbp-card-body">
+          <div class="gbp-val">${esc(g.bname)}</div>
+          <div style="font-size:11.5px;color:var(--muted);margin-top:6px">Exact compliance naming · Avoid spam buzzwords</div>
+        </div>
+      </div>
+
+      <!-- 2. Primary Category -->
+      <div class="gbp-card">
+        <div class="gbp-card-head">
+          <span class="gbp-card-title">2. Primary Category</span>
+          <button class="copy" data-copy="gbpCatPrimary">Copy</button>
+        </div>
+        <div class="gbp-card-body">
+          <div class="gbp-val">Mortgage broker</div>
+          <div style="font-size:11.5px;color:var(--muted);margin-top:6px">Secondary: Mortgage lender, Loan agency, Financial consultant</div>
+        </div>
+      </div>
+
+      <!-- 3. Storefront / Location -->
+      <div class="gbp-card">
+        <div class="gbp-card-head">
+          <span class="gbp-card-title">3. Storefront Location</span>
+          <span class="badge" style="background:var(--ok-bg);color:var(--ok);font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px">SAB Mode</span>
+        </div>
+        <div class="gbp-card-body">
+          <div class="gbp-val" style="color:var(--lock)">SELECT "NO" (Address Hidden)</div>
+          <div style="font-size:11.5px;color:var(--muted);margin-top:6px">Home address is strictly private for verification; never displayed publicly</div>
+          ${g.verificationAddress ? `
+          <div style="margin-top:10px;padding:8px 10px;background:var(--paper);border:1px dashed var(--line-strong);border-radius:6px;font-size:12px">
+            <div style="font-size:10.5px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:2px">Google Backend Verification Address:</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span class="mono" style="font-weight:600;color:var(--ink)">${esc(g.verificationAddress)}</span>
+              <button class="copy-mini" data-copy-val="${esc(g.verificationAddress)}">Copy</button>
+            </div>
+          </div>` : ''}
+        </div>
+      </div>
+
+      <!-- 4. Phone Number -->
+      <div class="gbp-card">
+        <div class="gbp-card-head">
+          <span class="gbp-card-title">4. OneCloud Virtual Phone</span>
+          <button class="copy" data-copy="gbpPhone">Copy</button>
+        </div>
+        <div class="gbp-card-body">
+          <div class="gbp-val mono">${esc(g.phone)}</div>
+          <div style="font-size:11.5px;color:var(--muted);margin-top:6px">Assigned OneCloud VoIP line · Never enter personal mobile numbers</div>
+        </div>
+      </div>
+
+      <!-- 5. Website URL -->
+      <div class="gbp-card">
+        <div class="gbp-card-head">
+          <span class="gbp-card-title">5. Website & Booking URL</span>
+          <button class="copy" data-copy="gbpUrl">Copy</button>
+        </div>
+        <div class="gbp-card-body">
+          <div class="gbp-val"><a href="${esc(g.website)}" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:none">${esc(g.website)}</a></div>
+          <div style="font-size:11.5px;color:var(--muted);margin-top:6px">Finaya verified EMA landing page & digital application</div>
+        </div>
+      </div>
+
+      <!-- 6. Operating Hours -->
+      <div class="gbp-card">
+        <div class="gbp-card-head">
+          <span class="gbp-card-title">6. Business Hours</span>
+          <button class="copy" data-copy="gbpHours">Copy</button>
+        </div>
+        <div class="gbp-card-body">
+          <div class="gbp-val" style="font-size:12.5px">Mon–Fri: 8:30 AM – 6:00 PM · Sat: 10:00 AM – 2:00 PM · Sun: Closed</div>
+          <div style="font-size:11.5px;color:var(--muted);margin-top:6px">Standard Finaya Home Loans operating hours</div>
+        </div>
+      </div>
+
+      <!-- 7. Service Areas (Full width) -->
+      <div class="gbp-card full">
+        <div class="gbp-card-head">
+          <span class="gbp-card-title">7. Designated Service Areas (${g.areasList ? g.areasList.length : 0} markets)</span>
+          <button class="copy" data-copy="gbpAreas">Copy All Areas</button>
+        </div>
+        <div class="gbp-card-body">
+          <div style="font-size:12px;color:var(--muted);margin-bottom:8px">Click any individual pill below to copy just that city/county, or use "Copy All Areas" for the full list:</div>
+          ${pillsHTML}
+          <div style="margin-top:10px;padding:8px 12px;background:var(--paper);border-radius:6px;font-family:var(--mono);font-size:11.5px;color:var(--body);line-height:1.6">${esc(g.areas)}</div>
+        </div>
+      </div>
+
+      <!-- 8. Description (Full width) -->
+      <div class="gbp-card full">
+        <div class="gbp-card-head">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span class="gbp-card-title">8. Google Business Description</span>
+            <span class="gbp-counter">${g.desc ? g.desc.length : 0} / 750 chars</span>
+            <span class="badge" style="background:var(--ok-bg);color:var(--ok);font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:99px">NMLS Compliant</span>
+          </div>
+          <button class="copy" data-copy="gbpDesc">Copy Description</button>
+        </div>
+        <div class="gbp-card-body">
+          <div style="font-size:13.5px;line-height:1.7;color:var(--ink);white-space:pre-wrap;background:var(--paper);padding:14px 16px;border-radius:8px;border:1px solid var(--line)">${esc(g.desc)}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Corporate Rock Hill HQ Card -->
+    <div class="gbp-sop-card">
+      <div class="gbp-sop-head">
+        <div class="gbp-sop-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Need Rock Hill Central Headquarters Profile? (Storefront Office)
+        </div>
+        <button class="copy" data-copy="gbpHQ" style="font-size:11.5px;padding:4px 12px">Copy HQ Details</button>
+      </div>
+      <div style="padding:14px 20px;font-size:13px;line-height:1.6;color:var(--body);background:var(--paper);border-top:1px solid var(--line)">
+        <b>Finaya Home Loans (Corporate Listing)</b> · 378 Technology Center Way, Suite 1002, Rock Hill, SC 29730 · Phone: (803) 526-7190 · Category: Mortgage broker · Website: https://www.finayahl.com
+      </div>
+    </div>
+
+    <!-- 7-Step Quick SOP Checklist -->
+    <div class="gbp-sop-card">
+      <div class="gbp-sop-head">
+        <div class="gbp-sop-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          Google Business Profile 7-Step Setup SOP Checklist
+        </div>
+        <span style="font-size:11px;font-weight:700;color:var(--teal)">Fast Execution Flow</span>
+      </div>
+      <div class="gbp-sop-list">
+        <div class="gbp-step-item"><span class="gbp-step-num">Step 1:</span> Enter <b>Business Name</b> & select <b>Mortgage broker</b> category on Google.</div>
+        <div class="gbp-step-item"><span class="gbp-step-num">Step 2:</span> When asked <em>"Location customers can visit?"</em> 👉 Select <b>"NO"</b> (Address Hidden).</div>
+        <div class="gbp-step-item"><span class="gbp-step-num">Step 3:</span> Paste <b>Designated Service Areas</b> into <em>"Where do you serve customers?"</em>.</div>
+        <div class="gbp-step-item"><span class="gbp-step-num">Step 4:</span> Enter <b>OneCloud Virtual Phone</b> and the advisor's <b>Finaya Website URL</b>.</div>
+        <div class="gbp-step-item"><span class="gbp-step-num">Step 5:</span> Enter mailing address for Google verification code (remains 100% private).</div>
+        <div class="gbp-step-item"><span class="gbp-step-num">Step 6:</span> Verify via OneCloud call/SMS, postcard PIN, or quick video verification.</div>
+        <div class="gbp-step-item"><span class="gbp-step-num">Step 7:</span> Paste <b>Description</b> and upload Studio Headshot (Logo) + Finaya Banner (Cover).</div>
+      </div>
+    </div>
+  </div>`;
+}
+
 function renderStage(){
+
   const a = ADVISORS.find(x=>x.id===selectedId);
   const locked = a.status==="blocked";
 
   const facts = [
-    ["State", STATE_LABEL[a.state], false, null],
-    ["NMLS ID", "#"+a.nmls + (locked?" (flagged)":""), true, null],
-    ["OneCloud", a.phone==="Pending"?"Pending from JB":a.phone, true, null],
-    ["Application", a.link==="Pending"?"Pending from JB":a.link, false, a.link]
-  ].map(([l,v,mono,href])=>`<div class="fact"><span class="label">${l}</span>${href?`<a class="val" href="https://${href}" target="_blank" rel="noopener">${esc(v)}</a>`:`<span class="val ${mono?'mono':''}">${esc(v)}</span>`}</div>`).join("");
+    ["Assigned Territory", a.markets.join("; "), false, null, null],
+    ["NMLS ID", "#"+a.nmls + (locked?" (flagged)":""), true, null, null],
+    ["Corporate Email", a.email || "Pending", true, null, a.email],
+    ["OneCloud VoIP", a.phone==="Pending"?"Pending from JB":a.phone, true, null, a.phone!=="Pending"?a.phone:null],
+    ["Direct Cell", a.cell || "—", true, null, a.cell || null],
+    ["Licensed States", a.licensedStates || a.state, false, null, null],
+    ["Digital Application", a.link==="Pending"?"Pending from JB":a.link, false, a.link, null]
+  ];
+
+  const factsHTML = facts.map(([l,v,mono,href,copyVal])=>`
+    <div class="fact">
+      <div style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:2px">
+        <span class="label">${l}</span>
+        ${copyVal?`<button class="copy-mini" data-copy-val="${esc(copyVal)}" title="Copy ${l}">Copy</button>`:""}
+      </div>
+      ${href?`<a class="val" href="https://${href}" target="_blank" rel="noopener">${esc(v)}</a>`:
+        (l==="Corporate Email" && v && !v.includes("Pending")?`<a class="val mono" href="mailto:${esc(v)}" style="color:var(--teal);text-decoration:none">${esc(v)}</a>`:
+        `<span class="val ${mono?'mono':''}">${esc(v)}</span>`)}
+    </div>`).join("");
 
   let strip = "";
   if(locked){
@@ -750,6 +2137,7 @@ function renderStage(){
     if(a.linkedin) verifiedAccounts.push({platform:"LinkedIn", val:a.linkedin, url:"https://"+a.linkedin.replace(/^https?:\/\//,"")});
     if(a.facebook) verifiedAccounts.push({platform:"Facebook", val:a.facebook, url:"https://"+a.facebook.replace(/^https?:\/\//,"")});
     if(a.instagram) verifiedAccounts.push({platform:"Instagram", val:a.instagram, url:a.instagram.startsWith("@")?"https://instagram.com/"+a.instagram.slice(1):"https://"+a.instagram.replace(/^https?:\/\//,"")});
+    if(a.tiktok) verifiedAccounts.push({platform:"TikTok", val:a.tiktok, url:a.tiktok.startsWith("@")?"https://tiktok.com/"+a.tiktok:"https://"+a.tiktok.replace(/^https?:\/\//,"")});
 
     const acctsHTML = verifiedAccounts.length ? `
       <div class="doc" style="margin-bottom:18px">
@@ -773,12 +2161,39 @@ function renderStage(){
       </div>
     `;
 
+    const contactCard = `
+      <div class="doc" style="margin-bottom:18px">
+        <div class="doc-head"><span class="t">Official Contact & Communication Directory</span><span class="hint">Verified Finaya Directory</span></div>
+        <div class="doc-body" style="padding:16px 22px">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+            <div style="padding:10px 14px;background:var(--paper);border:1px solid var(--line);border-radius:6px;display:flex;align-items:center;justify-content:space-between">
+              <div><small style="color:var(--muted);text-transform:uppercase;font-size:10px;font-weight:700">Corporate Email</small><div style="font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink)">${esc(a.email || "Pending")}</div></div>
+              ${a.email?`<button class="copy-mini" data-copy-val="${esc(a.email)}">Copy</button>`:""}
+            </div>
+            <div style="padding:10px 14px;background:var(--paper);border:1px solid var(--line);border-radius:6px;display:flex;align-items:center;justify-content:space-between">
+              <div><small style="color:var(--muted);text-transform:uppercase;font-size:10px;font-weight:700">OneCloud VoIP</small><div style="font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink)">${esc(a.phone)}</div></div>
+              ${a.phone && a.phone!=="Pending"?`<button class="copy-mini" data-copy-val="${esc(a.phone)}">Copy</button>`:""}
+            </div>
+            ${a.cell?`
+            <div style="padding:10px 14px;background:var(--paper);border:1px solid var(--line);border-radius:6px;display:flex;align-items:center;justify-content:space-between">
+              <div><small style="color:var(--muted);text-transform:uppercase;font-size:10px;font-weight:700">Direct Cell</small><div style="font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink)">${esc(a.cell)}</div></div>
+              <button class="copy-mini" data-copy-val="${esc(a.cell)}">Copy</button>
+            </div>
+            `:""}
+          </div>
+        </div>
+      </div>
+    `;
+
     pane = `<div class="pane active">
       ${acctsHTML}
+      ${contactCard}
       ${docSection("sbio","Bio","under 160 characters · "+socialBio(a).length+" chars", esc(socialBio(a)))}
       ${docSection("slink","Link in bio", null, esc(a.link))}
       ${docSection("sdis","Required disclosure","profile field or pinned post", `<p class="legal" style="border-top:none;padding-top:0">${esc(socialDisclosure(a))}</p>`, "doc-body")}
     </div>`;
+  } else if(activeTab==="gbp"){
+    pane = renderGbpPane(a);
   } else if(activeTab==="sig"){
     pane = `<div class="pane active">
       <p class="copy-tip">Replace any old brokerage signatures. Set this as the default for new messages and replies.</p>
@@ -824,8 +2239,7 @@ function renderStage(){
       <div class="banner-meta" id="bannerMeta"></div>
     </div>`;
   } else if(activeTab==="headshot"){
-    const displayUrl = getHeadshotDisplayUrl(a.id);
-    const dlUrl = getHeadshotUrl(a.id, "clean");
+    const currentImgUrl = getHeadshotUrl(a.id, "clean");
     const dlFilename = `${HEADSHOT_MAP[a.id] || "advisor"}_high_res.png`;
     pane = `<div class="pane active">
       <div class="banner-controls">
@@ -838,7 +2252,7 @@ function renderStage(){
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
             <span>Copy Portrait</span>
           </button>
-          <a class="btn-action btn-primary" id="dlHeadshotLink" href="${dlUrl}" download="${dlFilename}">
+          <a class="btn-action btn-primary" id="dlHeadshotLink" href="${currentImgUrl}" download="${dlFilename}">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v12M6 11l6 6 6-6M4 21h16"/></svg>
             <span>Download high-resolution image</span>
           </a>
@@ -847,20 +2261,25 @@ function renderStage(){
 
       <div class="headshot-preview-container">
         <div class="headshot-card">
-          <img src="${displayUrl}" class="headshot-display-img" alt="${esc(a.name)} High-Resolution Photo">
+          <img src="${currentImgUrl}" class="headshot-display-img" alt="${esc(a.name)} High-Resolution Photo">
         </div>
         <div class="headshot-meta-card">
           <div class="eyebrow" style="margin-bottom:6px">FINAYA EXECUTIVE ADVISOR</div>
           <h3>${esc(a.name)}</h3>
           <p class="headshot-desc" style="margin-bottom:18px">${esc(a.title)} · NMLS #${a.nmls} · Assigned Market: ${mk(a)} (${a.state})</p>
+          ${!hasAdvisorPhoto(a.id) ? `
+          <div style="background:rgba(0,95,90,0.15);border:1px dashed rgba(0,150,137,0.4);border-radius:8px;padding:12px 14px;margin-bottom:18px;font-size:12.5px;line-height:1.5;color:#5EEAD4">
+            <strong style="display:block;color:#FFFFFF;margin-bottom:2px">Profile Picture Pending</strong>
+            Official studio photo has not been provided yet. Social banners are automatically configured in the clean typographic layout without a portrait frame.
+          </div>` : ''}
           <div style="margin:20px 0 24px 0">
-            <a class="btn-action btn-primary" style="padding:12px 20px;font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:8px;text-decoration:none" href="${dlUrl}" download="${dlFilename}">
+            <a class="btn-action btn-primary" style="padding:12px 20px;font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:8px;text-decoration:none" href="${currentImgUrl}" download="${dlFilename}">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v12M6 11l6 6 6-6M4 21h16"/></svg>
-              <span>Download high-resolution image</span>
+              <span>${hasAdvisorPhoto(a.id) ? "Download high-resolution image" : "Download Monogram Crest"}</span>
             </a>
           </div>
           <div class="headshot-actions-box">
-            <a class="btn-download-bundle" href="/headshots/Finaya_Advisor_Headshots_All20.zip" download="Finaya_Advisor_Headshots_All20.zip">
+            <a class="btn-download-bundle" href="headshots/Finaya_Advisor_Headshots_All20.zip" download="Finaya_Advisor_Headshots_All20.zip">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               <span>Download All Headshots (ZIP Archive)</span>
             </a>
@@ -874,7 +2293,7 @@ function renderStage(){
     <div class="id-header">
       <div class="id-avatar-box" title="View in Headshot Studio" id="quickAvatarBtn">
         <img src="${getHeadshotThumb(a.id)}" class="id-avatar-main" alt="${esc(a.name)}">
-        <span class="id-avatar-tag">Studio HD</span>
+        <span class="id-avatar-tag">${hasAdvisorPhoto(a.id) ? "Studio HD" : "Monogram"}</span>
       </div>
       <div class="id-header-info">
         <div class="id-eyebrow"><span class="eyebrow">${esc(a.title)}</span><span class="eyebrow" style="color:var(--faint)">·</span><span class="eyebrow">${COMPANY.name}</span></div>
@@ -884,21 +2303,40 @@ function renderStage(){
       <div class="id-header-actions">
         <button class="btn-headshot-quick" id="btnGoHeadshot">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-          <span>Studio Portrait</span>
+          <span>${hasAdvisorPhoto(a.id) ? "Studio Portrait" : "Monogram Crest"}</span>
         </button>
       </div>
     </div>
-    <div class="facts">${facts}</div>
+    <div class="facts">${factsHTML}</div>
     ${strip}
     ${tabbar()}
     ${pane}`;
 
   document.querySelectorAll(".tab").forEach(b=>{ b.onclick = ()=>{ activeTab = b.dataset.tab; renderStage(); }; });
+  document.querySelectorAll("[data-copy-val]").forEach(b=>{
+    b.onclick = (e)=>{
+      e.stopPropagation();
+      copyText(b.dataset.copyVal, b);
+    };
+  });
   document.querySelectorAll("[data-copy]").forEach(b=>{
     b.onclick = ()=>{
       const id = b.dataset.copy;
       const audit = LINKEDIN_AUDIT[a.id] || {};
-      const map = {headline:linkedinHeadline, about:linkedinAbout, exp:experienceBlock, sbio:socialBio, slink:x=>x.link, sdis:socialDisclosure, sig:emailSignature, curHeadline:()=>audit.currentHeadline||""};
+      const gbp = GBP_DATA[a.id] || {};
+      const map = {
+        headline:linkedinHeadline, about:linkedinAbout, exp:experienceBlock, sbio:socialBio, slink:x=>x.link, sdis:socialDisclosure, sig:emailSignature, curHeadline:()=>audit.currentHeadline||"",
+        gbpName:()=>gbp.bname||"",
+        gbpCatPrimary:()=>"Mortgage broker",
+        gbpCatSecondary:()=>"Mortgage lender, Loan agency, Financial consultant",
+        gbpAreas:()=>gbp.areas||"",
+        gbpPhone:()=>gbp.phone||"",
+        gbpUrl:()=>gbp.website||"",
+        gbpHours:()=>gbp.hours||"",
+        gbpDesc:()=>gbp.desc||"",
+        gbpBundle:()=>`Business Name: ${gbp.bname}\nPrimary Category: Mortgage broker\nSecondary Categories: Mortgage lender, Loan agency, Financial consultant\nStorefront Location: NO (Service Area Business - Address Hidden)\nService Areas: ${gbp.areas}\nOneCloud Phone: ${gbp.phone}\nWebsite: ${gbp.website}\nOperating Hours: ${gbp.hours}\n\nGoogle Description (750 chars max):\n${gbp.desc}`,
+        gbpHQ:()=>`Company: Finaya Home Loans\nAddress: 378 Technology Center Way, Suite 1002, Rock Hill, SC 29730\nPhone: (803) 526-7190\nWebsite: https://www.finayahl.com\nCategory: Mortgage broker\n\nCorporate Description:\nFinaya Home Loans is a full-service residential mortgage brokerage headquartered in Rock Hill, South Carolina. Formerly NBI, Finaya Home Loans provides modern home financing solutions across South Carolina, North Carolina, Florida, Georgia, and Colorado. Our licensed Executive Mortgage Advisors offer conventional, FHA, VA, USDA, jumbo, and refinancing loans, combining personal guidance with streamlined digital pre-approvals. Equal Housing Lender. Company NMLS #2470186. Headquarters: 378 Technology Center Way, Suite 1002, Rock Hill, SC 29730. NMLS Consumer Access: www.nmlsconsumeraccess.org. This is not a commitment to lend. All loans subject to credit approval.`
+      };
       copyText(map[id](a), b);
     };
   });
@@ -922,7 +2360,7 @@ function renderStage(){
     b.onclick = ()=>{ headshotVariant = b.dataset.hstyle; renderStage(); };
   });
   const copyHs = $("#copyHeadshotBtn");
-  if(copyHs) copyHs.onclick = ()=>copyHeadshotToClipboard(getHeadshotDisplayUrl(a.id));
+  if(copyHs) copyHs.onclick = ()=>copyHeadshotToClipboard(getHeadshotUrl(a.id, headshotVariant));
 }
 
 /* ---------------- OFFICIAL FINAYA BRAND VECTOR LOGO ---------------- */
@@ -1221,15 +2659,16 @@ function drawBanner(a){
     paintBanner(ctx, p.w, p.h, a, bannerStyle, showSafeArea, img, includePortrait);
     ctx.restore();
 
+    const hasActualPhoto = hasAdvisorPhoto(a.id);
     $("#bannerMeta").innerHTML = `
-      <span><b>${p.label}</b> · ${p.w} × ${p.h} px (2× Retina Buffer: ${view.width} × ${view.height} px) · Style: <b>${BANNER_STYLES[bannerStyle].label}</b> · <b>${includePortrait && a.status!=="waiting" ? "Executive Portrait Frame Included" : "Typographic Layout"}</b></span>
+      <span><b>${p.label}</b> · ${p.w} × ${p.h} px (2× Retina Buffer: ${view.width} × ${view.height} px) · Style: <b>${BANNER_STYLES[bannerStyle].label}</b> · <b>${includePortrait && a.status!=="waiting" && hasActualPhoto ? "Executive Portrait Frame Included" : "Typographic Layout (No Photo Available)"}</b></span>
       <span class="meta-tag">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         Ultra-sharp 2× Retina export · Equal Housing Lender mark included
       </span>`;
   };
 
-  if(includePortrait && a.status !== "waiting"){
+  if(includePortrait && a.status !== "waiting" && hasAdvisorPhoto(a.id)){
     getAdvisorImg(a.id, (img)=>{
       if(document.fonts && document.fonts.ready){
         document.fonts.ready.then(()=>render(img));
@@ -1253,7 +2692,7 @@ function paintBanner(ctx, W, H, a, styleKey="corporate", showSafe=false, advImg=
   const isX  = (W === 1500 && H === 500);
 
   const safeLeft = isLI ? 380 : (isFB ? 160 : 380);
-  const hasPortrait = withPortrait && !!advImg && a.status !== "waiting";
+  const hasPortrait = withPortrait && !!advImg && a.status !== "waiting" && hasAdvisorPhoto(a.id);
 
   const outerMargin = isFB ? 18 : 22;
   const padX = isFB ? 32 : 52;
@@ -1670,7 +3109,7 @@ function copyBannerToClipboard(){
     }
   };
 
-  if(includePortrait && a.status !== "waiting"){
+  if(includePortrait && a.status !== "waiting" && hasAdvisorPhoto(a.id)){
     getAdvisorImg(a.id, doCopy);
   } else {
     doCopy(null);
@@ -1701,7 +3140,7 @@ function downloadBanner(){
     toast(`Downloaded ultra-crisp ${p.label} banner (${c.width}×${c.height}px)`);
   };
 
-  if(includePortrait && a.status !== "waiting"){
+  if(includePortrait && a.status !== "waiting" && hasAdvisorPhoto(a.id)){
     getAdvisorImg(a.id, doDownload);
   } else {
     doDownload(null);
@@ -1778,176 +3217,14 @@ renderCorp();
 })();
 }
 
-/* ---------------- ROBUST GLOBAL EVENT DELEGATION ---------------- */
-if (typeof document !== "undefined") {
-  document.addEventListener("click", function(e) {
-    const a = ADVISORS.find(x=>x.id===selectedId) || ADVISORS[0];
-
-    // 1. Tab click
-    const tab = e.target.closest(".tab[data-tab]");
-    if (tab) {
-      e.preventDefault();
-      activeTab = tab.dataset.tab;
-      renderTabs();
-      renderStage();
-      return;
-    }
-
-    // 2. Advisor row click
-    const row = e.target.closest(".row[data-id]");
-    if (row) {
-      e.preventDefault();
-      selectAdvisor(Number(row.dataset.id));
-      return;
-    }
-
-    // 3. Filter button click
-    const fbtn = e.target.closest(".fbtn[data-f]");
-    if (fbtn) {
-      e.preventDefault();
-      activeFilter = fbtn.dataset.f;
-      renderTabs();
-      renderRoster();
-      return;
-    }
-
-    // 4. Copy button click
-    const copyBtn = e.target.closest("[data-copy]");
-    if (copyBtn) {
-      e.preventDefault();
-      const id = copyBtn.dataset.copy;
-      const audit = LINKEDIN_AUDIT[a.id] || {};
-      const map = {
-        headline: linkedinHeadline,
-        about: linkedinAbout,
-        exp: experienceBlock,
-        sbio: socialBio,
-        slink: x=>x.link,
-        sdis: socialDisclosure,
-        sig: emailSignature,
-        curHeadline: ()=>audit.currentHeadline||""
-      };
-      if (map[id]) copyText(map[id](a), copyBtn);
-      return;
-    }
-
-    // 5. Banner preset click
-    const presetBtn = e.target.closest("[data-preset]");
-    if (presetBtn) {
-      e.preventDefault();
-      bannerPreset = presetBtn.dataset.preset;
-      renderStage();
-      return;
-    }
-
-    // 6. Banner style click
-    const styleBtn = e.target.closest("[data-style]");
-    if (styleBtn) {
-      e.preventDefault();
-      bannerStyle = styleBtn.dataset.style;
-      renderStage();
-      return;
-    }
-
-    // 7. Headshot variant style click
-    const hstyleBtn = e.target.closest("[data-hstyle]");
-    if (hstyleBtn) {
-      e.preventDefault();
-      headshotVariant = hstyleBtn.dataset.hstyle;
-      renderStage();
-      return;
-    }
-
-    // 8. Banner portrait toggle
-    if (e.target.closest("#togglePortrait")) {
-      e.preventDefault();
-      includePortrait = !includePortrait;
-      renderStage();
-      return;
-    }
-
-    // 9. Banner safe area toggle
-    if (e.target.closest("#toggleSafeAreas")) {
-      e.preventDefault();
-      showSafeArea = !showSafeArea;
-      renderStage();
-      return;
-    }
-
-    // 10. Banner copy button
-    if (e.target.closest("#copyBanner")) {
-      e.preventDefault();
-      copyBannerToClipboard();
-      return;
-    }
-
-    // 11. Banner download button
-    if (e.target.closest("#dlBanner")) {
-      e.preventDefault();
-      downloadBanner();
-      return;
-    }
-
-    // 12. Quick headshot button
-    if (e.target.closest("#btnGoHeadshot") || e.target.closest("#quickAvatarBtn")) {
-      e.preventDefault();
-      activeTab = "headshot";
-      renderTabs();
-      renderStage();
-      return;
-    }
-
-    // 13. Copy headshot button
-    if (e.target.closest("#copyHeadshotBtn")) {
-      e.preventDefault();
-      copyHeadshotToClipboard(getHeadshotDisplayUrl(a.id));
-      return;
-    }
-
-    // 14. How-to Modal open
-    if (e.target.closest("#openHowTo")) {
-      e.preventDefault();
-      document.getElementById("modalOverlay")?.classList.add("open");
-      return;
-    }
-
-    // 15. How-to Modal close
-    if (e.target.closest("#closeHowTo") || e.target.id === "modalOverlay") {
-      e.preventDefault();
-      document.getElementById("modalOverlay")?.classList.remove("open");
-      return;
-    }
-  });
-
-  document.addEventListener("input", function(e) {
-    if (e.target && e.target.id === "searchInput") {
-      searchTerm = e.target.value.trim().toLowerCase();
-      renderRoster();
-    }
-  });
-
-  document.addEventListener("change", function(e) {
-    if (e.target && e.target.dataset && e.target.dataset.corp) {
-      const cb = e.target;
-      const saved = JSON.parse(localStorage.getItem("finayaCorpChecklist") || "{}");
-      saved[cb.dataset.corp] = cb.checked;
-      localStorage.setItem("finayaCorpChecklist", JSON.stringify(saved));
-      const done = CORP_ITEMS.filter(i=>saved[i.id]).length;
-      const progEl = document.getElementById("corpProgress");
-      if (progEl) progEl.textContent = `${done} of ${CORP_ITEMS.length} done`;
-      toast(`Saved. ${done} of ${CORP_ITEMS.length} done`);
-    }
-  });
-}
-
-window.init = init;
-init();
-if (typeof document !== "undefined") {
+if (typeof window !== "undefined") {
+  window.init = init;
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
   }
   window.addEventListener("load", init);
   setTimeout(init, 50);
   setTimeout(init, 300);
 }
-
