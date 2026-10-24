@@ -1602,26 +1602,51 @@ function getHeadshotUrl(id, variant="clean"){
   const base = HEADSHOT_MAP[id] || `advisor_${id}`;
   return `headshots/studio/${base}_${variant}.png`;
 }
+function getHeadshotPreviewUrl(id){
+  return `headshots/webp/advisor_${id}.webp`;
+}
 function getHeadshotThumb(id){
   return `headshots/thumbnails/advisor_${id}.png`;
 }
 const _advisorImgCache = {};
-function getAdvisorImg(id, cb){
-  const url = getHeadshotUrl(id, "clean");
+function getAdvisorImg(id, cb, useMaster=false){
+  if(!hasAdvisorPhoto(id)){
+    cb(null);
+    return;
+  }
+  const url = useMaster ? getHeadshotUrl(id, "clean") : getHeadshotPreviewUrl(id);
   if(_advisorImgCache[url]){
     cb(_advisorImgCache[url]);
     return;
   }
   const img = new Image();
   img.crossOrigin = "anonymous";
+  img.decoding = "async";
   img.onload = ()=>{
     _advisorImgCache[url] = img;
     cb(img);
   };
   img.onerror = ()=>{
-    cb(null);
+    if(!useMaster){
+      getAdvisorImg(id, cb, true);
+    } else {
+      cb(null);
+    }
   };
   img.src = url;
+}
+function prefetchAllAdvisorImages(){
+  const ready = ADVISORS.filter(a => hasAdvisorPhoto(a.id));
+  ready.forEach(a => {
+    const url = getHeadshotPreviewUrl(a.id);
+    if(!_advisorImgCache[url]){
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      img.decoding = "async";
+      img.onload = () => { _advisorImgCache[url] = img; };
+      img.src = url;
+    }
+  });
 }
 async function copyHeadshotToClipboard(url){
   try {
@@ -3103,7 +3128,7 @@ function copyBannerToClipboard(){
   };
 
   if(includePortrait && a.status !== "waiting" && hasAdvisorPhoto(a.id)){
-    getAdvisorImg(a.id, doCopy);
+    getAdvisorImg(a.id, doCopy, true);
   } else {
     doCopy(null);
   }
@@ -3134,7 +3159,7 @@ function downloadBanner(){
   };
 
   if(includePortrait && a.status !== "waiting" && hasAdvisorPhoto(a.id)){
-    getAdvisorImg(a.id, doDownload);
+    getAdvisorImg(a.id, doDownload, true);
   } else {
     doDownload(null);
   }
@@ -3186,6 +3211,7 @@ renderTabs();
 renderRoster();
 renderStage();
 renderCorp();
+prefetchAllAdvisorImages();
 
 /* Deep links: #tab-banner, #advisor-20, #advisor=5&tab=headshot, #tab=banner&preset=fb */
 (function(){
