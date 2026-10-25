@@ -22,15 +22,15 @@
   --warn:#B45309; --warn-bg:#FBF3E4;
   --lock:#B32626; --lock-bg:#F9ECEC;
   --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
-  --sans:var(--font-inter),'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
-  --serif:var(--font-playfair),'Playfair Display',Georgia,serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
+  --serif:'Playfair Display',Georgia,serif;
   --shadow-sm:0 1px 2px rgba(23,33,31,.05);
   --shadow:0 1px 2px rgba(23,33,31,.04),0 6px 16px -4px rgba(23,33,31,.07);
   --shadow-lg:0 24px 60px -16px rgba(1,54,51,.28);
   --r-lg:18px; --r-md:12px; --r-sm:8px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;background:var(--paper);color-scheme:light}
+html{-webkit-text-size-adjust:100%}
 body{font-family:var(--sans);background:var(--paper);color:var(--body);font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased;padding:22px}
 button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit;font-size:inherit}
 button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--teal-600);outline-offset:2px;border-radius:4px}
@@ -331,3 +331,52 @@ a.val:hover{text-decoration:underline}
 .copy-mini{background:transparent;border:1px solid var(--line-strong);border-radius:4px;color:var(--muted);font-size:10px;font-weight:600;padding:2px 7px;cursor:pointer;transition:.12s;line-height:1}
 .copy-mini:hover{background:var(--teal);border-color:var(--teal);color:#fff}
 .copy-mini.done{background:var(--ok);border-color:var(--ok);color:#fff}
+
+
+/* --- Online Intel & Web Presence --- */
+.intel-wrap{display:flex;flex-direction:column;gap:18px}
+.intel-hero{background:linear-gradient(135deg,#003936 0%,#005F5A 100%);color:#fff;border-radius:var(--r-md);padding:20px 24px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+.intel-hero::after{content:'';position:absolute;right:-30px;bottom:-30px;width:150px;height:150px;background:radial-gradient(circle,rgba(255,255,255,0.12) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.intel-hero-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.intel-hero-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:rgba(255,255,255,0.16);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,0.2)}
+.intel-hero-title{font-size:19px;font-family:var(--serif);font-weight:700;color:#fff;letter-spacing:-0.2px}
+.intel-hero-meta{font-size:12px;color:#CCFBF1;font-family:var(--mono);margin-top:4px}
+.intel-hero-desc{font-size:13.5px;line-height:1.6;color:rgba(255,255,255,0.92);margin-top:10px;max-width:85ch}
+
+.intel-alert-badge{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;background:#FED7D7;color:#9B2C2C;text-transform:uppercase;letter-spacing:0.8px}
+.intel-takedown-box{background:#FFFFFF;border:1px solid #CBD5E1;border-radius:6px;padding:12px 14px;margin-top:10px}
+.intel-takedown-box pre{font-family:var(--mono);font-size:11px;line-height:1.55;color:#1E293B;white-space:pre-wrap;word-break:break-word;margin:0}
+
+.intel-quarantine-box{background:#FEF2F2;border:1px dashed #EF4444;border-radius:var(--r-sm);padding:14px 18px;margin-bottom:16px}
+.intel-quarantine-head{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#B91C1C;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.8px}
+.intel-quarantine-body{font-size:12.5px;color:#7F1D1D;line-height:1.55}
+
+.intel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.intel-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:16px 18px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow-sm);transition:.15s}
+.intel-card:hover{border-color:var(--line-strong);box-shadow:var(--shadow)}
+.intel-card-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.intel-card-name{font-size:13.5px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:6px}
+.intel-card-badge{font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:4px;background:var(--paper);border:1px solid var(--line);color:var(--muted)}
+.intel-card-rating{display:inline-flex;align-items:center;gap:4px;color:#D97706;font-weight:700;font-size:12px}
+.intel-card-body{font-size:12.5px;line-height:1.55;color:var(--body)}
+.intel-card-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--teal);text-decoration:none;margin-top:auto;padding-top:6px}
+.intel-card-link:hover{color:var(--teal-600);text-decoration:underline}
+
+.intel-accolade-card{background:linear-gradient(180deg,#FFFDF7 0%,#FFF9EB 100%);border:1px solid #FDE68A;border-radius:var(--r-sm);padding:16px 20px;margin-bottom:14px;box-shadow:var(--shadow-sm)}
+.intel-accolade-head{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap}
+.intel-accolade-title{font-size:14px;font-weight:700;color:#92400E}
+.intel-accolade-body{font-size:13px;line-height:1.55;color:#78350F}
+
+.tag-leak{display:inline-flex;align-items:center;gap:3px;font-size:9.5px;font-weight:700;color:#991B1B;background:#FEE2E2;border:1px solid #FCA5A5;padding:1px 5px;border-radius:3px;margin-left:4px}
+.tag-site{display:inline-flex;align-items:center;gap:3px;font-size:9.5px;font-weight:700;color:#075985;background:#E0F2FE;border:1px solid #BAE6FD;padding:1px 5px;border-radius:3px;margin-left:4px}
+.tag-star{display:inline-flex;align-items:center;gap:3px;font-size:9.5px;font-weight:700;color:#854D0E;background:#FEF9C3;border:1px solid #FEF08A;padding:1px 5px;border-radius:3px;margin-left:4px}
+
+/* Corporate Intel Matrix */
+.corp-kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+.corp-kpi-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-sm);padding:14px;text-align:center}
+.corp-kpi-num{font-size:22px;font-weight:800;color:var(--teal);font-family:var(--sans);line-height:1.2}
+.corp-kpi-label{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.6px;margin-top:4px}
+.corp-intel-table{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:20px}
+.corp-intel-table th{background:var(--paper);text-align:left;padding:10px 12px;font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line-strong)}
+.corp-intel-table td{padding:10px 12px;border-bottom:1px solid var(--line);color:var(--body);vertical-align:middle}
+.corp-intel-table tr:hover td{background:rgba(0,95,90,0.03)}

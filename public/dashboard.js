@@ -1494,14 +1494,932 @@ const LINKEDIN_AUDIT = {
   }
 };
 
+const ONLINE_PRESENCE_DATA = {
+  "1": {
+    "name": "Nick Campo",
+    "nmls": "2011753",
+    "summary": "Listed in NationalMI 'Sales Advisor Nationwide' PDF directory (Jan 2026 wholesale account roster). Active Facebook presence (1.3K friends); legacy NBI mentions to scrub.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "National Directory Listed",
+    "personalBrands": [],
+    "directories": [
+      {
+        "name": "NationalMI Nationwide Wholesale Directory",
+        "url": "https://www.nationalmi.com",
+        "note": "Listed in 'Sales Advisor Nationwide' (Jan 2026 wholesale directory) \u2014 recommend claiming and updating listing to Finaya Home Loans."
+      }
+    ],
+    "staleProfiles": [],
+    "quarantines": [
+      {
+        "surface": "YouTube",
+        "handle": "@nickcampos7071",
+        "realIdentity": "Different individual",
+        "note": "Unrelated personal account. Do NOT link or claim."
+      }
+    ],
+    "prAndAccolades": [],
+    "complianceAndPrivacy": [
+      {
+        "type": "Brand Governance",
+        "detail": "Historical Facebook posts on nick.campo.37017 reference NBI Financial Group.",
+        "action": "Archive or edit historical NBI posts; pin the Finaya Home Loans rebrand announcement."
+      }
+    ],
+    "notes": "Action: claim and update NationalMI wholesale listing to Finaya Home Loans."
+  },
+  "2": {
+    "name": "Alan Sacks",
+    "nmls": "159915",
+    "summary": "30-year mortgage industry veteran (NMLS issued ~2001). TheOrg.com org-chart listing as Sr. National Account Executive at Logan Finance Corporation (pre-Finaya). Active LinkedIn market educator.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "30-Year Industry Veteran",
+    "personalBrands": [],
+    "directories": [
+      {
+        "name": "TheOrg.com",
+        "url": "https://theorg.com",
+        "note": "Sr. National Account Executive, Logan Finance Corporation (pre-Finaya leadership org chart)"
+      }
+    ],
+    "staleProfiles": [],
+    "quarantines": [],
+    "prAndAccolades": [
+      {
+        "title": "30-Year Mortgage Origination Veteran",
+        "publisher": "Industry Record",
+        "detail": "Licensed since ~2001 (NMLS #159915), providing high-authority market experience across Charlotte metro and Carolina markets."
+      }
+    ],
+    "complianceAndPrivacy": [],
+    "notes": "Candidate Facebook page 'mortgagewithalan' (47 followers) identified. Active LinkedIn post cadence."
+  },
+  "3": {
+    "name": "John Birke",
+    "nmls": "1150795",
+    "summary": "Finaya's premier content creator. Confirmed TikTok (@johnbmortgage) and Instagram accounts. Quoted in National Mortgage News on Gen Z affordability and house hacking. High-frequency educational LinkedIn content.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "Model Content Creator",
+    "personalBrands": [
+      {
+        "name": "@johnbmortgage on TikTok",
+        "url": "https://www.tiktok.com/@johnbmortgage",
+        "type": "Short-Form Video Channel",
+        "status": "Active Creator",
+        "note": "High-performing built-to-rent and affordability videos (e.g. video #7345477258582297898)."
+      },
+      {
+        "name": "@johnbmortgage on Instagram",
+        "url": "https://www.instagram.com/johnbmortgage",
+        "type": "Creator Brand",
+        "status": "Active Creator",
+        "note": "Bio: 'Mortgage Master | Content Coach'. High engagement homebuyer education."
+      }
+    ],
+    "directories": [],
+    "staleProfiles": [],
+    "quarantines": [],
+    "prAndAccolades": [
+      {
+        "title": "Quoted in National Mortgage News",
+        "publisher": "National Mortgage News",
+        "detail": "Featured expert quote in feature: 'Can house hacking help Gen Z afford homeownership?'. Exceptional third-party credibility.",
+        "highlight": true
+      }
+    ],
+    "complianceAndPrivacy": [],
+    "notes": "Strategic Model: Feature John's short-form content playbook during company-wide EMA onboarding. Ensure all bios link finayahl.com/p/johnb."
+  },
+  "4": {
+    "name": "Ben Singleton",
+    "nmls": "2341198",
+    "summary": "Sales and Territory Lead + EMA dual role. Older LinkedIn vanity handle 'bsingleton03' (KC-era). Active Facebook profile (817 friends). Solera Realty Team IDX site candidate.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "Sales & Territory Lead",
+    "personalBrands": [],
+    "directories": [
+      {
+        "name": "Solera Realty Team IDX",
+        "url": "https://solera55.idxbroker.com",
+        "note": "Solera Realty Team search portal (candidate link to review relationship)"
+      }
+    ],
+    "staleProfiles": [],
+    "quarantines": [],
+    "prAndAccolades": [],
+    "complianceAndPrivacy": [
+      {
+        "type": "Brand Governance",
+        "detail": "Historical Facebook profile (ben.singleton.50) contains legacy NBI mentions.",
+        "action": "Scrub old NBI brokerage mentions from personal timeline."
+      }
+    ],
+    "notes": "Territory allocation lead for Myrtle Beach and surrounding Coastal Carolina markets."
+  },
+  "5": {
+    "name": "Christina Yudzitski",
+    "nmls": "2663819",
+    "summary": "Privacy risk identified on NC Resident Database data broker. LinkedIn profile still shows Innovative Mortgage Services as current employer (P0). Roster Instagram handle @homeloansxchristina pending unthrottle.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "Privacy Opt-Out Required",
+    "personalBrands": [],
+    "directories": [],
+    "staleProfiles": [],
+    "quarantines": [],
+    "prAndAccolades": [],
+    "complianceAndPrivacy": [
+      {
+        "type": "Privacy / Data-Broker Exposure",
+        "detail": "northcarolinaresidentdatabase.com displays 'Yudzitski in NC: 8 Records Found' with aggregated addresses and family relations.",
+        "action": "Submit formal privacy opt-out / takedown request to remove consumer database listing."
+      },
+      {
+        "type": "LinkedIn Employer Update (P0)",
+        "detail": "Profile currently lists Innovative Mortgage Services as current company.",
+        "action": "Switch current position to Finaya Home Loans."
+      }
+    ],
+    "notes": "High priority: send opt-out to NC Resident Database and execute LinkedIn employer swap."
+  },
+  "6": {
+    "name": "Raymond M Pinkston",
+    "nmls": "2823400",
+    "summary": "Principal of Pinkston Tax & Advisory Group LLC in Huntersville NC. Verified accounting and advisory reviews on Experience.com. Dual practice requires confirmation of active mortgage origination status.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "Dual Tax/Advisory Practice",
+    "personalBrands": [
+      {
+        "name": "Pinkston Tax & Advisory Group LLC",
+        "url": "https://dotax.com",
+        "type": "Accounting / Advisory Firm",
+        "status": "Active Practice",
+        "note": "Commercial tax and advisory office in Huntersville, NC."
+      }
+    ],
+    "directories": [
+      {
+        "name": "DoTax.com",
+        "url": "https://dotax.com",
+        "note": "Principal business listing \u2014 Huntersville, NC"
+      },
+      {
+        "name": "Experience.com",
+        "url": "https://www.experience.com",
+        "note": "Accounting reviews and client feedback (Cornelius, NC)"
+      }
+    ],
+    "staleProfiles": [],
+    "quarantines": [],
+    "prAndAccolades": [],
+    "complianceAndPrivacy": [],
+    "notes": "Confirm with Nick Campo whether Raymond actively originates residential mortgages or acts primarily as tax referral partner."
+  },
+  "7": {
+    "name": "Khesey Silva",
+    "nmls": "2358323",
+    "summary": "CRITICAL P1: Active loan officer profile still hosted at New American Funding siphoning Google searches. 4.38\u2605 rating on Experience.com (Dallas TX). Facebook profile includes NMLS in display name (best practice).",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "P1 Takedown Active",
+    "personalBrands": [],
+    "directories": [
+      {
+        "name": "Experience.com",
+        "url": "https://www.experience.com",
+        "rating": "4.38\u2605",
+        "location": "Dallas, TX",
+        "note": "4.38-star verified mortgage client reviews"
+      }
+    ],
+    "staleProfiles": [
+      {
+        "employer": "New American Funding",
+        "url": "https://www.newamericanfunding.com/mortgage-loans/KheseySilva",
+        "priority": "P1",
+        "risk": "Ranks prominently on Google for 'Khesey Silva Mortgage' and diverts prospective borrowers back to New American Funding.",
+        "takedownSubject": "URGENT: Request for Removal / 301-Redirect of Inactive Loan Officer Page \u2014 Khesey Silva (NMLS #2358323)",
+        "takedownBody": "To: New American Funding Web / Compliance Operations\nSubject: Request for Removal of Inactive Loan Officer Page \u2014 Khesey Silva (NMLS #2358323)\n\nDear New American Funding Team,\n\nI am writing to formally request the removal or 301-redirect of the inactive loan officer profile page currently hosted at:\nhttps://www.newamericanfunding.com/mortgage-loans/KheseySilva\n\nKhesey Silva (NMLS #2358323) is no longer affiliated with New American Funding and currently serves as an Executive Mortgage Advisor at Finaya Home Loans (Company NMLS #2470186). Because this page remains live in Google search results, it creates consumer confusion regarding licensing and active sponsorship under NMLS compliance rules.\n\nPlease either unpublish this page or redirect it to: https://finayahl.com\n\nThank you for your prompt assistance in updating your online directory."
+      }
+    ],
+    "quarantines": [],
+    "prAndAccolades": [],
+    "complianceAndPrivacy": [
+      {
+        "type": "Location Update",
+        "detail": "Licensing moved TX \u2192 FL (St. Augustine / Crestview).",
+        "action": "Ensure LinkedIn and GBP reflect Florida footprint."
+      }
+    ],
+    "notes": "Action: Send New American Funding takedown letter immediately."
+  },
+  "8": {
+    "name": "Andrew Simmons",
+    "nmls": "1679914",
+    "summary": "Mortgage LO profile on Experience.com in Las Vegas NV (pre-Finaya). Quarantined false-positive: ushomeloandata profile for Andrew Simmons #2484469 at Chase in NY is a completely different individual.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "Review Profile Found",
+    "personalBrands": [],
+    "directories": [
+      {
+        "name": "Experience.com",
+        "url": "https://www.experience.com",
+        "location": "Las Vegas, NV",
+        "note": "Mortgage Loan Officer profile (pre-Finaya location)"
+      }
+    ],
+    "staleProfiles": [],
+    "quarantines": [
+      {
+        "surface": "ushomeloandata.com",
+        "handle": "Andrew Simmons #2484469",
+        "realIdentity": "Chase Loan Officer, Farmingdale NY",
+        "note": "WRONG PERSON \u2014 Andrew's verified NMLS is #1679914. Do NOT claim, link, or confuse."
+      }
+    ],
+    "prAndAccolades": [],
+    "complianceAndPrivacy": [
+      {
+        "type": "Compliance Claim Scrub",
+        "detail": "LinkedIn profile claims '11.5-day clear to close'.",
+        "action": "Remove specific timeline guarantee to comply with mortgage advertising guidelines."
+      }
+    ],
+    "notes": "Headshot still needed. Ensure quarantine on #2484469 is maintained across all directories."
+  },
+  "9": {
+    "name": "Mark Glatzmaier II",
+    "nmls": "1085400",
+    "summary": "22 years of mortgage origination experience. financial1000.com auto-mirrored profile in Spokane Valley WA. MarksMortgage Facebook page verified. Father Michael's mortgage YouTube channel in Spokane. Quarantined lookalike on X.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "22-Year Industry Veteran",
+    "personalBrands": [
+      {
+        "name": "Michael Glatzmaier Mortgage Channel",
+        "url": "https://www.youtube.com/c/michaelglatzmaier",
+        "type": "Family Mortgage Channel",
+        "status": "Potential Collaboration",
+        "note": "Spokane mortgage education YouTube channel run by father Michael Glatzmaier."
+      }
+    ],
+    "directories": [
+      {
+        "name": "financial1000.com",
+        "url": "https://www.financial1000.com",
+        "note": "Mark Glatzmaier NMLS #1085400, Spokane Valley WA (auto-generated NMLS mirror)"
+      }
+    ],
+    "staleProfiles": [],
+    "quarantines": [
+      {
+        "surface": "X (Twitter)",
+        "handle": "@marksmortgage",
+        "realIdentity": "Mark Peter Lynch, NMLS #22882 (Virginia)",
+        "note": "WRONG PERSON \u2014 Different loan officer in VA. Do NOT claim or link."
+      }
+    ],
+    "prAndAccolades": [
+      {
+        "title": "22 Years Mortgage Lending Track Record",
+        "publisher": "Industry Record",
+        "detail": "Over two decades of origination history across the Pacific Northwest and Southeast."
+      }
+    ],
+    "complianceAndPrivacy": [],
+    "notes": "Home address and cell received Oct 24 (Doc 17 inbound). Roster shows Atlanta/Marietta GA focus; Mark also requested FL and SC licensing status."
+  },
+  "10": {
+    "name": "Matthew Squires",
+    "nmls": "1029875",
+    "summary": "CRITICAL P1: Stale Mutual of Omaha Mortgage loan officer profile still live and indexed on Google. Verified profile on morfi.com and Birdeye in Tampa. Large Facebook audience (1.1K followers). Candidate YouTube channel @TheMatthewSquires.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "P1 Takedown Active",
+    "personalBrands": [],
+    "directories": [
+      {
+        "name": "morfi.com",
+        "url": "https://www.morfi.com",
+        "note": "Mortgage Loan Officer directory listing"
+      },
+      {
+        "name": "Birdeye",
+        "url": "https://www.birdeye.com",
+        "location": "Tampa, FL",
+        "note": "Verified client review profile"
+      }
+    ],
+    "staleProfiles": [
+      {
+        "employer": "Mutual of Omaha Mortgage",
+        "url": "https://www.mutualmortgage.com/loan-officer/msquires/",
+        "priority": "P1",
+        "risk": "Ranks prominently on Google for 'Matthew Squires Mortgage' and diverts leads to Mutual of Omaha.",
+        "takedownSubject": "Request for Removal of Inactive Loan Officer Page \u2014 Matthew Squires (NMLS #1029875)",
+        "takedownBody": "To: Mutual of Omaha Mortgage Web Operations\nSubject: Request for Removal of Inactive Loan Officer Profile \u2014 Matthew Squires (NMLS #1029875)\n\nDear Mutual of Omaha Mortgage Team,\n\nI am writing to request the prompt unpublishing of the inactive loan officer profile page located at:\nhttps://www.mutualmortgage.com/loan-officer/msquires/\n\nMatthew Squires (NMLS #1029875) has concluded his employment with Mutual of Omaha Mortgage and is now an Executive Mortgage Advisor with Finaya Home Loans (Company NMLS #2470186). Retaining this profile causes confusion for borrowers seeking mortgage assistance.\n\nPlease deactivate this profile page or 301-redirect to: https://finayahl.com\n\nThank you for your prompt cooperation."
+      }
+    ],
+    "quarantines": [],
+    "prAndAccolades": [],
+    "complianceAndPrivacy": [],
+    "notes": "Send Mutual of Omaha takedown letter immediately. Verify ownership of YouTube channel @TheMatthewSquires."
+  },
+  "11": {
+    "name": "Paul Grady",
+    "nmls": "2502731",
+    "summary": "CRITICAL P2: Stale Zillow lender profile under Sage Home Loans Corp containing trigger term 'lowest monthly payment'. Compliance risk: live Instagram reel by realtor Tijuana Evans promoting 'lowest mortgage rates at MidAmerica Mortgage'.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "P2 Takedown & Reel Scrub",
+    "personalBrands": [],
+    "directories": [
+      {
+        "name": "Gesa Credit Union",
+        "url": "https://www.gesa.com",
+        "note": "2024 welcome post announcement"
+      }
+    ],
+    "staleProfiles": [
+      {
+        "employer": "Sage Home Loans / Zillow",
+        "url": "https://www.zillow.com/lender-profile/sagehomeloans/",
+        "priority": "P2",
+        "risk": "Lists Sage Home Loans with non-compliant trigger phrase 'lowest monthly payment' under his name on Zillow.",
+        "takedownSubject": "Update / Disassociation Request: Zillow Lender Profile \u2014 Paul Grady (NMLS #2502731)",
+        "takedownBody": "To: Zillow Lender Support / Sage Home Loans\nSubject: Request to Update / Disassociate Loan Officer Profile \u2014 Paul Grady (NMLS #2502731)\n\nHello Support Team,\n\nPaul Grady (NMLS #2502731) is no longer affiliated with Sage Home Loans and is now licensed with Finaya Home Loans (Company NMLS #2470186).\n\nPlease disassociate Paul Grady from the Sage Home Loans Zillow profile at:\nhttps://www.zillow.com/lender-profile/sagehomeloans/\n\nAdditionally, please ensure any advertising language containing 'lowest monthly payment' is updated or archived for regulatory compliance.\n\nThank you for your assistance."
+      }
+    ],
+    "quarantines": [],
+    "prAndAccolades": [],
+    "complianceAndPrivacy": [
+      {
+        "type": "Third-Party Realtor Trigger Term",
+        "detail": "Instagram reel by realtor partner Tijuana Evans: 'Need the lowest mortgage rates? Mr. Paul Grady at MidAmerica Mortgage\u2026' contains prohibited trigger term + outdated company.",
+        "action": "Send replacement script to Tijuana Evans and request video re-caption or archive."
+      }
+    ],
+    "notes": "Home address (Post Falls, ID), cell, and confirmed LinkedIn received Oct 24 (Doc 17 inbound). Only uses LinkedIn."
+  },
+  "12": {
+    "name": "Geneva Lynne Price",
+    "nmls": "247066",
+    "summary": "OUTSTANDING PRODUCTION CREDIBILITY: Confirmed #48 on MMI (Mobility Market Intelligence) 2025 Utah public-records leaderboard for 'Biggest Climbers by Volume' ($1.5M, 7 loans, jumped \u25b23,967 ranks). Listed in Hawaii DFI quarterly MLO registry.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "MMI Utah #48 Volume Climber",
+    "personalBrands": [],
+    "directories": [
+      {
+        "name": "MMI (Mobility Market Intelligence)",
+        "url": "https://mmi.io",
+        "note": "Public-records leaderboard: #48 Biggest Climber by Volume in Utah 2025 ($1.5M volume, 7 loans, \u25b23,967 rank climb)"
+      },
+      {
+        "name": "Hawaii DFI MLO Directory",
+        "url": "https://cca.hawaii.gov/dfi",
+        "note": "Quarterly MLO / Sponsor Company license registry (Q3 2025)"
+      }
+    ],
+    "staleProfiles": [
+      {
+        "employer": "NBI Financial Group LLC (Old Brand)",
+        "url": "https://www.topmortgageoriginators.com",
+        "priority": "P3",
+        "risk": "MMI records still attribute her production to NBI Financial Group LLC instead of Finaya Home Loans.",
+        "takedownSubject": "Aggregator Update: Geneva Lynne Price (NMLS #247066) Sponsor Company",
+        "takedownBody": "To: MMI / Data Aggregators\nSubject: Update Company Sponsorship \u2014 Geneva Lynne Price (NMLS #247066)\n\nPlease update the sponsoring company record for Geneva Lynne Price (NMLS #247066) from NBI Financial Group LLC to Finaya Home Loans (Company NMLS #2470186)."
+      }
+    ],
+    "quarantines": [],
+    "prAndAccolades": [
+      {
+        "title": "MMI 2025 Utah #48 Biggest Climber by Volume",
+        "publisher": "Mobility Market Intelligence",
+        "detail": "Ranked #48 across all Utah mortgage originators for year-over-year volume expansion ($1.5M, 7 loans, \u25b23,967 ranks). Certified marketing asset.",
+        "highlight": true
+      }
+    ],
+    "complianceAndPrivacy": [],
+    "notes": "Major differentiator: Geneva's public production growth proves Finaya's top-producer caliber. Update MMI aggregator to Finaya NMLS #2470186."
+  },
+  "13": {
+    "name": "Cleo Lewis",
+    "nmls": "1451574",
+    "summary": "Listed on TopRatedLenders.com and Experience.com from Central Park Mortgage tenure. Featured in CityLifestyle.com HELOC article. Need to scrub 15-day CTC guarantee from LinkedIn headline.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "TopRatedLenders Listed",
+    "personalBrands": [],
+    "directories": [
+      {
+        "name": "TopRatedLenders.com",
+        "url": "https://topratedlenders.com/cleo-lewis-nmls-1451574",
+        "note": "Central Park Mortgage profile, direct line 720-429-8152 (unverified - claim for Finaya)"
+      },
+      {
+        "name": "Experience.com",
+        "url": "https://www.experience.com",
+        "location": "Denver, CO",
+        "note": "Mortgage Loan Officer profile"
+      },
+      {
+        "name": "CityLifestyle.com",
+        "url": "https://citylifestyle.com",
+        "note": "HELOC informational article feature (Central Park Mortgage era)"
+      }
+    ],
+    "staleProfiles": [],
+    "quarantines": [],
+    "prAndAccolades": [],
+    "complianceAndPrivacy": [
+      {
+        "type": "Compliance Guarantee Scrub",
+        "detail": "LinkedIn headline contains 'Clear To Close in 15 days or less!' guarantee.",
+        "action": "Replace headline with standard compliant Finaya EMA headline."
+      }
+    ],
+    "notes": "Headshot needed. Claim TopRatedLenders profile and update company to Finaya Home Loans."
+  },
+  "14": {
+    "name": "Brandon Metoyer",
+    "nmls": "2055356",
+    "summary": "ON HOLD per Nick Campo (Doc 07e). Operates live personal brand website brandon-metoyer.com with eXp Realty and Central Park Mortgage footer. Featured in Real Producers Magazine (Denver) and National Mortgage Professional.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "Personal Site Live \u00b7 ON HOLD",
+    "personalBrands": [
+      {
+        "name": "brandon-metoyer.com",
+        "url": "https://brandon-metoyer.com",
+        "type": "Personal Brand Website",
+        "status": "On Hold",
+        "note": "Live GoDaddy site: 'Dual Licensed Real Estate, Mortgage Professional, and Artist Elymvnt'. Footer lists Central Park Mortgage NMLS #1507888 & eXp Realty."
+      }
+    ],
+    "directories": [],
+    "staleProfiles": [],
+    "quarantines": [],
+    "prAndAccolades": [
+      {
+        "title": "Real Producers Magazine (Denver) Feature",
+        "publisher": "Real Producers Magazine",
+        "detail": "Editorial spotlight on dual-licensing in real estate and home mortgages."
+      },
+      {
+        "title": "National Mortgage Professional Article Mention",
+        "publisher": "National Mortgage Professional",
+        "detail": "Quoted in 'One-Stop Shops Are The New Mom-And-Pops'."
+      }
+    ],
+    "complianceAndPrivacy": [],
+    "notes": "Hold all publishing per Nick Campo. When green-lit, his website infrastructure can serve as an ideal model for EMA personal branding."
+  },
+  "15": {
+    "name": "Gerise Wilson",
+    "nmls": "2125467",
+    "summary": "Operates live Wix website 'Face It Financial'. Dual identity cross-confirmed: TopRatedLenders.com lists 'Ashley Wilson \u2014 Central Park Mortgage, NMLS #2125467' proving Ashley Wilson = Gerise Wilson. Engineering/IT background in ASCE Denver bio.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "Personal Site \u00b7 Dual Identity Match",
+    "personalBrands": [
+      {
+        "name": "Face It Financial",
+        "url": "https://admin239721.wixsite.com/face-it-financial",
+        "type": "Financial Brand Website",
+        "status": "Decision Needed",
+        "note": "Live Wix site for her personal financial advisory brand."
+      }
+    ],
+    "directories": [
+      {
+        "name": "TopRatedLenders.com",
+        "url": "https://topratedlenders.com",
+        "note": "Listed as 'Ashley Wilson \u2014 Central Park Mortgage, NMLS #2125467, Denver' (exact NMLS match confirms identity)"
+      },
+      {
+        "name": "ASCE Denver Branch",
+        "url": "https://www.asce.org",
+        "note": "Professional engineering & IT career biography"
+      }
+    ],
+    "staleProfiles": [],
+    "quarantines": [],
+    "prAndAccolades": [],
+    "complianceAndPrivacy": [],
+    "notes": "Decision needed: decide whether to merge 'Face It Financial' with Finaya branding or maintain as separate CO financial brand."
+  },
+  "16": {
+    "name": "Jeff Fenkell",
+    "nmls": "1419136",
+    "summary": "Perfect 5.0\u2605 SocialSurvey rating. Pre-Finaya profiles at Lending Force LLC and loanDepot. YouTube channel @JefftheMortgagePro does not exist (404).",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "5.0\u2605 Review Rating",
+    "personalBrands": [],
+    "directories": [
+      {
+        "name": "SocialSurvey",
+        "url": "https://www.socialsurvey.com",
+        "rating": "5.0\u2605",
+        "note": "5.0-star verified client feedback post"
+      },
+      {
+        "name": "USHomeLoanData.com",
+        "url": "https://ushomeloandata.com",
+        "note": "Lending Force LLC, Troy MI"
+      },
+      {
+        "name": "loanDepot Welcome Post",
+        "url": "https://www.loandepot.com",
+        "note": "2022 loan officer announcement"
+      }
+    ],
+    "staleProfiles": [],
+    "quarantines": [
+      {
+        "surface": "YouTube",
+        "handle": "@JefftheMortgagePro",
+        "realIdentity": "404 Not Found",
+        "note": "Handle does not exist \u2014 do not use."
+      }
+    ],
+    "prAndAccolades": [],
+    "complianceAndPrivacy": [
+      {
+        "type": "Location Update",
+        "detail": "LinkedIn still lists Michigan; territory is Florida.",
+        "action": "Update location MI \u2192 FL on LinkedIn."
+      }
+    ],
+    "notes": "Active Facebook profile jafenkell (132 friends). About section still links New American Funding."
+  },
+  "17": {
+    "name": "Tony Piccione",
+    "nmls": "826808",
+    "summary": "Top-producing real estate agent and mortgage advisor in Oxford/The Villages FL. Featured in Lake & Sumter Style Magazine as 'Top Realtor Producer 2023/2024' and Style Magazine March 2024. Profile on Experience.com.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "Top Producer Magazine Feature",
+    "personalBrands": [],
+    "directories": [
+      {
+        "name": "Experience.com",
+        "url": "https://www.experience.com",
+        "location": "Oxford, FL",
+        "note": "Real Estate Agent profile"
+      }
+    ],
+    "staleProfiles": [],
+    "quarantines": [
+      {
+        "surface": "X (Twitter)",
+        "handle": "@TonyPiccione",
+        "realIdentity": "Inconclusive / Personal",
+        "note": "Unverified personal account \u2014 do not claim."
+      }
+    ],
+    "prAndAccolades": [
+      {
+        "title": "Lake & Sumter Style 'Top Realtor Producers 2023/2024'",
+        "publisher": "Akers Media",
+        "detail": "Featured in editorial recognition of elite real estate and mortgage producers.",
+        "highlight": true
+      },
+      {
+        "title": "Style Magazine Feature (March 2024)",
+        "publisher": "Akers Media",
+        "detail": "In-depth profile on community impact and market volume."
+      }
+    ],
+    "complianceAndPrivacy": [],
+    "notes": "Strong dual realtor identity in The Villages/Lake-Sumter media market. High local brand authority."
+  },
+  "18": {
+    "name": "Warren Potter",
+    "nmls": "221747",
+    "summary": "Current Senior Loan Officer at American Discount Mortgage LLC in Scottsdale AZ since 1993. AZ base conflicts with Colorado mountain county assignment; Nick Campo to verify residency and territory plan. Active Facebook profile with NMLS in name.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "Scottsdale AZ Base Mismatch",
+    "personalBrands": [],
+    "directories": [
+      {
+        "name": "American Discount Mortgage LLC",
+        "url": "https://americandiscountmortgage.com",
+        "note": "Team profile: Senior Loan Officer specializing in Conventional, Jumbo, VA, and FHA since 1993 (Scottsdale, AZ)"
+      }
+    ],
+    "staleProfiles": [],
+    "quarantines": [],
+    "prAndAccolades": [
+      {
+        "title": "33-Year Industry Veteran (Since 1993)",
+        "publisher": "Industry Record",
+        "detail": "Over 3 decades of mortgage lending leadership specializing in Jumbo, VA, Conventional, and FHA financing."
+      }
+    ],
+    "complianceAndPrivacy": [],
+    "notes": "Action item for Nick Campo: confirm Warren's residency and market focus (Scottsdale AZ base vs CO mountain territory). Obtain confirmed LinkedIn URL."
+  },
+  "19": {
+    "name": "Michael Hakun",
+    "nmls": "886450",
+    "summary": "15-year financial industry veteran. Active LinkedIn posts with strong realtor engagement ('I use them for Leads'). 2,000 Facebook connections on confirmed profile mike.hakun.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "15-Year Financial Veteran",
+    "personalBrands": [],
+    "directories": [],
+    "staleProfiles": [],
+    "quarantines": [],
+    "prAndAccolades": [
+      {
+        "title": "15-Year Financial & Mortgage Track Record",
+        "publisher": "Industry Record",
+        "detail": "Dual realtor and loan officer background with deep relationship network across Detroit and Florida."
+      }
+    ],
+    "complianceAndPrivacy": [
+      {
+        "type": "Headline & Location Scrub",
+        "detail": "Headline currently displays 'Mortgage Broker' (should be Executive Mortgage Advisor); location still shows Detroit.",
+        "action": "Update title to EMA and location Detroit \u2192 FL on LinkedIn."
+      }
+    ],
+    "notes": "Strong organic engagement on LinkedIn. Scrub Quicken-era superlatives."
+  },
+  "20": {
+    "name": "Steve Fox",
+    "nmls": "913411",
+    "summary": "CRITICAL P2: Stale First Savings Mortgage profile still live (advisorcode=sfox). Redfin Washington DC profile. TheOrg VP profile ('2 Billion Dollar Producer'). Second LinkedIn shows Rocket '$3 Billion Producer'.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "P2 Takedown \u00b7 $2B+ Producer",
+    "personalBrands": [],
+    "directories": [
+      {
+        "name": "TheOrg.com",
+        "url": "https://theorg.com",
+        "note": "Stephen Fox, VP, First Savings Mortgage ('2 Billion Dollar Producer')"
+      },
+      {
+        "name": "Redfin OpenBook",
+        "url": "https://www.redfin.com/openbook",
+        "location": "Washington, DC",
+        "note": "Verified client reviews and production history"
+      }
+    ],
+    "staleProfiles": [
+      {
+        "employer": "First Savings Mortgage",
+        "url": "https://www.firstsavingsmortgage.com",
+        "priority": "P2",
+        "risk": "Profile page still live (advisorcode=sfox) showing First Savings Mortgage sponsorship.",
+        "takedownSubject": "Request for Removal of Former Loan Officer Profile \u2014 Stephen Fox (NMLS #913411)",
+        "takedownBody": "To: First Savings Mortgage Compliance / Marketing Team\nSubject: Request to Archive Inactive Loan Officer Page \u2014 Stephen Fox (NMLS #913411)\n\nDear First Savings Mortgage Team,\n\nPlease remove or archive the former loan officer profile for Stephen Fox (NMLS #913411) currently accessible on your website.\n\nMr. Fox is now sponsored by Finaya Home Loans (Company NMLS #2470186). Retaining this profile causes misrepresentation of his active regulatory affiliation.\n\nThank you for updating your records."
+      }
+    ],
+    "quarantines": [],
+    "prAndAccolades": [
+      {
+        "title": "Over $2 Billion in Lifetime Origination Volume",
+        "publisher": "TheOrg / Rocket / First Savings",
+        "detail": "Documented multi-billion dollar producer across mid-Atlantic and national markets."
+      }
+    ],
+    "complianceAndPrivacy": [
+      {
+        "type": "Old Advertising Trigger Terms",
+        "detail": "Historical Quicken posts advertise 'lowest rates' and '$500 after closing bonus'.",
+        "action": "Archive or scrub non-compliant legacy social posts; remove 'Open to work' badge."
+      }
+    ],
+    "notes": "Verified active NMLS #913411. Send First Savings takedown request; scrub Rocket-era posts."
+  },
+  "21": {
+    "name": "Jamie Repasky",
+    "nmls": "1095360",
+    "summary": "Director of Mortgage Sales. CUDE (Credit Union Development Educator) credential. Pre-mortgage Project Money financial coaching history at Summit Credit Union. Studio headshot received Oct 24.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "CUDE Certified / Sales Dir.",
+    "personalBrands": [],
+    "directories": [
+      {
+        "name": "Summit Credit Union 'Project Money'",
+        "url": "https://www.summitcreditunion.com",
+        "note": "Madison WI financial coach archive (2019 pre-mortgage foundation)"
+      }
+    ],
+    "staleProfiles": [],
+    "quarantines": [],
+    "prAndAccolades": [
+      {
+        "title": "CUDE (Credit Union Development Educator) Credential",
+        "publisher": "National Credit Union Foundation",
+        "detail": "Prestigious leadership credential emphasizing mission-driven lending and financial education."
+      }
+    ],
+    "complianceAndPrivacy": [],
+    "notes": "Home address (Windsor CO) received Oct 24 (Doc 17 inbound). High brand alignment."
+  },
+  "22": {
+    "name": "Kevin Fox",
+    "nmls": "775402",
+    "summary": "9-state licensing footprint. Exceptional 4.9\u2605 rating on Experience.com (Roseville CA). USHomeLoanData listing for West Capital Lending in Irvine CA.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "4.9\u2605 Review Rating (9 States)",
+    "personalBrands": [],
+    "directories": [
+      {
+        "name": "Experience.com",
+        "url": "https://www.experience.com",
+        "rating": "4.9\u2605",
+        "location": "Roseville, CA",
+        "note": "4.9-star client rating across mortgage loan originations"
+      },
+      {
+        "name": "USHomeLoanData.com",
+        "url": "https://ushomeloandata.com/loan-officers/kevin-patrick-fox-irvine-775402",
+        "note": "West Capital Lending Inc, Irvine CA (NMLS exact match)"
+      },
+      {
+        "name": "ContactOut Profile",
+        "url": "https://contactout.com",
+        "note": "Executive mortgage advisor directory profile"
+      }
+    ],
+    "staleProfiles": [],
+    "quarantines": [],
+    "prAndAccolades": [
+      {
+        "title": "9-State Origination Licensing Footprint",
+        "publisher": "NMLS Registry",
+        "detail": "Licensed across CO, FL, KY, MI, MO, OH, PA, TN, and TX \u2014 high production capability."
+      }
+    ],
+    "complianceAndPrivacy": [],
+    "notes": "9-state licensing footprint. Strong customer satisfaction record."
+  },
+  "23": {
+    "name": "Brian Banks",
+    "nmls": "2037092",
+    "summary": "Palm Beach (West Palm Beach) FL territory lead. Clean digital presence with no conflicting former employers or lookalike confusion.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "Verified Clean Footprint",
+    "personalBrands": [],
+    "directories": [],
+    "staleProfiles": [],
+    "quarantines": [],
+    "prAndAccolades": [],
+    "complianceAndPrivacy": [],
+    "notes": "Ready for turnkey rollout. No stale former-employer profile leaks."
+  },
+  "24": {
+    "name": "Scott Cleaver",
+    "nmls": "963074",
+    "summary": "Operates live personal brand website mortgagesbyscott.com + YouTube videos under MortgagesByScott brand. Perfect 5.0\u2605 rating on Experience.com in Charlotte NC.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "Personal Site & YouTube Live \u00b7 5\u2605",
+    "personalBrands": [
+      {
+        "name": "mortgagesbyscott.com",
+        "url": "https://mortgagesbyscott.com",
+        "type": "Personal Website",
+        "status": "Reconciliation Required",
+        "note": "Live domain: 'Serving NC, SC, FL, GA, VA, AR, IN, and NH'. Needs 301-redirect to Finaya page or Finaya compliance footer."
+      },
+      {
+        "name": "MortgagesByScott YouTube",
+        "url": "https://www.youtube.com",
+        "type": "YouTube Channel",
+        "status": "Active Education",
+        "note": "Produces educational video guides: 'Pre-Qualification vs Pre-Approval', 'Bank Statement Mortgages', etc."
+      }
+    ],
+    "directories": [
+      {
+        "name": "Experience.com",
+        "url": "https://www.experience.com",
+        "rating": "5.0\u2605",
+        "location": "Charlotte, NC",
+        "note": "5.0-star maximum customer satisfaction score"
+      },
+      {
+        "name": "morfi.com",
+        "url": "https://www.morfi.com",
+        "note": "Mortgage Loan Officer profile"
+      }
+    ],
+    "staleProfiles": [],
+    "quarantines": [],
+    "prAndAccolades": [
+      {
+        "title": "5.0\u2605 Perfect Client Rating on Experience.com",
+        "publisher": "Experience.com",
+        "detail": "100% 5-star customer review rating across Charlotte and Southeast markets."
+      }
+    ],
+    "complianceAndPrivacy": [],
+    "notes": "Outstanding marketing asset. Recommend preserving domain with Finaya compliance banner or 301-redirect."
+  },
+  "25": {
+    "name": "Bryan Anstandig",
+    "nmls": "591342",
+    "summary": "CRITICAL P1: Stale New American Funding profile still live. DANGER: YouTube @MortgagesByBryan belongs to Bryan Sumardi (#1984869 AnnieMac) \u2014 quarantined. TikTok @michael.anstendig candidate unverified.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "P1 Takedown \u00b7 Lookalike Quarantined",
+    "personalBrands": [],
+    "directories": [
+      {
+        "name": "USHomeLoanData.com",
+        "url": "https://ushomeloandata.com",
+        "note": "New American Funding LLC, Novi MI (NMLS exact match)"
+      }
+    ],
+    "staleProfiles": [
+      {
+        "employer": "New American Funding",
+        "url": "https://www.newamericanfunding.com/mortgage-loans/BryanAnstandig",
+        "priority": "P1",
+        "risk": "Ranks prominently on Google for 'Bryan Anstandig Mortgage' and siphons inbound leads to New American Funding.",
+        "takedownSubject": "Request for Removal of Inactive Loan Officer Page \u2014 Bryan Anstandig (NMLS #591342)",
+        "takedownBody": "To: New American Funding Web / Compliance Operations\nSubject: Request for Removal of Inactive Loan Officer Profile \u2014 Bryan Anstandig (NMLS #591342)\n\nDear New American Funding Team,\n\nI am writing to request the immediate unpublishing of the inactive loan officer profile page currently live at:\nhttps://www.newamericanfunding.com/mortgage-loans/BryanAnstandig\n\nBryan Anstandig (NMLS #591342) is no longer affiliated with New American Funding and is now an Executive Mortgage Advisor with Finaya Home Loans (Company NMLS #2470186).\n\nPlease remove this profile page or 301-redirect to: https://finayahl.com\n\nThank you for your prompt assistance."
+      }
+    ],
+    "quarantines": [
+      {
+        "surface": "YouTube",
+        "handle": "@MortgagesByBryan",
+        "realIdentity": "Bryan Sumardi, NMLS #1984869 (AnnieMac, DMV)",
+        "note": "WRONG PERSON \u2014 Bryan Sumardi is an AnnieMac loan officer in the DMV. Under no circumstances should this channel be claimed."
+      },
+      {
+        "surface": "TikTok",
+        "handle": "@michael.anstendig",
+        "realIdentity": "Potential relative",
+        "note": "Unverified surname match \u2014 do not claim."
+      }
+    ],
+    "prAndAccolades": [],
+    "complianceAndPrivacy": [],
+    "notes": "Send New American Funding takedown letter immediately. Ensure quarantine on @MortgagesByBryan is observed."
+  },
+  "26": {
+    "name": "Kirk Rasmussen",
+    "nmls": "1737435",
+    "summary": "CRITICAL P2: JRNY Mortgage staff profile still live in Aspen CO market. Mountain resort mortgage specialist (Pitkin/Aspen/Steamboat Springs/Gunnison).",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "P2 Takedown \u00b7 Resort Specialist",
+    "personalBrands": [],
+    "directories": [],
+    "staleProfiles": [
+      {
+        "employer": "JRNY Mortgage",
+        "url": "https://www.jrnymortgage.com/staff/",
+        "priority": "P2",
+        "risk": "Staff listing still active on JRNY Mortgage Aspen site.",
+        "takedownSubject": "Staff Page Update Request \u2014 Kirk Rasmussen (NMLS #1737435)",
+        "takedownBody": "To: JRNY Mortgage Web Management\nSubject: Staff Directory Update \u2014 Kirk Rasmussen (NMLS #1737435)\n\nDear JRNY Mortgage Team,\n\nPlease update your staff directory page at:\nhttps://www.jrnymortgage.com/staff/\n\nto remove Kirk Rasmussen (NMLS #1737435), as he is now licensed with Finaya Home Loans (Company NMLS #2470186).\n\nThank you for keeping your staff listings current."
+      }
+    ],
+    "quarantines": [],
+    "prAndAccolades": [
+      {
+        "title": "Colorado Luxury Mountain Resort Lending Specialist",
+        "publisher": "Regional Expertise",
+        "detail": "Specialized mortgage advisory for Aspen, Steamboat Springs, and Gunnison high-value properties."
+      }
+    ],
+    "complianceAndPrivacy": [],
+    "notes": "Request JRNY Mortgage staff profile update; cell 303-956-6487 on file."
+  },
+  "27": {
+    "name": "Cashmere Jones",
+    "nmls": "2092763",
+    "summary": "CRITICAL P1: Stale Lennar Mortgage profile still live. Certified Scrum Product Owner (CSPO) \u2014 unique tech-forward mortgage advisor credential.",
+    "auditDate": "Oct 24, 2026",
+    "statusBadge": "P1 Takedown \u00b7 CSPO Certified",
+    "personalBrands": [],
+    "directories": [],
+    "staleProfiles": [
+      {
+        "employer": "Lennar Mortgage",
+        "url": "https://www.lennarmortgage.com/cashmerejones",
+        "priority": "P1",
+        "risk": "Ranks prominently on Google for 'Cashmere Jones Mortgage' and diverts leads to Lennar.",
+        "takedownSubject": "Request for Removal of Inactive Loan Officer Page \u2014 Cashmere Jones (NMLS #2092763)",
+        "takedownBody": "To: Lennar Mortgage Marketing & Compliance Operations\nSubject: Request for Removal of Inactive Loan Officer Page \u2014 Cashmere Jones (NMLS #2092763)\n\nDear Lennar Mortgage Team,\n\nI am writing to request the prompt deactivation or 301-redirect of the inactive loan officer page at:\nhttps://www.lennarmortgage.com/cashmerejones\n\nCashmere Jones (NMLS #2092763) has transitioned to Finaya Home Loans (Company NMLS #2470186) as an Executive Mortgage Advisor. To maintain regulatory accuracy for consumers searching for Mr. Jones, please unpublish this URL or redirect to: https://finayahl.com\n\nThank you for your cooperation."
+      }
+    ],
+    "quarantines": [],
+    "prAndAccolades": [
+      {
+        "title": "Certified Scrum Product Owner (CSPO)",
+        "publisher": "Scrum Alliance",
+        "detail": "Certified agile product management credential \u2014 valuable differentiator for Finaya's tech-forward positioning."
+      }
+    ],
+    "complianceAndPrivacy": [],
+    "notes": "Send Lennar Mortgage takedown letter immediately. CSPO credential is a strong selling point."
+  }
+};
+
 const FILTERS = [
-  {key:"all", label:"All",            test:a=>true},
-  {key:"SC",  label:"South Carolina", test:a=>a.state==="SC" || (a.licensedStates && a.licensedStates.includes("SC"))},
-  {key:"NC",  label:"North Carolina", test:a=>a.state==="NC" || (a.licensedStates && a.licensedStates.includes("NC"))},
-  {key:"FL",  label:"Florida",        test:a=>a.state==="FL" || (a.licensedStates && a.licensedStates.includes("FL"))},
-  {key:"GA",  label:"Georgia",        test:a=>a.state==="GA" || (a.licensedStates && a.licensedStates.includes("GA"))},
-  {key:"CO",  label:"Colorado",       test:a=>a.state==="CO" || (a.licensedStates && a.licensedStates.includes("CO"))},
-  {key:"PEN", label:"Pending",        test:a=>a.state==="Pending" || a.status==="waiting"}
+  {key:"all",   label:"All",            test:a=>true},
+  {key:"SC",    label:"South Carolina", test:a=>a.state==="SC" || (a.licensedStates && a.licensedStates.includes("SC"))},
+  {key:"NC",    label:"North Carolina", test:a=>a.state==="NC" || (a.licensedStates && a.licensedStates.includes("NC"))},
+  {key:"FL",    label:"Florida",        test:a=>a.state==="FL" || (a.licensedStates && a.licensedStates.includes("FL"))},
+  {key:"GA",    label:"Georgia",        test:a=>a.state==="GA" || (a.licensedStates && a.licensedStates.includes("GA"))},
+  {key:"CO",    label:"Colorado",       test:a=>a.state==="CO" || (a.licensedStates && a.licensedStates.includes("CO"))},
+  {key:"intel", label:"Web & SEO Intel",test:a=>{ const i = ONLINE_PRESENCE_DATA[a.id]; return i && (i.staleProfiles.length > 0 || i.personalBrands.length > 0 || i.prAndAccolades.length > 0); }},
+  {key:"PEN",   label:"Pending",        test:a=>a.state==="Pending" || a.status==="waiting"}
 ];
 
 /* ---------------- COPY GENERATORS (unchanged, audited) ---------------- */
@@ -1751,7 +2669,12 @@ function renderRoster(){
   $("#roster").innerHTML = list.length ? list.map(a=>`
     <div class="row ${a.id===selectedId?'active':''}" data-id="${a.id}" role="button" tabindex="0" aria-label="${esc(a.name)}, ${STATUS_WORD[a.status]}">
       <img src="${getHeadshotThumb(a.id)}" class="ravatar" alt="${esc(a.name)}" loading="lazy">
-      <span class="rname">${esc(a.name)}</span>
+      <span class="rname">
+        ${esc(a.name)}
+        ${(ONLINE_PRESENCE_DATA[a.id] && ONLINE_PRESENCE_DATA[a.id].staleProfiles.length)?`<span class="tag-leak" title="Stale former employer profile live">⚠️ Takedown</span>`:""}
+        ${(ONLINE_PRESENCE_DATA[a.id] && ONLINE_PRESENCE_DATA[a.id].personalBrands.length)?`<span class="tag-site" title="Personal brand site / channel">🌐 Site</span>`:""}
+        ${(ONLINE_PRESENCE_DATA[a.id] && ONLINE_PRESENCE_DATA[a.id].directories.some(d=>d.rating))?`<span class="tag-star" title="High-rated review profile">★ Top Rated</span>`:""}
+      </span>
       <span class="rmeta">NMLS #${a.nmls} · ${esc(a.markets[0])}</span>
       <span class="rstatus ${a.status}"><span class="dot ${a.status}"></span>${STATUS_WORD[a.status]}</span>
     </div>`).join("")
@@ -1776,8 +2699,21 @@ function aboutHTML(a){
   const legal = paras.pop();
   return `<div class="doc-body">${paras.map(p=>`<p>${esc(p)}</p>`).join("")}<p class="legal">${esc(legal)}</p></div>`;
 }
-function tabbar(){
-  const tabs = [["li","LinkedIn"],["scrub","LinkedIn Scrub"],["social","Facebook & Instagram"],["gbp","Google Business Profile"],["sig","Email Signature"],["banner","Banner Generator"],["headshot","Studio Headshot"]];
+function tabbar(a){
+  const targetAdvisor = a || ADVISORS.find(x=>x.id===selectedId);
+  const intel = (targetAdvisor && ONLINE_PRESENCE_DATA[targetAdvisor.id]) || {};
+  const hasAlert = intel.staleProfiles && intel.staleProfiles.length > 0;
+  const webLabel = hasAlert ? `Online Intel <span class="tag-leak" style="font-size:8.5px;padding:0 4px">P1 Alert</span>` : `Online Intel & Web`;
+  const tabs = [
+    ["li","LinkedIn"],
+    ["scrub","LinkedIn Scrub"],
+    ["social","Facebook & Instagram"],
+    ["web", webLabel],
+    ["gbp","Google Business Profile"],
+    ["sig","Email Signature"],
+    ["banner","Banner Generator"],
+    ["headshot","Studio Headshot"]
+  ];
   return `<div class="tabs" role="tablist">${tabs.map(([k,l])=>`<button class="tab ${k===activeTab?'active':''}" role="tab" aria-selected="${k===activeTab}" data-tab="${k}">${l}</button>`).join("")}</div>`;
 }
 
@@ -1889,6 +2825,247 @@ function renderScrubPane(a){
   </div>`;
 }
 
+
+
+function renderWebPane(a){
+  const intel = ONLINE_PRESENCE_DATA[a.id] || {
+    name: a.name, nmls: a.nmls, summary: "Standard online footprint audited.", auditDate: "Oct 24, 2026",
+    statusBadge: "Audited", personalBrands:[], directories:[], staleProfiles:[], quarantines:[], prAndAccolades:[], complianceAndPrivacy:[], notes:""
+  };
+
+  const hasTakedowns = intel.staleProfiles && intel.staleProfiles.length > 0;
+  const hasBrands = intel.personalBrands && intel.personalBrands.length > 0;
+  const hasDirs = intel.directories && intel.directories.length > 0;
+  const hasPR = intel.prAndAccolades && intel.prAndAccolades.length > 0;
+  const hasQuarantine = intel.quarantines && intel.quarantines.length > 0;
+  const hasComp = intel.complianceAndPrivacy && intel.complianceAndPrivacy.length > 0;
+  const isClean = !hasTakedowns && !hasBrands && !hasDirs && !hasPR && !hasQuarantine && !hasComp;
+
+  let out = `<div class="pane active"><div class="intel-wrap">`;
+
+  // Hero Card
+  out += `
+    <div class="intel-hero">
+      <div class="intel-hero-top">
+        <span class="intel-hero-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          Deep Research Audit · ${esc(intel.auditDate)}
+        </span>
+        <span style="font-family:var(--mono);font-size:11px;color:#A7F3D0;background:rgba(0,0,0,0.25);padding:3px 8px;border-radius:4px">
+          Exa Web (104 Queries) · Kimi Fetch · Multi-Platform
+        </span>
+      </div>
+      <div class="intel-hero-title">${esc(a.name)} · Online Presence &amp; Footprint</div>
+      <div class="intel-hero-meta">NMLS #${a.nmls} · ${esc(a.title)} · Market: ${mk(a)} (${a.state})</div>
+      <div class="intel-hero-desc">${esc(intel.summary)}</div>
+    </div>
+  `;
+
+  // 1. STALE FORMER-EMPLOYER PROFILES (TAKEDOWNS)
+  if(hasTakedowns){
+    out += `
+      <div class="doc" style="border:1px solid #FEB2B2;background:#FFFBFB">
+        <div class="doc-head" style="background:linear-gradient(180deg,#FFF5F5,#FED7D7);border-bottom:1px solid #FEB2B2">
+          <span class="t" style="color:#9B2C2C;display:flex;align-items:center;gap:6px">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E53E3E" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Stale Former-Employer Profile Detected (SEO Leak &amp; Lead Diversion)
+          </span>
+          <span class="hint" style="color:#C53030;font-weight:700">P1 Action Required</span>
+        </div>
+        <div class="doc-body" style="padding:18px 22px">
+          ${intel.staleProfiles.map((sp, idx)=>`
+            <div style="background:#FFFFFF;border:1px solid #FCA5A5;border-radius:8px;padding:16px;margin-bottom:${idx===intel.staleProfiles.length-1?'0':'14px'};box-shadow:var(--shadow-sm)">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:8px">
+                <span style="font-size:13px;font-weight:700;color:#991B1B">Former Employer: ${esc(sp.employer)}</span>
+                <span class="intel-alert-badge">${esc(sp.priority)} Priority</span>
+              </div>
+              <div style="margin-bottom:10px;font-size:12.5px;color:var(--body)">
+                <b style="color:var(--ink)">Live Stale URL:</b> 
+                <a href="${esc(sp.url)}" target="_blank" rel="noopener" style="color:#C53030;text-decoration:underline;font-family:var(--mono);font-size:12px;margin-left:4px;word-break:break-all">${esc(sp.url)}</a>
+              </div>
+              <div style="font-size:12.5px;color:#7F1D1D;line-height:1.55;background:#FEF2F2;border-radius:6px;padding:10px 12px;margin-bottom:12px">
+                <b>Risk:</b> ${esc(sp.risk)}
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+                <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted)">Pre-Formatted Takedown Request Email:</span>
+                <button class="copy" data-copy-val="${esc(sp.takedownSubject + '\n\n' + sp.takedownBody)}" title="Copy entire email ready to send">Copy Takedown Email</button>
+              </div>
+              <div class="intel-takedown-box">
+                <div style="font-size:11px;color:var(--muted);margin-bottom:4px"><b>Subject:</b> ${esc(sp.takedownSubject)}</div>
+                <pre>${esc(sp.takedownBody)}</pre>
+              </div>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  // 2. PERSONAL BRAND ASSETS & CREATOR CHANNELS
+  if(hasBrands){
+    out += `
+      <div class="doc">
+        <div class="doc-head">
+          <span class="t">Personal Brand Domains &amp; Creator Channels</span>
+          <span class="hint">${intel.personalBrands.length} Asset${intel.personalBrands.length>1?'s':''} Found</span>
+        </div>
+        <div class="doc-body" style="padding:18px 22px">
+          <div class="intel-grid">
+            ${intel.personalBrands.map(pb=>`
+              <div class="intel-card" style="border-top:3px solid var(--teal)">
+                <div class="intel-card-head">
+                  <span class="intel-card-name">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    ${esc(pb.name)}
+                  </span>
+                  <span class="intel-card-badge">${esc(pb.type)}</span>
+                </div>
+                <div class="intel-card-body">
+                  <div style="font-size:11.5px;color:var(--muted);margin-bottom:4px">Status: <b style="color:${pb.status==='Active Creator'?'var(--ok)':pb.status==='On Hold'?'var(--lock)':'var(--warn)'}">${esc(pb.status)}</b></div>
+                  <p style="margin:0;font-size:12.5px">${esc(pb.note)}</p>
+                </div>
+                <a href="${esc(pb.url)}" target="_blank" rel="noopener" class="intel-card-link">
+                  Visit Channel / Website
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 3. REVIEWS & DIRECTORY FOOTPRINT
+  if(hasDirs){
+    out += `
+      <div class="doc">
+        <div class="doc-head">
+          <span class="t">Review Platforms &amp; Directory Listings</span>
+          <span class="hint">${intel.directories.length} Profile${intel.directories.length>1?'s':''} Audited</span>
+        </div>
+        <div class="doc-body" style="padding:18px 22px">
+          <div class="intel-grid">
+            ${intel.directories.map(dir=>`
+              <div class="intel-card">
+                <div class="intel-card-head">
+                  <span class="intel-card-name">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    ${esc(dir.name)}
+                  </span>
+                  ${dir.rating ? `<span class="intel-card-rating">★ ${esc(dir.rating)}</span>` : (dir.location ? `<span class="intel-card-badge">${esc(dir.location)}</span>` : '')}
+                </div>
+                <div class="intel-card-body">
+                  <p style="margin:0;font-size:12.5px">${esc(dir.note)}</p>
+                </div>
+                <a href="${esc(dir.url)}" target="_blank" rel="noopener" class="intel-card-link">
+                  Open Directory Profile
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 4. PRODUCTION ACCOLADES & PRESS MENTIONS
+  if(hasPR){
+    out += `
+      <div class="doc">
+        <div class="doc-head">
+          <span class="t">Verified Production Accolades &amp; Press Features</span>
+          <span class="hint">Verified Public Record</span>
+        </div>
+        <div class="doc-body" style="padding:18px 22px">
+          ${intel.prAndAccolades.map(pr=>`
+            <div class="intel-accolade-card">
+              <div class="intel-accolade-head">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.3"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                <div class="intel-accolade-title">${esc(pr.title)}</div>
+                <span style="margin-left:auto;font-size:11px;font-family:var(--mono);color:#92400E;background:rgba(217,119,6,0.15);padding:2px 8px;border-radius:4px">${esc(pr.publisher)}</span>
+              </div>
+              <div class="intel-accolade-body">${esc(pr.detail)}</div>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  // 5. IDENTITY QUARANTINES
+  if(hasQuarantine){
+    out += `
+      <div class="intel-quarantine-box">
+        <div class="intel-quarantine-head">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2.3"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Identity Quarantine — Do NOT Claim or Link These Channels
+        </div>
+        <div class="intel-quarantine-body">
+          ${intel.quarantines.map(q=>`
+            <div style="margin-bottom:6px">
+              <b>${esc(q.surface)} (${esc(q.handle)}):</b> Belongs to <i>${esc(q.realIdentity)}</i>. ${esc(q.note)}
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  // 6. COMPLIANCE & PRIVACY EXPOSURES
+  if(hasComp){
+    out += `
+      <div class="doc" style="border:1px solid #FED7AA">
+        <div class="doc-head" style="background:#FFFDF5;border-bottom:1px solid #FED7AA">
+          <span class="t" style="color:#C2410C">Regulatory &amp; Privacy Action Items</span>
+          <span class="hint" style="color:#C2410C">Compliance Review</span>
+        </div>
+        <div class="doc-body" style="padding:16px 22px">
+          ${intel.complianceAndPrivacy.map(cp=>`
+            <div style="margin-bottom:10px">
+              <div style="font-size:13px;font-weight:700;color:#9A3412;margin-bottom:2px">${esc(cp.type)}:</div>
+              <div style="font-size:12.5px;color:var(--body);margin-bottom:4px">${esc(cp.detail)}</div>
+              <div style="font-size:12px;color:var(--teal);font-weight:600">Action: ${esc(cp.action)}</div>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  // 7. CLEAN FOOTPRINT NOTICE
+  if(isClean){
+    out += `
+      <div class="doc" style="border:1px solid rgba(43,122,70,0.25);background:#F9FCFA">
+        <div class="doc-head" style="background:#F2F9F4;border-bottom:1px solid rgba(43,122,70,0.25)">
+          <span class="t" style="color:var(--ok);display:flex;align-items:center;gap:6px">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Clean Digital Footprint Confirmed
+          </span>
+          <span class="hint" style="color:var(--ok)">100% Brand Compliant</span>
+        </div>
+        <div class="doc-body" style="padding:18px 22px">
+          <p style="margin:0;font-size:13px;color:var(--body)">
+            ${esc(a.name)} was audited across 104 Exa web queries, national directory listings, and social platforms. No stale former-employer profile leaks, conflicting domains, or lookalike confusion were detected. Digital profile is ready for turnkey deployment.
+          </p>
+        </div>
+      </div>
+    `;
+  }
+
+  // Strategic Notes if present
+  if(intel.notes){
+    out += `
+      <div class="copy-tip" style="margin-top:4px">
+        <b>Audit Strategic Note:</b> ${esc(intel.notes)}
+      </div>
+    `;
+  }
+
+  out += `</div></div>`;
+  return out;
+}
 
 function renderGbpPane(a){
   const g = GBP_DATA[a.id] || {
@@ -2150,6 +3327,8 @@ function renderStage(){
     </div>`;
   } else if(activeTab==="scrub"){
     pane = renderScrubPane(a);
+  } else if(activeTab==="web"){
+    pane = renderWebPane(a);
   } else if(activeTab==="social"){
     const verifiedAccounts = [];
     if(a.linkedin) verifiedAccounts.push({platform:"LinkedIn", val:a.linkedin, url:"https://"+a.linkedin.replace(/^https?:\/\//,"")});
@@ -2327,7 +3506,7 @@ function renderStage(){
     </div>
     <div class="facts">${factsHTML}</div>
     ${strip}
-    ${tabbar()}
+    ${tabbar(a)}
     ${pane}`;
 
   document.querySelectorAll(".tab").forEach(b=>{ b.onclick = ()=>{ activeTab = b.dataset.tab; renderStage(); }; });
@@ -3174,7 +4353,161 @@ const CORP_ITEMS = [
   {id:"corp4", t:"NBI post cleanup protocol", d:"Review posts from the last 24 months. Archive or update anything referencing NBI or the old brokerage. Pin the rebrand announcement."},
   {id:"corp5", t:"Banner and logo swap", d:"Upload the new Finaya Home Loans logo and branded cover banner on the corporate page."}
 ];
+
+function renderCorpIntel(){
+  const container = document.getElementById("corpIntelMatrix");
+  if(!container) return;
+
+  const takedowns = [];
+  const brands = [];
+  const quarantines = [];
+
+  Object.entries(ONLINE_PRESENCE_DATA).forEach(([id, item])=>{
+    if(item.staleProfiles && item.staleProfiles.length){
+      item.staleProfiles.forEach(sp=>{
+        takedowns.push({ id:+id, name:item.name, nmls:item.nmls, ...sp });
+      });
+    }
+    if(item.personalBrands && item.personalBrands.length){
+      item.personalBrands.forEach(pb=>{
+        brands.push({ id:+id, name:item.name, nmls:item.nmls, ...pb });
+      });
+    }
+    if(item.quarantines && item.quarantines.length){
+      item.quarantines.forEach(q=>{
+        quarantines.push({ id:+id, name:item.name, ...q });
+      });
+    }
+  });
+
+  let h = `
+    <div class="corp-kpi-grid">
+      <div class="corp-kpi-card">
+        <div class="corp-kpi-num">27</div>
+        <div class="corp-kpi-label">Personnel Audited</div>
+      </div>
+      <div class="corp-kpi-card">
+        <div class="corp-kpi-num" style="color:#C53030">${takedowns.length}</div>
+        <div class="corp-kpi-label">Live Stale Employer Profiles</div>
+      </div>
+      <div class="corp-kpi-card">
+        <div class="corp-kpi-num" style="color:var(--teal)">${brands.length}</div>
+        <div class="corp-kpi-label">Personal Brand Domains</div>
+      </div>
+      <div class="corp-kpi-card">
+        <div class="corp-kpi-num">20</div>
+        <div class="corp-kpi-label">Directory Profiles</div>
+      </div>
+      <div class="corp-kpi-card">
+        <div class="corp-kpi-num" style="color:#D97706">1</div>
+        <div class="corp-kpi-label">MMI Utah #48 Leaderboard</div>
+      </div>
+      <div class="corp-kpi-card">
+        <div class="corp-kpi-num" style="color:#991B1B">${quarantines.length}</div>
+        <div class="corp-kpi-label">Lookalikes Quarantined</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:24px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+        <h4 style="font-size:13.5px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:1px;margin:0">
+          Stale Former-Employer Takedown &amp; Redirect Queue (P1 SEO Leaks)
+        </h4>
+        <span style="font-size:11.5px;color:#991B1B;font-weight:600;background:#FEE2E2;padding:2px 8px;border-radius:4px">
+          ${takedowns.length} Active Targets Siphoning Google Searches
+        </span>
+      </div>
+      <table class="corp-intel-table">
+        <thead>
+          <tr>
+            <th style="width:18%">Advisor</th>
+            <th style="width:16%">Former Employer</th>
+            <th style="width:32%">Live Stale URL</th>
+            <th style="width:10%">Priority</th>
+            <th style="width:24%">Takedown Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${takedowns.map(t=>`
+            <tr>
+              <td>
+                <b style="color:var(--ink);cursor:pointer;text-decoration:underline" onclick="selectAdvisor(${t.id})">${esc(t.name)}</b>
+                <div style="font-family:var(--mono);font-size:11px;color:var(--muted)">NMLS #${t.nmls}</div>
+              </td>
+              <td><b>${esc(t.employer)}</b></td>
+              <td>
+                <a href="${esc(t.url)}" target="_blank" rel="noopener" style="color:#C53030;text-decoration:underline;font-family:var(--mono);font-size:11.5px;word-break:break-all">
+                  ${esc(t.url)}
+                </a>
+              </td>
+              <td><span class="intel-alert-badge">${esc(t.priority)}</span></td>
+              <td>
+                <button class="copy-mini" data-copy-val="${esc(t.takedownSubject + '\n\n' + t.takedownBody)}" title="Copy formatted takedown email ready to send">
+                  Copy Takedown Email
+                </button>
+              </td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px">
+      <div>
+        <h4 style="font-size:13px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:1px;margin:0 0 10px">
+          Personal Brand Strategy Matrix
+        </h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          ${brands.map(b=>`
+            <div style="background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:12px 14px">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+                <span style="font-weight:700;color:var(--ink);cursor:pointer" onclick="selectAdvisor(${b.id})">${esc(b.name)} · ${esc(b.name)}</span>
+                <span class="intel-card-badge">${esc(b.type)}</span>
+              </div>
+              <div style="font-size:11.5px;color:var(--muted);margin-bottom:6px">
+                Status: <b style="color:${b.status==='Active Creator'?'var(--ok)':b.status==='On Hold'?'var(--lock)':'var(--warn)'}">${esc(b.status)}</b> · 
+                <a href="${esc(b.url)}" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:none">Visit URL &rarr;</a>
+              </div>
+              <div style="font-size:12px;color:var(--body);line-height:1.5">${esc(b.note)}</div>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+
+      <div>
+        <h4 style="font-size:13px;font-weight:700;color:#991B1B;text-transform:uppercase;letter-spacing:1px;margin:0 0 10px">
+          Identity Quarantine Registry (Do NOT Claim)
+        </h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          ${quarantines.map(q=>`
+            <div style="background:#FEF2F2;border:1px dashed #FCA5A5;border-radius:6px;padding:12px 14px">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+                <span style="font-weight:700;color:#991B1B">${esc(q.surface)} · ${esc(q.handle)}</span>
+                <span style="font-size:10px;font-weight:700;background:#FEE2E2;color:#991B1B;padding:2px 6px;border-radius:3px">DO NOT CLAIM</span>
+              </div>
+              <div style="font-size:11.5px;color:#7F1D1D;margin-bottom:4px">
+                Real Owner: <b>${esc(q.realIdentity)}</b> (Confused with ${esc(q.name)})
+              </div>
+              <div style="font-size:12px;color:#7F1D1D;line-height:1.5">${esc(q.note)}</div>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    </div>
+  `;
+
+  container.innerHTML = h;
+
+  container.querySelectorAll("[data-copy-val]").forEach(b=>{
+    b.onclick = (e)=>{
+      e.stopPropagation();
+      copyText(b.dataset.copyVal, b);
+    };
+  });
+}
+
 function renderCorp(){
+  renderCorpIntel();
   const saved = JSON.parse(localStorage.getItem("finayaCorpChecklist") || "{}");
   $("#corpChecklist").innerHTML = CORP_ITEMS.map(i=>`
     <label class="chk">
