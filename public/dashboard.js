@@ -28,8 +28,9 @@ const ADVISORS = [
     "link": "finayahl.com/p/nicholasc",
     "linkedin": "linkedin.com/in/nicholas-campo-sr-90230686",
     "facebook": "facebook.com/nick.campo.37017",
-    "instagram": "",
-    "status": "complete"
+    "instagram": "instagram.com/mtgmannick",
+    "status": "complete",
+    "x": "x.com/mortgagemobstar"
   },
   {
     "id": 2,
@@ -71,9 +72,10 @@ const ADVISORS = [
     "link": "finayahl.com/p/johnb",
     "linkedin": "linkedin.com/in/johnbmortgage",
     "facebook": "facebook.com/john.birke",
-    "instagram": "@johnbmortgage",
+    "instagram": "instagram.com/johnbmortgage",
     "tiktok": "@johnbmortgage",
-    "status": "complete"
+    "status": "complete",
+    "linktree": "linktr.ee/johnbmortgage"
   },
   {
     "id": 4,
@@ -86,7 +88,7 @@ const ADVISORS = [
     ],
     "state": "SC",
     "phone": "803-262-2641",
-    "cell": "980-402-2866",
+    "cell": "803-369-3466",
     "email": "ben.singleton@finayahl.com",
     "link": "finayahl.com/p/bens",
     "linkedin": "linkedin.com/in/benjamin-singleton-57319a161",
@@ -112,8 +114,9 @@ const ADVISORS = [
     "link": "finayahl.com/p/christinay",
     "linkedin": "linkedin.com/in/christinayudzitski",
     "facebook": "facebook.com/cbelov",
-    "instagram": "@homeloansxchristina",
-    "status": "complete"
+    "instagram": "instagram.com/homeloansxchristina",
+    "status": "complete",
+    "threads": "threads.net/@homeloansxchristina"
   },
   {
     "id": 6,
@@ -152,8 +155,9 @@ const ADVISORS = [
     "link": "finayahl.com/p/kheseys",
     "linkedin": "linkedin.com/in/kheseypich",
     "facebook": "facebook.com/KheseySilva",
-    "instagram": "@kheseysilva_nmls2358323",
-    "status": "complete"
+    "instagram": "instagram.com/kheseysilva_nmls2358323",
+    "status": "complete",
+    "threads": "threads.net/@kheseysilva_nmls2358323"
   },
   {
     "id": 8,
@@ -174,7 +178,7 @@ const ADVISORS = [
     "email": "andrew.simmons@finayahl.com",
     "link": "finayahl.com/p/andrews",
     "linkedin": "linkedin.com/in/andrew-simmons-289379141",
-    "facebook": "",
+    "facebook": "facebook.com/61566399929110",
     "instagram": "",
     "status": "waiting",
     "note": "Headshot pending from JB Frye."
@@ -197,7 +201,7 @@ const ADVISORS = [
     "link": "finayahl.com/p/mglatzmaier",
     "linkedin": "linkedin.com/in/marksmortgage",
     "facebook": "facebook.com/MarksMortgage",
-    "instagram": "",
+    "instagram": "instagram.com/glatz5",
     "status": "complete"
   },
   {
@@ -216,8 +220,9 @@ const ADVISORS = [
     "link": "finayahl.com/p/matthews",
     "linkedin": "linkedin.com/in/mattsquires11",
     "facebook": "facebook.com/matt.squires.79",
-    "instagram": "@matt._squires_",
-    "status": "complete"
+    "instagram": "instagram.com/matt._squires_",
+    "status": "complete",
+    "threads": "threads.net/@matt._squires_"
   },
   {
     "id": 11,
@@ -230,7 +235,7 @@ const ADVISORS = [
     ],
     "state": "FL",
     "phone": "720-776-0146",
-    "cell": "206-228-2160",
+    "cell": "786-271-2092",
     "verificationAddress": "3881 W River Falls Drive, Post Falls, ID 83854",
     "email": "paul.grady@finayahl.com",
     "link": "finayahl.com/p/paulg",
@@ -275,9 +280,10 @@ const ADVISORS = [
     "link": "finayahl.com/p/cleol",
     "linkedin": "linkedin.com/in/cleo-lewis-837aba85",
     "facebook": "facebook.com/cleo.lewis.775",
-    "instagram": "",
+    "instagram": "instagram.com/centralparkmortgage",
     "status": "waiting",
-    "note": "Headshot pending from JB Frye."
+    "note": "Headshot pending from JB Frye.",
+    "threads": "threads.net/@centralparkmortgage"
   },
   {
     "id": 14,
@@ -297,9 +303,10 @@ const ADVISORS = [
     "link": "finayahl.com/p/brandonm",
     "linkedin": "linkedin.com/in/brandon-metoyer-51276a59",
     "facebook": "facebook.com/TheFaceOfDualLicensing",
-    "instagram": "",
+    "instagram": "instagram.com/thefaceofduallicensing",
     "status": "waiting",
-    "note": "On hold per Nick Campo: Part-time, OneCloud phone pending. Do not launch until approved."
+    "note": "On hold per Nick Campo: Part-time, OneCloud phone pending. Do not launch until approved.",
+    "threads": "threads.net/@thefaceofduallicensing"
   },
   {
     "id": 15,
@@ -318,8 +325,9 @@ const ADVISORS = [
     "link": "finayahl.com/p/gerisew",
     "linkedin": "linkedin.com/in/ashley-gerise",
     "facebook": "facebook.com/ashley.brannon.90",
-    "instagram": "",
-    "status": "complete"
+    "instagram": "instagram.com/ashley.gerise",
+    "status": "complete",
+    "threads": "threads.net/@ashley.gerise"
   },
   {
     "id": 16,
@@ -338,8 +346,9 @@ const ADVISORS = [
     "link": "finayahl.com/p/jefff",
     "linkedin": "linkedin.com/in/jfenkell",
     "facebook": "facebook.com/jafenkell",
-    "instagram": "@jaf192304",
-    "status": "complete"
+    "instagram": "instagram.com/jaf192304",
+    "status": "complete",
+    "threads": "threads.net/@jaf192304"
   },
   {
     "id": 17,
@@ -400,7 +409,7 @@ const ADVISORS = [
     "email": "mike.hakun@finayahl.com",
     "link": "finayahl.com/p/mikeh",
     "linkedin": "linkedin.com/in/michael-hakun-5516aa31",
-    "facebook": "facebook.com/share/1JEnUQbEJ7",
+    "facebook": "facebook.com/mike.hakun",
     "instagram": "",
     "status": "complete",
     "note": "Territories assigned: Seminole, Volusia, Brevard, Pasco (FL)."
@@ -2883,16 +2892,11 @@ function renderWebPane(a){
                 <b style="color:var(--ink)">Live Stale URL:</b> 
                 <a href="${esc(sp.url)}" target="_blank" rel="noopener" style="color:#C53030;text-decoration:underline;font-family:var(--mono);font-size:12px;margin-left:4px;word-break:break-all">${esc(sp.url)}</a>
               </div>
-              <div style="font-size:12.5px;color:#7F1D1D;line-height:1.55;background:#FEF2F2;border-radius:6px;padding:10px 12px;margin-bottom:12px">
-                <b>Risk:</b> ${esc(sp.risk)}
+              <div style="font-size:12.5px;color:#7F1D1D;line-height:1.55;background:#FEF2F2;border-radius:6px;padding:10px 12px;margin-bottom:10px">
+                <b>Duplicate / Conflicting Details:</b> ${esc(sp.risk)}
               </div>
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
-                <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted)">Pre-Formatted Takedown Request Email:</span>
-                <button class="copy" data-copy-val="${esc(sp.takedownSubject + '\n\n' + sp.takedownBody)}" title="Copy entire email ready to send">Copy Takedown Email</button>
-              </div>
-              <div class="intel-takedown-box">
-                <div style="font-size:11px;color:var(--muted);margin-bottom:4px"><b>Subject:</b> ${esc(sp.takedownSubject)}</div>
-                <pre>${esc(sp.takedownBody)}</pre>
+              <div style="background:#FFF5F5;border-left:3px solid #E53E3E;padding:8px 12px;border-radius:4px;font-size:12px;color:#9B2C2C">
+                <b>Action Required:</b> ${esc(sp.action || "Request profile removal or 301 redirect to Finaya profile")}
               </div>
             </div>
           `).join("")}
